@@ -1,0 +1,135 @@
+[
+    {
+        "image": "PMC8797513_F3_179586.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC8797513_F3_179586",
+        "conversations": [
+            "Q1: MRI  ",
+            "Q2: Right occipital lobe  ",
+            "Q3: Yes, a 1.5 cm sized rim enhancing mass  ",
+            "Q4: It shows irregularities."
+        ]
+    },
+    {
+        "image": "PMC5118198_Fig4_97675.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.47008782625198364,
+        "split": "test",
+        "id": "PMC5118198_Fig4_97675",
+        "conversations": [
+            "Q1: The imaging modality is not explicitly stated in the caption.  ",
+            "Q2: The image depicts the brain.  ",
+            "Q3: The caption does not indicate any abnormalities identified in the image.  ",
+            "Q4: The caption does not specify if the image appears normal or shows irregularities."
+        ]
+    },
+    {
+        "image": "PMC5062073_f3_83418.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5179206132888794,
+        "split": "test",
+        "id": "PMC5062073_f3_83418",
+        "conversations": [
+            "Q1: The imaging modality represented in this image is fluorescence microscopy.",
+            "",
+            "Q2: Microscopic image; unable to determine body region based solely on the image.",
+            "",
+            "Q3: There are no abnormalities identified in the image based on the caption.",
+            "",
+            "Q4: This image appears normal, as it indicates the patterns of probe localization without noting any irregularities."
+        ]
+    },
+    {
+        "image": "PMC7933329_Fig3_384365.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC7933329_Fig3_384365",
+        "conversations": [
+            "Q1: Angiography  ",
+            "Q2: Superficial femoral artery (SFA) and common femoral artery (CFA)  ",
+            "Q3: No abnormalities identified  ",
+            "Q4: The image appears normal as the CFA was well opened."
+        ]
+    },
+    {
+        "image": "PMC5774697_pone.0190815.g002_265771.jpg",
+        "alignment_type": "nonCompound-caption",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC5774697_pone.0190815.g002_265771",
+        "conversations": [
+            "Q1: Histological section (H&E-stained coronal section)  ",
+            "Q2: Renal parenchyma area of the left kidney  ",
+            "Q3: No abnormalities are identified in this image  ",
+            "Q4: This image appears normal; no irregularities are mentioned."
+        ]
+    },
+    {
+        "image": "PMC2823647_F1_57091.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5009006857872009,
+        "split": "test",
+        "id": "PMC2823647_F1_57091",
+        "conversations": [
+            "Q1: The imaging modality is not explicitly mentioned in the caption.  ",
+            "Q2: The body region depicted is the serosa of an artery.  ",
+            "Q3: The caption does not mention any abnormalities.  ",
+            "Q4: The image appears normal as no irregularities are indicated."
+        ]
+    },
+    {
+        "image": "PMC8242186_F2_482969.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5049551725387573,
+        "split": "test",
+        "id": "PMC8242186_F2_482969",
+        "conversations": [
+            "Q1: Confocal imaging modality.  ",
+            "Q2: Base of the cochlea.  ",
+            "Q3: No abnormalities identified.  ",
+            "Q4: The image appears normal; no irregularities mentioned."
+        ]
+    },
+    {
+        "image": "PMC4560144_Fig1_421015.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5354137420654297,
+        "split": "test",
+        "id": "PMC4560144_Fig1_421015",
+        "conversations": [
+            "Q1: Thoracic magnetic resonance imaging (MRI)  ",
+            "Q2: Thoracic region  ",
+            "Q3: The caption does not indicate any abnormalities.  ",
+            "Q4: The caption does not specify if the image shows any irregularities."
+        ]
+    },
+    {
+        "image": "PMC5034473_Fig6_76709.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC5034473_Fig6_76709",
+        "conversations": [
+            "Q1: Scanning Electron Microscopy (SEM).  ",
+            "Q2: Enamel microstructure of the teeth.  ",
+            "Q3: No abnormalities are identified in this image.  ",
+            "Q4: The image appears normal, showing the expected microstructure without irregularities."
+        ]
+    },
+    {
+        "image": "PMC6819818_fig1_58104.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5313387513160706,
+        "split": "test",
+        "id": "PMC6819818_fig1_58104",
+        "conversations": [
+            "Q1: Ultrasound  ",
+            "Q2: Left testicle  ",
+            "Q3: Yes, dilated rete testis  ",
+            "Q4: It shows irregularities."
+        ]
+    }
+]
