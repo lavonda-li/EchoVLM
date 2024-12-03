@@ -6,10 +6,16 @@
         "split": "test",
         "id": "PMC8797513_F3_179586",
         "conversations": [
-            "Q1: MRI  ",
-            "Q2: Right occipital lobe  ",
-            "Q3: Yes, a 1.5 cm sized rim enhancing mass  ",
-            "Q4: It shows irregularities."
+            "Q1: What imaging modality is represented in this image?",
+            "A1: The imaging modality represented in this image is Brain MRI.",
+            "Q2: What body region or anatomical area does this image depict? (For microscopic images and other images where the body region cannot be determined, the response could be: Image <modality type>; unable to determine body region based solely on the image.)",
+            "A2: This image depicts the region of the brain, specifically the right occipital lobe.",
+            "Q3: Are there any abnormalities identified in this image?",
+            "A3: Yes, there is an abnormality identified in this image. It shows a 1.5 cm sized rim enhancing mass in the right occipital lobe. ",
+            "Q4: Does this image appear normal, or does it show any irregularities?",
+            "A4: No, this image appears to have irregularities - it highlights a mass in the right occipital lobe. ",
+            "Q5: Does this image contain any label or index that is significant or noteworthy?",
+            "A5: The image does not contain any label or index that is significant or noteworthy based on the caption. This might be different if the image was available."
         ]
     },
     {
@@ -19,10 +25,16 @@
         "split": "test",
         "id": "PMC5118198_Fig4_97675",
         "conversations": [
-            "Q1: The imaging modality is not explicitly stated in the caption.  ",
-            "Q2: The image depicts the brain.  ",
-            "Q3: The caption does not indicate any abnormalities identified in the image.  ",
-            "Q4: The caption does not specify if the image appears normal or shows irregularities."
+            "Q1: What imaging modality is represented in this image?",
+            "A1: The caption does not provide information on the imaging modality.",
+            "Q2: What body region or anatomical area does this image depict? (For microscopic images and other images where the body region cannot be determined, the response could be: Image <modality type>; unable to determine body region based solely on the image.)",
+            "A2: The image depicts the brain.",
+            "Q3: Are there any abnormalities identified in this image?",
+            "A3: The caption does not provide information on any abnormalities in the image.",
+            "Q4: Does this image appear normal, or does it show any irregularities?",
+            "A4: The caption does not provide information on whether the image appears normal or shows any irregularities.",
+            "Q5: Does this image contain any label or index that is significant or noteworthy?",
+            "A5: The image contains a label or index related to the brain map of BC3 identified from IGEA."
         ]
     },
     {
@@ -32,13 +44,16 @@
         "split": "test",
         "id": "PMC5062073_f3_83418",
         "conversations": [
-            "Q1: The imaging modality represented in this image is fluorescence microscopy.",
-            "",
-            "Q2: Microscopic image; unable to determine body region based solely on the image.",
-            "",
-            "Q3: There are no abnormalities identified in the image based on the caption.",
-            "",
-            "Q4: This image appears normal, as it indicates the patterns of probe localization without noting any irregularities."
+            "Q1: What imaging modality is represented in this image?",
+            "A1: The imaging modality represented in this image is fluorescence imaging with the use of an upright LEICA SPE laser scanning confocal microscope.",
+            "Q2: What body region or anatomical area does this image depict? (For microscopic images and other images where the body region cannot be determined, the response could be: Image <modality type>; unable to determine body region based solely on the image.)",
+            "A2: The image depicts cell samples including HeLa and NIH 3T3 cells. The specific body region or anatomical area cannot be determined based solely on the image.",
+            "Q3: Are there any abnormalities identified in this image?",
+            "A3: The caption does not mention any abnormalities identified in the image.",
+            "Q4: Does this image appear normal, or does it show any irregularities?",
+            "A4: The caption does not speak to any irregularities appearing in the image.",
+            "Q5: Does this image contain any label or index that is significant or noteworthy?",
+            "A5: It is noteworthy that the image contains depiction of cellular structures with different markers (rEETI-II-A488, CTxB-A647, Tf-A555, EGF-A647) that were used during the experiments. However, whether these labels are significant or not is not specified in the caption."
         ]
     },
     {
@@ -48,10 +63,16 @@
         "split": "test",
         "id": "PMC7933329_Fig3_384365",
         "conversations": [
-            "Q1: Angiography  ",
-            "Q2: Superficial femoral artery (SFA) and common femoral artery (CFA)  ",
-            "Q3: No abnormalities identified  ",
-            "Q4: The image appears normal as the CFA was well opened."
+            "Q1: What imaging modality is represented in this image?",
+            "A1: The imaging modality represented in this image is Angiography.",
+            "Q2: What body region or anatomical area does this image depict? (For microscopic images and other images where the body region cannot be determined, the response could be: Image <modality type>; unable to determine body region based solely on the image.)",
+            "A2: This image depicts the blood vessels, specifically the Superficial Femoral Artery (SFA) and Common Femoral Artery (CFA).",
+            "Q3: Are there any abnormalities identified in this image?",
+            "A3: The caption does not mention any abnormalities in the image.",
+            "Q4: Does this image appear normal, or does it show any irregularities?",
+            "A4: Based on the information provided, it appears that the image shows a well-opened CFA, suggesting no visible irregularities or abnormalities.",
+            "Q5: Does this image contain any label or index that is significant or noteworthy?",
+            "A5: The caption does not mention any labels or indices in the image that would be significant or noteworthy."
         ]
     },
     {
@@ -61,10 +82,16 @@
         "split": "test",
         "id": "PMC5774697_pone.0190815.g002_265771",
         "conversations": [
-            "Q1: Histological section (H&E-stained coronal section)  ",
-            "Q2: Renal parenchyma area of the left kidney  ",
-            "Q3: No abnormalities are identified in this image  ",
-            "Q4: This image appears normal; no irregularities are mentioned."
+            "Q1: What imaging modality is represented in this image?",
+            "A1: The imaging modality is not specified in the caption. However, a H&E staining of coronal section is a type of histological image.",
+            "Q2: What body region or anatomical area does this image depict? (For microscopic images and other images where the body region cannot be determined, the response could be: Image <modality type>; unable to determine body region based solely on the image.)",
+            "A2: The image depicts the renal parenchyma area of the left kidney of a uninephrectomized mouse.",
+            "Q3: Are there any abnormalities identified in this image?",
+            "A3: The caption does not mention any abnormalities identified in this image.",
+            "Q4: Does this image appear normal, or does it show any irregularities?",
+            "A4: The caption does not provide any information on whether the image appears normal or shows any irregularities. ",
+            "Q5: Does this image contain any label or index that is significant or noteworthy?",
+            "A5: Yes, this image contains labels or indexes for renal length (the major axis denoted as 'a') and renal width (the minor axis denoted as 'b'), and it also mentions a superimposed 1 mm2 grid."
         ]
     },
     {
@@ -74,10 +101,16 @@
         "split": "test",
         "id": "PMC2823647_F1_57091",
         "conversations": [
-            "Q1: The imaging modality is not explicitly mentioned in the caption.  ",
-            "Q2: The body region depicted is the serosa of an artery.  ",
-            "Q3: The caption does not mention any abnormalities.  ",
-            "Q4: The image appears normal as no irregularities are indicated."
+            "Q1: What imaging modality is represented in this image?",
+            "A1: The imaging modality is not specified in the image caption.",
+            "Q2: What body region or anatomical area does this image depict? (For microscopic images and other images where the body region cannot be determined, the response could be: Image <modality type>; unable to determine body region based solely on the image.)",
+            "A2: The image depicts vascular smooth muscle cells in an artery located in the serosa. The exact body region cannot be determined based on the image caption.",
+            "Q3: Are there any abnormalities identified in this image?",
+            "A3: The caption does not mention any abnormalities in the image.",
+            "Q4: Does this image appear normal, or does it show any irregularities?",
+            "A4: The caption does not provide information on any irregularities in the image.",
+            "Q5: Does this image contain any label or index that is significant or noteworthy?",
+            "A5: The image contains a noteworthy label of AT1R protein which is stained in green color."
         ]
     },
     {
@@ -87,10 +120,16 @@
         "split": "test",
         "id": "PMC8242186_F2_482969",
         "conversations": [
-            "Q1: Confocal imaging modality.  ",
-            "Q2: Base of the cochlea.  ",
-            "Q3: No abnormalities identified.  ",
-            "Q4: The image appears normal; no irregularities mentioned."
+            "Q1: What imaging modality is represented in this image?",
+            "A1: The imaging modality represented in this image is confocal microscopy.",
+            "Q2: What body region or anatomical area does this image depict? (For microscopic images and other images where the body region cannot be determined, the response could be: Image <modality type>; unable to determine body region based solely on the image.)",
+            "A2: This image depicts the base of the cochlea. ",
+            "Q3: Are there any abnormalities identified in this image?",
+            "A3: The caption does not provide information on any abnormalities identified in the image.",
+            "Q4: Does this image appear normal, or does it show any irregularities?",
+            "A4: The caption does not provide sufficient information to determine if the image shows any irregularities.",
+            "Q5: Does this image contain any label or index that is significant or noteworthy?",
+            "A5: Yes, the image contains labels for FGF13 (red) and Tuj1 (green), and a scale bar indicating 200 \u03bcm."
         ]
     },
     {
@@ -100,10 +139,16 @@
         "split": "test",
         "id": "PMC4560144_Fig1_421015",
         "conversations": [
-            "Q1: Thoracic magnetic resonance imaging (MRI)  ",
-            "Q2: Thoracic region  ",
-            "Q3: The caption does not indicate any abnormalities.  ",
-            "Q4: The caption does not specify if the image shows any irregularities."
+            "Q1: What imaging modality is represented in this image?",
+            "Q1: The imaging modality represented in this image is magnetic resonance imaging (MRI).",
+            "Q2: What body region or anatomical area does this image depict? (For microscopic images and other images where the body region cannot be determined, the response could be: Image <modality type>; unable to determine body region based solely on the image.)",
+            "Q2: This image depicts the thoracic region of the body. ",
+            "Q3: Are there any abnormalities identified in this image?",
+            "Q3: The caption does not provide information on any abnormalities identified in this image. ",
+            "Q4: Does this image appear normal, or does it show any irregularities?",
+            "Q4: The caption does not provide information if this image appears normal or if it shows any irregularities.",
+            "Q5: Does this image contain any label or index that is significant or noteworthy?",
+            "Q5: The caption does not indicate if the image contains any label or index that is significant or noteworthy."
         ]
     },
     {
@@ -113,10 +158,16 @@
         "split": "test",
         "id": "PMC5034473_Fig6_76709",
         "conversations": [
-            "Q1: Scanning Electron Microscopy (SEM).  ",
-            "Q2: Enamel microstructure of the teeth.  ",
-            "Q3: No abnormalities are identified in this image.  ",
-            "Q4: The image appears normal, showing the expected microstructure without irregularities."
+            "Q1: What imaging modality is represented in this image?",
+            "Q1: The image modality represented in this image is Scanning Electron Microscope (SEM) micrographs.",
+            "Q2: What body region or anatomical area does this image depict? (For microscopic images and other images where the body region cannot be determined, the response could be: Image <modality type>; unable to determine body region based solely on the image.)",
+            "Q2: The image depicts the enamel microstructure of the teeth of Ichthyornis dispar (an extinct bird species). Since this is a tooth sample under a microscope, it's not possible to determine a broader body region.",
+            "Q3: Are there any abnormalities identified in this image?",
+            "Q3: The caption does not mention any abnormalities in the image.",
+            "Q4: Does this image appear normal, or does it show any irregularities?",
+            "Q4: Based on the caption, the image appears normal and shows the structure of enamel.",
+            "Q5: Does this image contain any label or index that is significant or noteworthy?",
+            "Q5: The image includes scale bars of 5 \u03bcm to provide context to the size of the observed structures. Other labels or indexes are not explicitly mentioned but it indicates that views and magnifications of specific regions (e, f, g) have been depicted."
         ]
     },
     {
@@ -126,10 +177,16 @@
         "split": "test",
         "id": "PMC6819818_fig1_58104",
         "conversations": [
-            "Q1: Ultrasound  ",
-            "Q2: Left testicle  ",
-            "Q3: Yes, dilated rete testis  ",
-            "Q4: It shows irregularities."
+            "Q1: What imaging modality is represented in this image?",
+            "A1: The imaging modality represented in this image is Ultrasound.",
+            "Q2: What body region or anatomical area does this image depict? (For microscopic images and other images where the body region cannot be determined, the response could be: Image <modality type>; unable to determine body region based solely on the image.)",
+            "A2: This image depicts the anatomical area of the Left Testicle.",
+            "Q3: Are there any abnormalities identified in this image?",
+            "A3: Yes, there are abnormalities identified in this image. It shows dilated rete testis.",
+            "Q4: Does this image appear normal, or does it show any irregularities?",
+            "A4: This image shows irregularities, specifically a dilation of the rete testis, as mentioned in the caption.",
+            "Q5: Does this image contain any label or index that is significant or noteworthy?",
+            "A5: The image caption does not provide any information regarding any label or index; hence it cannot be determined based solely on the caption."
         ]
     }
 ]
