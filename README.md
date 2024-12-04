@@ -1,3 +1,3 @@
 # EchoVLM
 
-This is my first repo
+This is for CS 337 at Stanford.
