@@ -1,4 +1,3 @@
-#!/usr/bin/ev python3.12.1
 import json
 import os
 from openai import OpenAI
