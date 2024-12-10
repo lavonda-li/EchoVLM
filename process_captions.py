@@ -5,11 +5,11 @@ from openai import OpenAI
 
 # Initialize OpenAI client
 client = OpenAI(    
-    api_key="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",  # This is the default and can be omitted
+    api_key="",
 )
 
 # Input and output files
-input_file = "CV_images_tinyllava-6-24-24-test.json"
+input_file = "data/CV_images_tinyllava-6-24-24-test.json"
 output_dir = "output_batches"
 final_output_file = "combined_output.json"
 
