@@ -4,7 +4,7 @@ from openai import OpenAI
 
 # Initialize OpenAI client
 client = OpenAI(    
-    api_key="",
+    api_key=os.environ["OPENAI_API_KEY"]
 )
 
 # Input and output files
