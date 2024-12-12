@@ -16,7 +16,7 @@ final_output_file = "combined_output_test.json"
 os.makedirs(output_dir, exist_ok=True)
 
 # Constants
-BATCH_SIZE = 1000  # Process 1000 entries per batch
+BATCH_SIZE = 100  # Process how many entries per batch
 QUESTIONS_LIST = [
     "Q1: What imaging modality is represented in this image?",
     "Q2: What body region or anatomical area does this image depict?",
@@ -58,7 +58,7 @@ def process_data(data, start_idx, end_idx):
         
         # Update entry with processed answers
         entry["caption"] = caption
-        entry["answers"] = {q: a for q, a in zip(QUESTIONS_LIST, answers)}
+        entry["answers"] = answers
         processed_entries.append(entry)
     return processed_entries
 
