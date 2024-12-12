@@ -9,14 +9,14 @@ client = OpenAI(
 
 # Input and output files
 input_file = "data/CV_images_tinyllava-6-24-24-test.json"
-output_dir = "output_batches"
-final_output_file = "combined_output.json"
+output_dir = "output_batches_test"
+final_output_file = "combined_output_test.json"
 
 # Ensure output directory exists
 os.makedirs(output_dir, exist_ok=True)
 
 # Constants
-BATCH_SIZE = 10000  # Process 1000 entries per batch
+BATCH_SIZE = 1000  # Process 1000 entries per batch
 QUESTIONS_LIST = [
     "Q1: What imaging modality is represented in this image?",
     "Q2: What body region or anatomical area does this image depict?",
