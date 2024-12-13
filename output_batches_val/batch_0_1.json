@@ -1,0 +1,52 @@
+[
+    {
+        "image": "PMC9043312_f2_266017.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5097583532333374,
+        "split": "val",
+        "id": "PMC9043312_f2_266017",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Render a clear and concise summary of the photo.\n<image>"
+            },
+            {
+                "from": "gpt",
+                "value": " Diffuse tumor proliferation, poor differentiation, and rich vascularization. Hematoxylin\u2013eosin stain, \u00d720 magnification"
+            }
+        ],
+        "caption": "Diffuse tumor proliferation, poor differentiation, and rich vascularization. Hematoxylin\u2013eosin stain, \u00d720 magnification",
+        "answers": [
+            "A1: The image is not created using an imaging modality but is a microscopic image stained with Hematoxylin-Eosin, at 20x magnification.",
+            "A2: The body region or anatomical area cannot be determined from the caption.",
+            "A3: Yes, There are abnormalities identified in this image. The caption mentions diffuse tumor proliferation, poor differentiation, and rich vascularization.",
+            "A4: The image shows irregularities, including diffuse tumor proliferation, poor differentiation, and rich vascularization.",
+            "A5: The image is notable for the Hematoxylin\u2013Eosin staining and the \u00d720 magnification level, both of which are significant in pathology."
+        ]
+    },
+    {
+        "image": "PMC6072062_pone.0201499.g001_349187.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.47702163457870483,
+        "split": "val",
+        "id": "PMC6072062_pone.0201499.g001_349187",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Render a clear and concise summary of the photo.\n<image>"
+            },
+            {
+                "from": "gpt",
+                "value": " Measurement of subcutaneous and visceral fat area. The areas of abdominal visceral fat (VFA, cm2, brown color), and subcutaneous fat (SFA, cm2, blue color) were determined at the cross-sectional image of the umbilicus. Fat was measured by a semi-automated method with CT value defined as -150 to -50 HU"
+            }
+        ],
+        "caption": "Measurement of subcutaneous and visceral fat area. The areas of abdominal visceral fat (VFA, cm2, brown color), and subcutaneous fat (SFA, cm2, blue color) were determined at the cross-sectional image of the umbilicus. Fat was measured by a semi-automated method with CT value defined as -150 to -50 HU",
+        "answers": [
+            "A1: The imaging modality represented in this image is Computed Tomography (CT).",
+            "A2: This image depicts the abdominal area, specifically at the level of the umbilicus.",
+            "A3: The caption does not mention any abnormalities identified in this image.",
+            "A4: Based on the caption, the image shows a normal measurement of subcutaneous and visceral fat area, so no irregularities are mentioned.",
+            "A5: The image contains labels or indices related to the measurement of abdominal visceral fat (VFA) and subcutaneous fat (SFA), which are noteworthy for medical analysis or diagnosis."
+        ]
+    }
+]

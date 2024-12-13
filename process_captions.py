@@ -8,17 +8,17 @@ client = OpenAI(
 )
 
 # Input and output files
-input_file = "data/CV_images_tinyllava-6-24-24-val.json"
-output_dir = "output_batches_val"
-final_output_file = f"{output_dir}/combined_output_val.json"
+input_file = "data/CV_images_tinyllava-6-24-24-test.json"
+output_dir = "output_batches_test"
+final_output_file = f"{output_dir}/combined_output_test.json"
 
 # Ensure output directory exists
 os.makedirs(output_dir, exist_ok=True)
 
 # Constants
-PROCESS_ALL = False
+PROCESS_ALL = True
 NUM_ENTRIES_TO_PROCESS = 10
-BATCH_SIZE = 2  # Process how many entries per batch
+BATCH_SIZE = 100  # Process how many entries per batch
 QUESTIONS_LIST = [
     "Q1: What imaging modality is represented in this image?",
     "Q2: What body region or anatomical area does this image depict?",
@@ -60,7 +60,7 @@ def process_data(data, start_idx, end_idx):
         
         # Update entry with processed answers
         entry["caption"] = caption
-        entry["answers"] = answers
+        entry["answers"] = list(answers)
         processed_entries.append(entry)
         print(f"Processed {i}th entry")
     return processed_entries
