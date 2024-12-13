@@ -8,9 +8,9 @@ client = OpenAI(
 )
 
 # Input and output files
-input_file = "data/CV_images_tinyllava-6-24-24-test.json"
-output_dir = "output_batches_test"
-final_output_file = f"{output_dir}/combined_output_test.json"
+input_file = "data/CV_images_tinyllava-6-24-24-val.json"
+output_dir = "output_batches_val"
+final_output_file = f"{output_dir}/combined_output_val.json"
 
 # Ensure output directory exists
 os.makedirs(output_dir, exist_ok=True)
