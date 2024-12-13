@@ -16,9 +16,9 @@ final_output_file = f"{output_dir}/combined_output_train.json"
 os.makedirs(output_dir, exist_ok=True)
 
 # Constants
-PROCESS_ALL = True
+PROCESS_ALL = False
 NUM_ENTRIES_TO_PROCESS = 10
-BATCH_SIZE = 1000  # Process how many entries per batch
+BATCH_SIZE = 2  # Process how many entries per batch
 QUESTIONS_LIST = [
     "Q1: What imaging modality is represented in this image?",
     "Q2: What body region or anatomical area does this image depict?",
@@ -36,7 +36,7 @@ def process_caption(caption):
             For the provided caption, answer the following questions strictly based on the caption:
             Caption: {caption}
             {question_str}
-            Provide concise answers for each question."""}
+            Provide concise answers for each question. For each answer, start with 'A1: ' for answer 1 and so on."""}
     ]
     response = client.chat.completions.create(
         model="gpt-4",
@@ -59,6 +59,7 @@ def process_data(data, start_idx, end_idx):
         answers = process_caption(caption)
         
         # Update entry with processed answers
+        entry.pop("conversations", None)
         entry["caption"] = caption
         entry["answers"] = list(answers)
         processed_entries.append(entry)
