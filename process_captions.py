@@ -16,7 +16,9 @@ final_output_file = "combined_output_test.json"
 os.makedirs(output_dir, exist_ok=True)
 
 # Constants
-BATCH_SIZE = 100  # Process how many entries per batch
+PROCESS_ALL = False
+NUM_ENTRIES_TO_PROCESS = 10
+BATCH_SIZE = 2  # Process how many entries per batch
 QUESTIONS_LIST = [
     "Q1: What imaging modality is represented in this image?",
     "Q2: What body region or anatomical area does this image depict?",
@@ -60,13 +62,14 @@ def process_data(data, start_idx, end_idx):
         entry["caption"] = caption
         entry["answers"] = answers
         processed_entries.append(entry)
+        print(f"Processed {i}th entry")
     return processed_entries
 
 if __name__ == "__main__":
     with open(input_file, "r") as file:
         data = json.load(file)
 
-    total_entries = len(data)
+    total_entries = len(data) if PROCESS_ALL else NUM_ENTRIES_TO_PROCESS
     for batch_start in range(0, total_entries, BATCH_SIZE):
         batch_end = min(batch_start + BATCH_SIZE, total_entries)
         print(f"Processing batch {batch_start} to {batch_end - 1}")
