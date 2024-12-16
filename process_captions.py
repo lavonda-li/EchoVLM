@@ -8,17 +8,19 @@ client = OpenAI(
 )
 
 # Input and output files
-input_file = "data/CV_images_tinyllava-6-24-24-train.json"
-output_dir = "output_batches_train"
-final_output_file = os.join(output_dir, "combined_output_train.json")
+data_str = "val" # "train", "val", "test"
+input_dir = "data"
+input_file = os.join(input_dir, f"CV_images_tinyllava-6-24-24-{data_str}.json")
+output_dir = f"output_batches_{data_str}"
+final_output_file = os.join(output_dir, f"combined_output_{data_str}.json")
 
 # Ensure output directory exists
 os.makedirs(output_dir, exist_ok=True)
 
 # Constants
-PROCESS_ALL = False
+PROCESS_ALL = True
 NUM_ENTRIES_TO_PROCESS = 10
-BATCH_SIZE = 2  # Process how many entries per batch
+BATCH_SIZE = 100  # Process how many entries per batch
 QUESTIONS_LIST = [
     "Q1: What imaging modality is represented in this image?",
     "Q2: What body region or anatomical area does this image depict?",
@@ -26,6 +28,7 @@ QUESTIONS_LIST = [
     "Q4: Does this image appear normal, or does it show any irregularities?",
     "Q5: Does this image contain any label or index that is significant or noteworthy?",
 ]
+START_IDX = 700  # Start processing from this index
 
 def process_caption(caption):
     """Send a caption to the OpenAI API for processing."""
@@ -71,7 +74,7 @@ if __name__ == "__main__":
         data = json.load(file)
 
     total_entries = len(data) if PROCESS_ALL else NUM_ENTRIES_TO_PROCESS
-    for batch_start in range(0, total_entries, BATCH_SIZE):
+    for batch_start in range(START_IDX, total_entries, BATCH_SIZE):
         batch_end = min(batch_start + BATCH_SIZE, total_entries)
         print(f"Processing batch {batch_start} to {batch_end - 1}")
         batch_data = process_data(data, batch_start, batch_end)
