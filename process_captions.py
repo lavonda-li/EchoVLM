@@ -71,6 +71,15 @@ def process_data(data, start_idx, end_idx):
 if __name__ == "__main__":
     parser = create_parser()
     args = parser.parse_args()
+    # print important arguments
+    print(f"Data string: {args.data_str}")
+    print(f"Input directory: {args.input_dir}")
+    print(f"Output directory: {args.output_dir}")
+    print(f"Process all: {args.process_all}")
+    print(f"Number of entries to process: {args.num_entries_to_process}")
+    print(f"Batch size: {args.batch_size}")
+    print(f"Start index: {args.start_idx}")
+    
 
     # Input and output files
     input_file = os.path.join(args.input_dir, f"CV_images_tinyllava-6-24-24-{args.data_str}.json")
