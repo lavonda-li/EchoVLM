@@ -8,7 +8,7 @@ client = OpenAI(
 )
 
 # Input and output files
-data_str = "val" # "train", "val", "test"
+data_str = "test" # "train", "val", "test"
 input_dir = "data"
 input_file = os.join(input_dir, f"CV_images_tinyllava-6-24-24-{data_str}.json")
 output_dir = f"output_batches_{data_str}"
@@ -28,7 +28,7 @@ QUESTIONS_LIST = [
     "Q4: Does this image appear normal, or does it show any irregularities?",
     "Q5: Does this image contain any label or index that is significant or noteworthy?",
 ]
-START_IDX = 800  # Start processing from this index
+START_IDX = 0  # Start processing from this index
 
 def process_caption(caption):
     """Send a caption to the OpenAI API for processing."""
