@@ -1,5 +1,6 @@
 import json
 import os
+import argparse
 from openai import OpenAI
 
 # Initialize OpenAI client
@@ -7,20 +8,19 @@ client = OpenAI(
     api_key=os.environ["OPENAI_API_KEY"]
 )
 
-# Input and output files
-data_str = "test" # "train", "val", "test"
-input_dir = "data"
-input_file = os.join(input_dir, f"CV_images_tinyllava-6-24-24-{data_str}.json")
-output_dir = f"output_batches_{data_str}"
-final_output_file = os.join(output_dir, f"combined_output_{data_str}.json")
-
-# Ensure output directory exists
-os.makedirs(output_dir, exist_ok=True)
+def create_parser():
+    """Create and return the argument parser."""
+    parser = argparse.ArgumentParser(description="Process captions using OpenAI API.")
+    parser.add_argument("--data_str", type=str, choices=["train", "val", "test"], help="Dataset type")
+    parser.add_argument("--input_dir", type=str, default="data", help="Input directory")
+    parser.add_argument("--output_dir", type=str, default="output_batches", help="Output directory")
+    parser.add_argument("--process_all", action="store_true", default=True, help="Process all entries")
+    parser.add_argument("--num_entries_to_process", type=int, default=10, help="Number of entries to process if not processing all")
+    parser.add_argument("--batch_size", type=int, default=100, help="Number of entries to process per batch")
+    parser.add_argument("--start_idx", type=int, default=0, help="Start index for processing")
+    return parser
 
 # Constants
-PROCESS_ALL = True
-NUM_ENTRIES_TO_PROCESS = 10
-BATCH_SIZE = 100  # Process how many entries per batch
 QUESTIONS_LIST = [
     "Q1: What imaging modality is represented in this image?",
     "Q2: What body region or anatomical area does this image depict?",
@@ -28,7 +28,6 @@ QUESTIONS_LIST = [
     "Q4: Does this image appear normal, or does it show any irregularities?",
     "Q5: Does this image contain any label or index that is significant or noteworthy?",
 ]
-START_IDX = 0  # Start processing from this index
 
 def process_caption(caption):
     """Send a caption to the OpenAI API for processing."""
@@ -70,12 +69,23 @@ def process_data(data, start_idx, end_idx):
     return processed_entries
 
 if __name__ == "__main__":
+    parser = create_parser()
+    args = parser.parse_args()
+
+    # Input and output files
+    input_file = os.path.join(args.input_dir, f"CV_images_tinyllava-6-24-24-{args.data_str}.json")
+    output_dir = f"{args.output_dir}_{args.data_str}"
+    final_output_file = os.path.join(output_dir, f"combined_output_{args.data_str}.json")
+
+    # Ensure output directory exists
+    os.makedirs(output_dir, exist_ok=True)
+
     with open(input_file, "r") as file:
         data = json.load(file)
 
-    total_entries = len(data) if PROCESS_ALL else NUM_ENTRIES_TO_PROCESS
-    for batch_start in range(START_IDX, total_entries, BATCH_SIZE):
-        batch_end = min(batch_start + BATCH_SIZE, total_entries)
+    total_entries = len(data) if args.process_all else args.num_entries_to_process
+    for batch_start in range(args.start_idx, total_entries, args.batch_size):
+        batch_end = min(batch_start + args.batch_size, total_entries)
         print(f"Processing batch {batch_start} to {batch_end - 1}")
         batch_data = process_data(data, batch_start, batch_end)
         
