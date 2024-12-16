@@ -28,7 +28,7 @@ QUESTIONS_LIST = [
     "Q4: Does this image appear normal, or does it show any irregularities?",
     "Q5: Does this image contain any label or index that is significant or noteworthy?",
 ]
-START_IDX = 700  # Start processing from this index
+START_IDX = 800  # Start processing from this index
 
 def process_caption(caption):
     """Send a caption to the OpenAI API for processing."""
