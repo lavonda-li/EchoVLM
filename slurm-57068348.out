@@ -1,0 +1,9 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) devel   2) math
+Traceback (most recent call last):
+  File "/home/users/lavonda/EchoVLM/process_captions.py", line 13, in <module>
+    input_file = os.join(input_dir, f"CV_images_tinyllava-6-24-24-{data_str}.json")
+                 ^^^^^^^
+AttributeError: module 'os' has no attribute 'join'
