@@ -1,0 +1,1506 @@
+[
+    {
+        "image": "PMC5307411_Fig1_127346.jpg",
+        "alignment_type": "nonCompound-caption",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC5307411_Fig1_127346",
+        "caption": "Mammography showing a shadow of an intense irregular mass in the inferior medial region of the right breast",
+        "answers": [
+            "A1: The imaging modality represented in this image is Mammography.",
+            "A2: This image depicts the inferior medial region of the right breast.",
+            "A3: Yes, there are abnormalities identified in this image. A shadow of an intense irregular mass is seen in the image.",
+            "A4: This image does not appear normal, it shows irregularities - specifically the presence of an intense irregular mass in the inferior medial region of the right breast.",
+            "A5: The image caption does not provide information about any labels or indexes. Therefore, it can't be determined from the given caption if this image contains any significant or noteworthy labels or indexes."
+        ]
+    },
+    {
+        "image": "PMC8490215_Fig1_75213.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC8490215_Fig1_75213",
+        "caption": "Fat-saturated post-contrast T1-weighted image shows homogeneous enhancement (arrowhead) as same degree as the myometrium.",
+        "answers": [
+            "A1: The imaging modality represented in this image is MRI (Magnetic Resonance Imaging).",
+            "A2: The image depicts the region of the uterus, specifically the myometrium, which is the middle layer of the uterine wall.",
+            "A3: The caption does not mention any specific abnormalities.",
+            "A4: Based on the caption, the image does not seem to show any evident irregularities as it mentions homogeneous enhancement, which is typically a normal finding. However, without actual image and clinical correlation, it's hard to definitively say if it's normal or not.",
+            "A5: The image contains a significant or noteworthy index marked with an arrowhead, indicating the region of homogeneous enhancement."
+        ]
+    },
+    {
+        "image": "PMC6875321_fig4_73483.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5186610221862793,
+        "split": "test",
+        "id": "PMC6875321_fig4_73483",
+        "caption": "Smooth muscle actin (SMA) staining in fetal renal tissue. Increased number of SMA positive vessels in particular the cortex of the fetus acardius amorphus. SMA is stained in green, nuclei stained with Hoechst in blue. Glomeruli are marked with a white star, tubules with white arrows. Images are shown in 10x magnification",
+        "answers": [
+            "A1: The imaging modality is not explicitly mentioned in the caption; however, it seems like it's a photomicrograph from a microscope, given the staining techniques and magnification mentioned. ",
+            "A2: This image depicts the renal (kidney) tissue of a Fetus Acardius Amorphus.",
+            "A3: The noted abnormality in the image is an increased number of SMA positive vessels, especially in the cortex. ",
+            "A4: The image does show irregularities indicated by the elevated number of SMA positive vessels in the fetal renal tissue.",
+            "A5: Yes, the image contains noteworthy labels or indexes. The glomeruli is marked with a white star, and the tubules are marked with white arrows. Also, the SMA is stained in green, and the nuclei are stained in blue using Hoechst."
+        ]
+    },
+    {
+        "image": "PMC6105631_Fig2_357872.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC6105631_Fig2_357872",
+        "caption": "Severe spinal cord myelomalacia at C5-C6. No evidence of spinal cord edema. Grossly stable anterior and posterior fusion from C4 to C6. Left vertebral artery occlusion, possibly related to chronic traumatic dissection",
+        "answers": [
+            "A1: The image modality is not specified in the caption.",
+            "A2: The image depicts the cervical area of the spinal cord, specifically between vertebrae C4 and C6.",
+            "A3: Yes, there are abnormalities identified in this image. These include severe spinal cord myelomalacia at C5-C6 and a left vertebral artery occlusion.",
+            "A4: The image shows irregularities, including severe myelomalacia and an occluded left vertebral artery.",
+            "A5: The description does not provide specific information on any labels or indexes in the image. The mention of anterior and posterior fusion signals previous surgical intervention at this site but whether this is indicated on the image is not specified."
+        ]
+    },
+    {
+        "image": "PMC4619769_pgen.1005595.g004_437091.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC4619769_pgen.1005595.g004_437091",
+        "caption": "Genetic ROS scavenging using ci>Sod:Cat, activated in the anterior compartment (ci, black in the sketch). SalEPv>rpr cell death (blue in the sketch) in the same disc results in inhibition of P-p38 only in anterior compartment. TP-3: TO-PRO-3 nuclei staining. Outlined white in D, E and G: apoptotic zone",
+        "answers": [
+            "A1: The imaging modality is not specified in the caption.",
+            "A2: The anatomical area is not identified in the caption, only a reference to a disc possibly indicating a cell culture or tissue sample.",
+            "A3: The caption does not mention any abnormalities in the image.",
+            "A4: The caption does not provide enough information to determine whether the image appears normal or shows any irregularities.",
+            "A5: Yes, the image contains several labels that are significant: genetic ROS scavenging represented by \"ci>Sod:Cat\" (black), cell death identified by \"SalEPv>rpr\" (blue), and TO-PRO-3 for nuclei staining. The outlined regions in white in D, E and G depict an apoptotic (cell death) zone. These are all significant to understand the image."
+        ]
+    },
+    {
+        "image": "PMC3836737_ppat-1003777-g003_245394.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.4949679374694824,
+        "split": "test",
+        "id": "PMC3836737_ppat-1003777-g003_245394",
+        "caption": "High resolution 3D images were reconstructed by deconvolution of stacks of confocal images and a representative optical slice is shown for a representative cell with and without the origin. Staining for E1 proteins is shown in green, E2 proteins in cyan, and the Brd4 protein in red. The dashed blue lines represent the perimeter of the nuclei (identified by DAPI staining, not shown)",
+        "answers": [
+            "A1: The imaging modality represented in this image is Confocal microscopy.",
+            "A2: The image caption does not provide specific information on the body region or anatomical area depicted in the image. Based on the caption, the image may likely depict cells, possibly from a tissue slice or culture.",
+            "A3: The image caption does not mention any abnormalities identified in the image.",
+            "A4: The image caption does not specify whether the image appears normal or shows any irregularities.",
+            "A5: Yes, there are several labels that are significant. It indicates staining for E1 proteins in green, E2 proteins in cyan, and the Brd4 protein in red. Also, dashed blue lines serve to indicate the perimeter of the nuclei and DAPI staining (not shown in the selected optical slice) has been used to identify these nuclei."
+        ]
+    },
+    {
+        "image": "PMC9068329_fig1_271839.jpg",
+        "alignment_type": "nonCompound-figure",
+        "alignment_score": 0.0,
+        "split": "test",
+        "id": "PMC9068329_fig1_271839",
+        "caption": "Brain CT scan showing no space occupying lesions nor hemorrhage in the parenchyma, a normal ventricular system with no hydrocephalus and no midline shift.",
+        "answers": [
+            "A1: The imaging modality represented in this image is a Brain CT scan.",
+            "A2: The body region or anatomical area this image depicts is the brain.",
+            "A3: There are no abnormalities identified in this image as there are no space occupying lesions nor hemorrhage in the parenchyma. The ventricular system is normal with no hydrocephalus and no midline shift.",
+            "A4: This image appears normal as it does not show any irregularities.",
+            "A5: The caption does not provide information about any specific label or index that is significant or noteworthy in this image."
+        ]
+    },
+    {
+        "image": "PMC9095982_F2_277529.jpg",
+        "alignment_type": "nonCompound-caption",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC9095982_F2_277529",
+        "caption": "A color Doppler ultrasound of the right cheek. The red and blue blood flow signals are shown as \u201cyin and yang sign\u201d.",
+        "answers": [
+            "A1: The imaging modality represented in this image is color Doppler ultrasound. ",
+            "A2: The image depicts the right cheek area of the body. ",
+            "A3: The caption does not specify any abnormalities identified in this image. ",
+            "A4: The caption does not explicitly state whether the image appears normal or shows any irregularities. ",
+            "A5: Yes, the image contains a significant index - the red and blue blood flow signals, which are shown as \u201cyin and yang sign\u201d. It might be used to describe the pattern of blood flow."
+        ]
+    },
+    {
+        "image": "PMC8044204_Fig4_417190.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5326165556907654,
+        "split": "test",
+        "id": "PMC8044204_Fig4_417190",
+        "caption": "In-plane and out-of-plane orientation of the single ODF obtained by analyzing all the vectors of the full mosaic reconstructions and each of its ROIs. Acronyms list\u2009=\u2009cc: Corpus Callosum; S1: Primary Somatosensory Cortex; DG: Dentate Gyrus; CA1, CA2, CA3: field CA1, CA2, CA3 of hippocampus; fr: Fasciculus Retroflexus; LPLR: Lateral Posterior Thalamic Nucleus. Images were prepared using Fiji (www.fiji.sc/Fiji) 20while ODF representations using MRtrix3 (https://mrtrix.readthedocs.io/en/latest/)26",
+        "answers": [
+            "A1: The caption does not specify the imaging modality used for the image. However, given the use of orientation distribution function (ODF) and MRtrix3, it's likely the image is from diffusion MRI. ",
+            "A2: The caption suggests that the image represents different parts of the brain, including the Corpus Callosum, the Primary Somatosensory Cortex, the Dentate Gyrus, field CA1, CA2, CA3 of hippocampus, the Fasciculus Retroflexus, and the Lateral Posterior Thalamic Nucleus. ",
+            "A3: The caption does not mention any abnormalities in the image. ",
+            "A4: Based on the information in the caption, we cannot tell whether the image appears normal or shows irregularities since it does not comment on this aspect.",
+            "A5: The image contains labels on several regions of interest (ROIs) within the brain. These are significant and noteworthy because they highlight the different brain regions depicted in the image."
+        ]
+    },
+    {
+        "image": "PMC7367213_f5_215703.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5217394232749939,
+        "split": "test",
+        "id": "PMC7367213_f5_215703",
+        "caption": "Confocal microscopy of NT-3 immunodetection (green, AlexaFluor 488, Molecular Probes) and nuclear labeling by DAPI (blue, Molecular Probes) in hSC culture treated or not with sonicated Mycobacterium leprae (sML, 10 \u00b5g/mL) for 24 h. Scale bar = 20 \u00b5m",
+        "answers": [
+            "A1: The imaging modality represented in this image is Confocal microscopy.",
+            "A2: The image does not depict a specific body region or anatomical area, but a human Schwann cell (hSC) culture.",
+            "A3: The caption does not provide information on any abnormalities identified in this image.",
+            "A4: The caption does not specify whether the image appears normal or shows any irregularities.",
+            "A5: Yes, the image contains labels for NT-3 immunodetection (green, AlexaFluor 488, Molecular Probes) and nuclear labeling by DAPI (blue, Molecular Probes). The cultures are also labeled whether they are treated or not with sonicated Mycobacterium leprae (sML, 10 \u00b5g/mL) for 24 hours. A scale bar indicating 20 \u00b5m is present."
+        ]
+    },
+    {
+        "image": "PMC7282617_f0002_187778.jpg",
+        "alignment_type": "nonCompound-figure",
+        "alignment_score": 0.0,
+        "split": "test",
+        "id": "PMC7282617_f0002_187778",
+        "caption": "Transesophageal echocardiography, short axis view showing an aneurysmal mass contacting the pulmonary artery",
+        "answers": [
+            "A1: The imaging modality represented in this image is Transesophageal echocardiography.",
+            "A2: This image depicts the heart, specifically focusing on the region involving the pulmonary artery.",
+            "A3: Yes, there are abnormalities identified in this image. An aneurysmal mass is contacting the pulmonary artery.",
+            "A4: This image shows irregularities, as an aneurysmal mass coming into contact with the pulmonary artery is not a normal finding. ",
+            "A5: The caption does not provide specific information about any label or index within the image that is significant or noteworthy."
+        ]
+    },
+    {
+        "image": "PMC7063822_Fig4_131226.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC7063822_Fig4_131226",
+        "caption": "Radiography (48 months after surgery",
+        "answers": [
+            "A1: The imaging modality represented in this image is Radiography.",
+            "A2: The caption does not provide information about the specific body region or anatomical area this image depicts.",
+            "A3: The caption does not indicate whether there are any abnormalities identified in this image.",
+            "A4: The caption does not provide information on whether this image appears normal or shows any irregularities.",
+            "A5: The only significant information in this image's caption is the time frame - 48 months after surgery. This might be significant to track changes or progress post-operation. However, it does not specify any other labels or indices."
+        ]
+    },
+    {
+        "image": "PMC5025721_tra12416-fig-0005_73579.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5012753009796143,
+        "split": "test",
+        "id": "PMC5025721_tra12416-fig-0005_73579",
+        "caption": "SFV (50 pfu/cell) was bound to cells at 4\u00b0C for 1 h. After washing, the cells were warmed to 37\u00b0C for the indicated times, then fixed and labeled for SFV E1/E2 and OS\u2010IFITM3\u2010HA (via the HA\u2010tag) and visualized with AF488 (green, E1/E2) and AF647 (magenta, HA). Confocal sections are displayed. E1/E2 labelling can be seen as small puncta mainly around the cell periphery at 0 and 5 min, with little overlap of SFV E1/E2 and IFITM3\u2010HA. At later time points (10 min and onwards) larger and brighter puncta become visible closer to the nucleus, and overlap of SFV E1/E2 and IFITM3\u2010HA is seen, which increases with time. Many IFITM3\u2010HA positive, SFV negative puncta, can be seen suggesting that not all IFITM3\u2010HA containing endosomes receive virus",
+        "answers": [
+            "A1: The image is based on confocal microscopy.",
+            "A2: The image does not depict a specific body region or anatomical area, but rather visualizes cells infected with SFV (Semliki Forest Virus) in a lab setting.",
+            "A3: There are no anatomical abnormalities described in the image as it is a microscopic study of viral interaction with cells, not a scan of a human body part.",
+            "A4: The concept of normal vs irregular does not apply in this context as the image shows experimental data, not a patient\u2019s health condition. Changes observed over time (e.g., larger and brighter puncta closer to the nucleus) are part of normal experimental observations.",
+            "A5: Yes, the image contains significant information namely; labeling for SFV E1/E2 and IFITM3\u2010HA, the time-dependent overlap between SFV E1/E2 and IFITM3\u2010HA. The smaller puncta near the periphery at early minutes and larger brighter ones closer to the nucleus at later points, as well as the existence of IFITM3\u2010HA positive, SFV negative puncta, are all noteworthy."
+        ]
+    },
+    {
+        "image": "PMC7014248_ijms-21-00678-f008_115406.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC7014248_ijms-21-00678-f008_115406",
+        "caption": "Low magnification merged images of P2RY12 (green), progranulin (PGRN) (red) and DAPI (blue) in MTG of AD cases",
+        "answers": [
+            "A1: The imaging modality is not specified in the caption, but it suggests a microscopy image due to the mention of magnification, color markers (DAPI, P2RY12, PGRN), and merging of images.",
+            "A2: The image depicts the middle temporal gyrus (MTG) part of the brain.",
+            "A3: The caption does not mention any specific abnormalities in the image.",
+            "A4: The image's normality or any irregularities cannot be determined from the caption.",
+            "A5: The caption notes the use of specific labels or indices - P2RY12 (a receptor), progranulin (PGRN) (a protein), and DAPI (a fluorescence stain used for marking DNA) - which is significant for understanding the image. The mention of Alzheimer\u2019s disease (AD) cases also provides important information about the context of the image."
+        ]
+    },
+    {
+        "image": "PMC6759678_Fig3_41334.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5519753098487854,
+        "split": "test",
+        "id": "PMC6759678_Fig3_41334",
+        "caption": "Muscle fiber size calculation using laminin and dystrophin stain",
+        "answers": [
+            "A1: The caption does not specify the imaging modality used in this image.",
+            "A2: The caption does not specify the body region or anatomical area depicted in this image, it only mentions that it involves muscle fibers.",
+            "A3: The caption does not mention any abnormalities in the image.",
+            "A4: The caption does not provide information about whether the image appears normal or shows any irregularities.",
+            "A5: The image presumably contains a calculation of muscle fiber size. This is accomplished using laminin and dystrophin stain, which are significant procedural details. However, specific labels or indexes are not specified in the caption."
+        ]
+    },
+    {
+        "image": "PMC8426375_Fig7_54367.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5516218543052673,
+        "split": "test",
+        "id": "PMC8426375_Fig7_54367",
+        "caption": "Directional power Doppler and arterial spectrogram of contralateral right eye for CRVO and glaucoma case",
+        "answers": [
+            "A1: The imaging modality represented in this image is the Directional power Doppler and arterial spectrogram.",
+            "A2: This image depicts the contralateral right eye.",
+            "A3: The caption does indicate abnormalities, specifically CRVO (Central Retinal Vein Occlusion) and glaucoma.",
+            "A4: Based on the caption, the image does show irregularities linked to CRVO and glaucoma.",
+            "A5: The caption doesn't provide information about any label or index in the image."
+        ]
+    },
+    {
+        "image": "PMC6187009_fig0015_381884.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC6187009_fig0015_381884",
+        "caption": "Low power view of the lesion exhibiting fascicles of spindle cells against fibrotic background. (H&E stain; 100\u00d7 magnification)",
+        "answers": [
+            "A1: The imaging modality is microscopy. More specifically, histological imaging using Hematoxylin and Eosin (H&E) staining.",
+            "A2: The caption does not provide information about the specific body region or anatomical area depicted in the image.",
+            "A3: Yes, the caption highlights an abnormality - a lesion with fascicles of spindle cells against a fibrotic background. ",
+            "A4: The image does not appear normal as it represents a lesion composed of spindle cells in a fibrotic background, which suggests that some kind of pathological process has occurred.",
+            "A5: The image contains a significant label - the magnification (100x) of the image and the staining technique used (H&E stain) used for viewing the histological details of the tissue. The presence of spindle cell fascicles and a fibrotic background is also noteworthy."
+        ]
+    },
+    {
+        "image": "PMC3265522_pone-0030853-g004_123496.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC3265522_pone-0030853-g004_123496",
+        "caption": "Scanning electron microscopy P1 control (Pax2-cre; Atoh1+/f) mice reveal four parallel rows of hair cells in the organ of Corti with a staircase-pattern of stereocilia (e). SEM in E18.5 to P26 heterozygous KI mice reveals defects in hair cell stereocilia development and patterning (f-l). Hair cells show kinocilia that are not centered in relation to the symmet",
+        "answers": [
+            "A1: The imaging modality represented in this image is Scanning Electron Microscopy (SEM).",
+            "A2: This image depicts the organ of Corti, which is located in the cochlea of the inner ear.",
+            "A3: Yes, there are abnormalities identified in this image. The defects are seen in the development and patterning of hair cell stereocilia in the heterozygous KI mice. Additionally, the kinocilia in hair cells are not centered.",
+            "A4: The image shows irregularities, specifically in hair cell stereocilia development and patterning, and in the position of the kinocilia in the hair cells.",
+            "A5: Yes, the image contains labels or indexes that are significant. The indexing refers to the varying phases from E18.5 to P26 and labelling likely refers to different mouse models (Pax2-cre; Atoh1+/f and KI mice) and potentially the labeled parts (e to l) of the image."
+        ]
+    },
+    {
+        "image": "PMC3608365_F5_194588.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5313009023666382,
+        "split": "test",
+        "id": "PMC3608365_F5_194588",
+        "caption": "Dorsal sagittal US scans of the radiocarpal and midcarpal joints showing synovial hypertrophy, with hyperemia on color Doppler, in the dorsal recesses. There are no visible erosions",
+        "answers": [
+            "A1: The imaging modality represented in this image is Ultrasound (US).",
+            "A2: The image depicts the radiocarpal and midcarpal joints, which are regions of the hand/wrist.",
+            "A3: Yes, there are abnormalities identified in this image, specifically synovial hypertrophy and hyperemia in the dorsal recesses.",
+            "A4: The image shows irregularities; it is not normal. The abnormalities include synovial hypertrophy and hyperemia in the dorsal recesses.",
+            "A5: The caption does not provide information about any specific labels or indices on the image."
+        ]
+    },
+    {
+        "image": "PMC8195350_pone.0252476.g004_464470.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5400538444519043,
+        "split": "test",
+        "id": "PMC8195350_pone.0252476.g004_464470",
+        "caption": "Mammography showed linearly distributed fine pleomorphic microcalcifications (open arrow) at right subareolar region, adjacent to previous BCT site.",
+        "answers": [
+            "A1: The imaging modality represented in this image is Mammography.",
+            "A2: This image depicts the subareolar region of the right breast.",
+            "A3: Yes, there are abnormalities identified in this image. The abnormality is the linearly distributed fine pleomorphic microcalcifications at the right subareolar region.",
+            "A4: The image shows irregularities, evidenced by the presence of pleomorphic microcalcifications in the area near the previous Breast Conserving Therapy (BCT) site.",
+            "A5: Yes, the image has a label, signified by the open arrow pointing towards the microcalcifications. This is significant because it highlights the location of the detected abnormality."
+        ]
+    },
+    {
+        "image": "PMC8055998_Fig5_420826.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC8055998_Fig5_420826",
+        "caption": "Highlights of cell wall collapse (green) and cell detachment (red), extracted from the regions within the white rectangles in (e,f)",
+        "answers": [
+            "A1: The imaging modality is not specified in the caption.",
+            "A2: The body region or anatomical area is not specified in the caption.",
+            "A3: The image shows cell wall collapse and cell detachment, which may be considered abnormalities depending on the context.",
+            "A4: The image shows irregularities, specifically cell wall collapse (green) and cell detachment (red).",
+            "A5: Yes, the image contains significant labels or indexes, notably the areas of cell wall collapse and cell detachment, marked by different colors."
+        ]
+    },
+    {
+        "image": "PMC4779085_Fig2_8738.jpg",
+        "alignment_type": "nonCompound-caption",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC4779085_Fig2_8738",
+        "caption": "Continuous wave Doppler echocardiography in suprasternal view showing supravalvular aortic stenosis with peak systolic gradient of 227.3\u00a0mmHg",
+        "answers": [
+            "A1: The imaging modality represented in this image is Continuous wave Doppler echocardiography.",
+            "A2: This image depicts the area around the suprasternal view of the aortic valve.",
+            "A3: Yes, an abnormality identified in this image is supravalvular aortic stenosis. ",
+            "A4: This image shows irregularities, specifically a peak systolic gradient of 227.3 mmHg, which reveals a probable aortic stenosis. ",
+            "A5: Yes, this image contains a significant index, which is the peak systolic gradient of 227.3 mmHg. This refers to the blood pressure difference across the stenotic aortic valve during systole, which is significantly high in this case."
+        ]
+    },
+    {
+        "image": "PMC4792642_FIG5_11824.jpg",
+        "alignment_type": "nonCompound-figure",
+        "alignment_score": 0.0,
+        "split": "test",
+        "id": "PMC4792642_FIG5_11824",
+        "caption": "Companion case. Right upper quadrant ultrasound of a patient who presented a few months after the first patient.The image demonstrates a\u00a0hypoechoic lesion near the expected location of the gallbladder (red arrow).\u00a0Given the suspicious ultrasound finding and recent\u00a0prior GBC case,\u00a0leading differential diagnosis was neoplasm. As a result, further evaluation with a CT scan\u00a0was recommended.",
+        "answers": [
+            "A1: The imaging modality represented in this image is an ultrasound.",
+            "A2: The image depicts the right upper quadrant of the patient's body, specifically near the expected location of the gallbladder.",
+            "A3: Yes, there are abnormalities identified in this image. The image shows a hypoechoic lesion near the expected location of the gallbladder.",
+            "A4: The image does show irregularities, as evidenced by the presence of a hypoechoic lesion near the gallbladder region.",
+            "A5: Yes, the image contains a significant label, the red arrow, which indicates the location of the hypoechoic lesion."
+        ]
+    },
+    {
+        "image": "PMC7476670_fig1_249822.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.48929765820503235,
+        "split": "test",
+        "id": "PMC7476670_fig1_249822",
+        "caption": "Low- and high-power magnification images of a nBAP1 positive UM stained for hematoxylin and eosin (H&E) and BAP1 immunohistochemistry, taken after whole slide scanning. The inset provides the higher power magnification of the tumor morphology and the location of the BAP1 staining",
+        "answers": [
+            "A1: The imaging modality is not mentioned in the caption but involves whole slide scanning microscopic images of tissue samples stained with hematoxylin and eosin and BAP1 immunohistochemistry.",
+            "A2: The body region or anatomical area is not specified in the caption. It only mentions a nBAP1 positive UM (Uveal Melanoma), which is a type of eye cancer.",
+            "A3: Yes, the caption indicates an abnormality, specifically, nBAP1 positive Uveal Melanoma.",
+            "A4: The image shows irregularities as it represents a tumor, specifically BAP1 positive Uveal Melanoma. ",
+            "A5: Yes, the image caption mentions labels including hematoxylin and eosin staining, and BAP1 immunohistochemistry. An inset with a higher magnification image is also noted to further detail the tumor morphology and the location of the BAP1 staining."
+        ]
+    },
+    {
+        "image": "PMC8618987_pharmaceutics-13-01750-f005_121528.jpg",
+        "alignment_type": "nonCompound-caption",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC8618987_pharmaceutics-13-01750-f005_121528",
+        "caption": "Morphological assessment of the nasal MucilAir\u2122 in vitro models treated with 10-fold diluted mometasone or placebo nasal spray, culture medium treated or untreated for 14 consecutive days using phase-contrast microscopy. The apical surface view is shown. Cell shedding is observed only at the periphery in the mometasone- and placebo-treated nasal MucilAir\u2122 in vitro models on the last 2 days of the experiment (inserts, day 15). Asterisks indicate areas without cells. Scale bars, 100 \u00b5m.",
+        "answers": [
+            "A1: The imaging modality represented in this image is phase-contrast microscopy.",
+            "A2: This image depicts the nasal MucilAir\u2122 in vitro models, a synthetic model of nasal tissue made for experimental purposes.",
+            "A3: The image does not offer explicit information about abnormalities, but the caption notes a finding of cell shedding only at the periphery in the mometasone- and placebo-treated nasal MucilAir\u2122 in vitro models in the last 2 days of the experiment.",
+            "A4: There are irregularities present in the image, on the periphery of both the mometasone- and placebo-treated nasal MucilAir\u2122 in vitro models, where cell shedding has occurred.",
+            "A5: Yes, the image contains significant labels or indexes. The asterisks indicate areas without cells and the scale bars indicate a distance of 100 \u00b5m."
+        ]
+    },
+    {
+        "image": "PMC5015311_jah31705-fig-0005_71245.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC5015311_jah31705-fig-0005_71245",
+        "caption": "Higher magnification consecutive sections of the ICI immunostained for neutrophil marker myeloperoxidase (MPO)",
+        "answers": [
+            "A1: The imaging modality is not clearly stated in the caption.",
+            "A2: The anatomical area is not specified in the caption. ",
+            "A3: The caption does not provide information about any abnormalities in the image.",
+            "A4: The caption does not mention whether the image appears normal or shows any irregularities.",
+            "A5: Based on the caption, the image contains the ICI immunostained for neutrophil marker myeloperoxidase (MPO)."
+        ]
+    },
+    {
+        "image": "PMC7591053_pone.0241321.g001_283447.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5332630276679993,
+        "split": "test",
+        "id": "PMC7591053_pone.0241321.g001_283447",
+        "caption": "Duplex ultrasound at 3 months post intervention at JA",
+        "answers": [
+            "A1: The imaging modality represented in this image is a duplex ultrasound.",
+            "A2: The caption does not provide specific information on the body region or anatomical area depicted in the image.",
+            "A3: The caption does not provide any information regarding identified abnormalities in the image.",
+            "A4: The caption does not provide information on whether the image appears normal or shows any irregularities.",
+            "A5: The caption does not provide any information on whether there are any significant or noteworthy labels or indices in the image."
+        ]
+    },
+    {
+        "image": "PMC6201371_jcmm13762-fig-0004_385960.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5171258449554443,
+        "split": "test",
+        "id": "PMC6201371_jcmm13762-fig-0004_385960",
+        "caption": "Higher magnification 2",
+        "answers": [
+            "A1: The caption does not provide information about the imaging modality used.",
+            "A2: The caption does not provide information about the body region or anatomical area depicted in the image. ",
+            "A3: The caption does not provide information about any abnormalities identified in the image.",
+            "A4: The caption does not provide information about whether the image appears normal or shows any irregularities.",
+            "A5: The caption does not indicate if the image contains any label or index that is significant or noteworthy."
+        ]
+    },
+    {
+        "image": "PMC4403855_pbio.1002141.g005_379329.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC4403855_pbio.1002141.g005_379329",
+        "caption": "Composite image of van Gogh bundles at the colony edge, consisting of multiple microscopy frames. Left: phase-contrast image. Right: green cells represent matrix-producing cells (i.e., tapA expression) in the double-labeled PtapA-CFP PsrfA-YFP WT strain (CFP is artificially colored green). srfA expression is not shown in the composite image because of bleaching problems with multi-image acquisition",
+        "answers": [
+            "A1: The imaging modality represented in this image is microscopy.",
+            "A2: This image does not depict a body region or anatomical area. Instead, it shows a microscopic view of van Gogh bundles at the colony edge which is more related to microbiology.",
+            "A3: The caption does not mention any abnormalities identified in the image.",
+            "A4: Based on the provided caption, the image appears normal except for the absence of srfA expression due to bleaching problems with multi-image acquisition. Any other irregularities are not mentioned.",
+            "A5: Yes, the image contains labels. The green cells represent matrix-producing cells (tapA expression) in the double-labeled PtapA-CFP PsrfA-YFP WT strain. These labels allow for the identification of specific cell types and their functions."
+        ]
+    },
+    {
+        "image": "PMC7518891_fig1s5_261516.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5248239040374756,
+        "split": "test",
+        "id": "PMC7518891_fig1s5_261516",
+        "caption": "Confocal images of spheres formed with iEV induced for 2 or 5 days with 1 \u03bcM DOX, and stained by IF with K14, SMA and SOX11. Scale bar: 200 \u03bcm. DOX: Doxycycline, IF: Immunofluorescence",
+        "answers": [
+            "A1: The imaging modality represented in this image is confocal microscopy.",
+            "A2: The image does not depict a specific body region or anatomical area. Instead, it shows spheres induced by iEV (likely some form of extracellular vesicles) for certain periods and stained for specific markers.",
+            "A3: The caption does not indicate any abnormalities identified in the image.",
+            "A4: Based on the caption, it's unverifiable whether the image appears normal or shows any irregularities. Further information about expected staining patterns would be needed.",
+            "A5: Yes, the image contains noteworthy labels. Specifically, the spheres were stained with K14, SMA, and SOX11 and induced with 1 \u03bcM Doxycycline (DOX). The scale bar indicating size (200 \u03bcm) is also noteworthy."
+        ]
+    },
+    {
+        "image": "PMC4932125_Fig7_47709.jpg",
+        "alignment_type": "nonCompound-figure",
+        "alignment_score": 0.0,
+        "split": "test",
+        "id": "PMC4932125_Fig7_47709",
+        "caption": "Post-implant dosimetric quality assurance (QA) for a typical LDR BT treatment plan 1\u00a0month following implantation. Imaging the prostate (red) and rectum (blue) interface can be challenging on CT-guided post-implant QA. Isodose lines are shown as a percentage of the prescription dose (145\u00a0Gy). Sources are identified as green circles with upward-directed and downward-directed triangles representing out-of-plan sources. Treatment planning system is VariSeed 8.0 (Varian Inc. Palo Alto, CA, USA)",
+        "answers": [
+            "A1: The imaging modality represented in this image is CT-guided post-implant quality assurance (QA).",
+            "A2: This image depicts the body region of the prostate and the rectum.",
+            "A3: The caption does not identify any abnormalities in this image.",
+            "A4: The caption does not specify whether this image shows any irregularities. ",
+            "A5: Yes, this image contains several significant labels or indexes. The isodose lines are represented as a percentage of the prescription dose (145 Gy). There are also sources that are identified as green circles with upward-directed and downward-directed triangles representing out-of-plan sources. The treatment planning system is VariSeed 8.0."
+        ]
+    },
+    {
+        "image": "PMC5883581_Fig4_297146.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC5883581_Fig4_297146",
+        "caption": "High magnification images showed that CHGA and NKX6.1 were not colocalized in the same cells",
+        "answers": [
+            "A1: The imaging modality is not specified in the given caption.",
+            "A2: The body region or anatomical area is not specified in the given caption.",
+            "A3: The caption does not mention any abnormalities identified in the image.",
+            "A4: The caption does not specify whether the image appears normal or show any irregularities.",
+            "A5: The only significant labels mentioned in the caption are CHGA and NKX6.1, indicating that these factors were examined but not found in the same cells."
+        ]
+    },
+    {
+        "image": "PMC5952427_F4_314399.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5189407467842102,
+        "split": "test",
+        "id": "PMC5952427_F4_314399",
+        "caption": "High-magnification confocal micrograph of lumbar spinal cord transverse sections from Nav-Tsc2; Rosa-GFP mice imaged for GFP fluorescence and IB4 labeling",
+        "answers": [
+            "A1: The image modality represented is confocal microscopy.",
+            "A2: This image depicts the lumbar region of the spinal cord.",
+            "A3: The caption does not provide any information regarding abnormalities in the image.",
+            "A4: The caption does not indicate if the image appears normal or shows any irregularities.",
+            "A5: Yes, the image contains labels for GFP fluorescence and IB4."
+        ]
+    },
+    {
+        "image": "PMC6209937_sensors-18-03475-f007_388977.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.514276385307312,
+        "split": "test",
+        "id": "PMC6209937_sensors-18-03475-f007_388977",
+        "caption": "Power Doppler ultrasound image",
+        "answers": [
+            "A1: The imaging modality represented in this image is a Power Doppler ultrasound.",
+            "A2: The body region or anatomical area depicted in this image can't be determined based on the caption provided.",
+            "A3: The caption does not provide information on any abnormalities identified in this image.",
+            "A4: Based on the caption alone, it is impossible to state whether this image appears normal or shows any irregularities.",
+            "A5: The caption does not mention any label or index that might be significant or noteworthy in this image."
+        ]
+    },
+    {
+        "image": "PMC3367614_F2_140485.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC3367614_F2_140485",
+        "caption": "Electron microscopy scan of peripheral blood",
+        "answers": [
+            "A1: The imaging modality represented in this image is Electron Microscopy.",
+            "A2: This image depicts the peripheral blood.",
+            "A3: The caption does not provide information on any abnormalities in the image.",
+            "A4: The caption does not specify whether the image shows normalcy or any irregularities.",
+            "A5: The caption does not mention any labels or indexes that are significant or noteworthy in the image."
+        ]
+    },
+    {
+        "image": "PMC8205602_fig7_468963.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.4886913299560547,
+        "split": "test",
+        "id": "PMC8205602_fig7_468963",
+        "caption": "High AMT uptake (AMT tumor to normal [T/N] ratio: 2.78) was associated with low rCBV values (T/N ratio: 0.88) (red circles) adjacent to the contrast-enhancing tumor mass (blue dashed circles).",
+        "answers": [
+            "A1: The imaging modality is not specifically mentioned in the caption. However, it likely refers to positron emission tomography (PET) given the mention of AMT uptake, which is a specific radiotracer used in PET imaging. ",
+            "",
+            "A2: The body region or anatomical area is not mentioned in the caption. ",
+            "",
+            "A3: Yes, abnormalities are identified in the image, specifically a contrast-enhancing tumor mass with a high AMT uptake. ",
+            "",
+            "A4: The image shows irregularities, as indicated by the presence of a contrast-enhancing tumor and the differential ratios of AMT uptake and rCBV values.",
+            "",
+            "A5: Yes, the image contains significant indices, specifically the AMT uptake (AMT T/N ratio: 2.78) and rCBV values (T/N ratio: 0.88) which are markers used in imaging to assess certain aspects of tumor behavior such as metabolism and blood volume."
+        ]
+    },
+    {
+        "image": "PMC7994637_Fig7_400047.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.49417224526405334,
+        "split": "test",
+        "id": "PMC7994637_Fig7_400047",
+        "caption": "Renal cortical tissues were collected for hematoxylin and eosin (H&E), periodic acid-Schiff (PAS) and Sirius Red staining to examine histology and for immunohistochemistry to examine the expression of F4/80, 3-NT, and 4-HHE. Computer-based morphometric analysis is shown (right bar graph, n\u2009=\u20096 in each group)",
+        "answers": [
+            "A1: The text does not specify a particular imaging modality. It talks about histological examinations which involve microscope images.",
+            "A2: Based on the caption, the image would depict the renal (kidney) cortical tissues.",
+            "A3: The caption does not provide any specific information about abnormalities being identified in the image.",
+            "A4: The caption does not indicate whether the image appears normal or displays any irregularities.",
+            "A5: The image might contain a right bar graph depicting morphometric analysis and the expression levels of F4/80, 3-NT, and 4-HHE examined through immunohistochemistry. These could be considered significant or noteworthy."
+        ]
+    },
+    {
+        "image": "PMC6603018_Fig5_2426.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.521117627620697,
+        "split": "test",
+        "id": "PMC6603018_Fig5_2426",
+        "caption": "Brain regions that were found, over all participants, to co-vary significantly with reported valence during the classical music listening tasks (p\u2009<\u20090.01, family wise error rate corrected). The colour scale indicates the approximate percentage change in BOLD activity in voxels where there is a significant change, as defined by SPM, between conditions",
+        "answers": [
+            "A1: The imaging modality represented in this image is likely a functional Magnetic Resonance Imaging (fMRI) since it mentions BOLD (Blood-Oxygen-Level Dependent) activity.",
+            "A2: The image depicts the brain, as the caption refers to 'Brain regions'.",
+            "A3: The caption does not mention any abnormalities identified in this image.",
+            "A4: The image does not imply any irregularities; it only shows variations in brain activity during a task (listening to classical music). The variations do not necessarily indicate disease or abnormality.",
+            "A5: The significance in this image is demonstrated by the color scale, which indicates the approximate percentage change in BOLD activity in voxels. Another relevant note is the statistical significance p\u2009<\u20090.01 (family wise error rate corrected)."
+        ]
+    },
+    {
+        "image": "PMC6986018_Fig2_107056.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5329330563545227,
+        "split": "test",
+        "id": "PMC6986018_Fig2_107056",
+        "caption": "Metabolic response was demonstrated on FDG-PET/CT fused axial slices at Pre-op (SUVmax\u2009=\u20093",
+        "answers": [
+            "A1: The imaging modality represented in this image is FDG-PET/CT.",
+            "A2: The body region or anatomical area is not specified in the caption.",
+            "A3: The caption does not provide information on identifiable abnormalities in the image.",
+            "A4: The information provided in the caption does not indicate whether the image appears normal or shows any irregularities.",
+            "A5: Yes, the image contains a significant label or index, specifically SUVmax, which stands for maximum standardized uptake value. It is a measure used in PET scans to indicate metabolic activity and is significant in this case as it demonstrates a metabolic response."
+        ]
+    },
+    {
+        "image": "PMC7259777_pone.0233973.g003_180686.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC7259777_pone.0233973.g003_180686",
+        "caption": "Scanning electron microscopy of S. aureus Newbould 305 (NB305) biofilm grown in BHI broth and fixed with 10% formalin",
+        "answers": [
+            "A1: The imaging modality represented in this image is scanning electron microscopy.",
+            "A2: This image doesn't depict a body region or anatomical area. It shows a microorganism (S. aureus Newbould 305) grown in a laboratory setting.",
+            "A3: The caption does not provide information about abnormalities in the image.",
+            "A4: The caption does not specify whether the image appears normal or shows any irregularities.",
+            "A5: The caption does not mention any label or index present in the image."
+        ]
+    },
+    {
+        "image": "PMC4150362_F4_316849.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5052186250686646,
+        "split": "test",
+        "id": "PMC4150362_F4_316849",
+        "caption": "Color maps of positive BOLD (red to white: 0 to +10) and negative BOLD (blue to green: 0 to \u221210) change superimposed on subjects mean EPI image are displayed in three plains (p\u2009<\u20090.001).",
+        "answers": [
+            "A1: The image represents functional Magnetic Resonance Imaging (fMRI), where EPI (Echo Planar Imaging) and BOLD (Blood Oxygen Level-Dependent) are techniques used. ",
+            "A2: The caption does not provide information on the specific body region or anatomical area displayed in the image.",
+            "A3: The caption does not indicate the presence of any abnormalities in the image. ",
+            "A4: The caption does not provide enough information to determine if the image appears normal or if it shows any irregularities.  ",
+            "A5: Yes, the image contains significant labels or indices in the form of positive and negative BOLD changes and p-value for statistical significance."
+        ]
+    },
+    {
+        "image": "PMC4694163_joa12391-fig-0006_457120.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC4694163_joa12391-fig-0006_457120",
+        "caption": "Immunostaining for type I collagen at 400x magnification. Higher magnification of the same canals indicated by the black outline in subfigure-A. The image shows the innermost zone of matrix surrounding the cartilage canal staining immunopositive for collagen type I (brown colour; between long arrows)",
+        "answers": [
+            "A1: The imaging modality is not specified in the caption.",
+            "A2: The anatomical area depicted in the image is the matrix surrounding the cartilage canal.",
+            "A3: The caption does not mention any abnormalities in the image.",
+            "A4: Based on the caption, the image appears to be normal with \"immunopositive\" staining for type I collagen.",
+            "A5: The image does contain significant labels - specifically the black outline in subfigure-A and the long arrows indicating the region of brown colour representing collagen type I."
+        ]
+    },
+    {
+        "image": "PMC7534805_Fig2_266015.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5128205418586731,
+        "split": "test",
+        "id": "PMC7534805_Fig2_266015",
+        "caption": "Scanning Electron Microscopy (SEM) observation (\u00d72000) of both groups (Adult worms). Same regions of body are shown in both groups: upper row, NC-siRNA; lower row, HAase-siRNA. No major morphological difference was observed between the two groups",
+        "answers": [
+            "A1: The imaging modality represented is Scanning Electron Microscopy (SEM).",
+            "A2: The image depicts the region of adult worms, but the specific body region is not specified in the caption.",
+            "A3: The caption does not mention any abnormalities in the image. ",
+            "A4: According to the caption, there are no major morphological differences observed between the two groups, so it can be inferred that the image appears normal.",
+            "A5: The image contains labels or indices related to two groups: NC-siRNA (in the upper row) and HAase-siRNA (in the lower row). These are significant in distinguishing and comparing the elements in the image."
+        ]
+    },
+    {
+        "image": "PMC5964228_Fig3_317553.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5078199505805969,
+        "split": "test",
+        "id": "PMC5964228_Fig3_317553",
+        "caption": "Primary cortical neurons cultured for 9 days in vitr",
+        "answers": [
+            "A1: The imaging modality cannot be determined from the given caption.",
+            "A2: The caption suggests that this image depicts primary cortical neurons, which are found in the brain's cortex.",
+            "A3: The caption does not provide information about any abnormalities in the image.",
+            "A4: The caption does not provide information about whether this image appears normal or shows any irregularities.",
+            "A5: The caption does not provide information about any significant or noteworthy labels or indexes in the image."
+        ]
+    },
+    {
+        "image": "PMC7950542_F5_388613.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5253112316131592,
+        "split": "test",
+        "id": "PMC7950542_F5_388613",
+        "caption": "Continuous wave Doppler of severe mitral regurgitation",
+        "answers": [
+            "A1: The imaging modality represented in this image is Continuous Wave Doppler, which is a type of ultrasound.",
+            "A2: This image depicts the heart, specifically the mitral valve.",
+            "A3: Yes, the image identifies an abnormality, that is severe mitral regurgitation.",
+            "A4: Based on the caption, this image does show irregularities since it mentions severe mitral regurgitation.",
+            "A5: The caption does not mention any specific label or index that is significant or noteworthy in the image."
+        ]
+    },
+    {
+        "image": "PMC6005886_F2_330249.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5231444239616394,
+        "split": "test",
+        "id": "PMC6005886_F2_330249",
+        "caption": "Optical microscope images of fused droplets containing more than two compartments",
+        "answers": [
+            "A1: The imaging modality represented in this image is Optical Microscopy.",
+            "A2: The caption does not provide information about any specific body region or anatomical area.",
+            "A3: The caption does not specify any abnormalities identified in the image. ",
+            "A4: There is no information about whether the image appears normal or shows any irregularities.",
+            "A5: The caption does not mention any label or index that is significant or noteworthy in the image."
+        ]
+    },
+    {
+        "image": "PMC7261758_acn351015-fig-0005_181180.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.4893847703933716,
+        "split": "test",
+        "id": "PMC7261758_acn351015-fig-0005_181180",
+        "caption": "Brain MRIs (T1\u2010 or T2\u2010weighted as indicated) obtained from patient 3 with assigned Loes score of 18 before Vorinostat treatment",
+        "answers": [
+            "A1: The imaging modality represented in this image is Magnetic Resonance Imaging (MRI).",
+            "A2: The image depicts the brain as the anatomical area.",
+            "A3: The caption does not provide information on any abnormalities identified in this image.",
+            "A4: The caption does not specify whether the image appears normal or shows any irregularities.",
+            "A5: Yes, this image contains the Loes score, which is significant as it is a neuroradiological scale for assessing the severity of leukodystrophy. The patient's Loes score was 18 before Vorinostat treatment."
+        ]
+    },
+    {
+        "image": "PMC6261642_pone.0208160.g002_402059.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC6261642_pone.0208160.g002_402059",
+        "caption": "Electron micrograph of EV purified from A. laidlaiwii PG8T",
+        "answers": [
+            "A1: The imaging modality represented in this image is electron microscopy.",
+            "A2: This image does not depict a body region or anatomical area, but rather a microorganism (A. laidlaiwii PG8T) likely extracted from an organism or environment.",
+            "A3: The caption does not provide information regarding any abnormalities in the image.",
+            "A4: The caption does not give enough information to determine if the image appears normal or shows any irregularities.",
+            "A5: The image seems to contain a label of an extracted or purified Electron Vesicle (EV) from A. laidlaiwii PG8T. Beyond this, the caption does not provide further information to address other significant or noteworthy labels or indices in the image."
+        ]
+    },
+    {
+        "image": "PMC6011093_fig5_331532.jpg",
+        "alignment_type": "nonCompound-caption",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC6011093_fig5_331532",
+        "caption": "Representing Scanning Electron Microscopic image of AChE/SnO2-cMWCNTs/Cu.",
+        "answers": [
+            "A1: The imaging modality represented in this image is Scanning Electron Microscopy.",
+            "A2: This image does not depict a body region or anatomical area; it represents a microscopic view of a specific chemical or composite which is AChE/SnO2-cMWCNTs/Cu. ",
+            "A3: As the caption does not provide any information on abnormalities, it cannot be determined if there are any identified in this image.",
+            "A4: The image's normality or presence of irregularities cannot be determined from the caption as it does not provide this information.",
+            "A5: Based on the caption, the significant labels in the image would be AChE/SnO2-cMWCNTs/Cu. However, without the image, it's impossible to specify other potential noteworthy indexes or labels."
+        ]
+    },
+    {
+        "image": "PMC8798685_F5_179683.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC8798685_F5_179683",
+        "caption": "Left ventricular systolic function had recovered at 2-week follow-up after discharge",
+        "answers": [
+            "A1: The caption does not specify the imaging modality used for the image.",
+            "A2: The image depicts the left ventricle of the heart, based on the caption.",
+            "A3: The caption does not indicate the presence of any abnormalities in the image.",
+            "A4: Based on the caption, the image appears to show a normal and functional left ventricle, as it indicates recovery of systolic function.",
+            "A5: The significant index in the caption is the recovery at the 2-week follow-up after discharge, but it does not specify if this is depicted or labeled in the image."
+        ]
+    },
+    {
+        "image": "PMC4024151_Fig1_289550.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.510333776473999,
+        "split": "test",
+        "id": "PMC4024151_Fig1_289550",
+        "caption": "Digital subtraction cystography with 10 ml of CO2 in the same position",
+        "answers": [
+            "A1: The imaging modality represented in this image is digital subtraction cystography.",
+            "A2: The image would likely depict the urinary bladder, as cystography is used for examining this region. But since the anatomical area is not specifically mentioned in the caption, it cannot be specifically determined. ",
+            "A3: The caption does not provide any information indicating the presence of abnormalities.",
+            "A4: The caption does not provide details to determine whether the image appears normal or if it shows any irregularities.",
+            "A5: The caption mentions \"10 ml of CO2\", this could be significant as it might refer to the contrast medium used in the procedure. However, without the actual image, further significance or noteworthiness cannot be determined."
+        ]
+    },
+    {
+        "image": "PMC4109997_pone-0103283-g001_308588.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5728404521942139,
+        "split": "test",
+        "id": "PMC4109997_pone-0103283-g001_308588",
+        "caption": "Dose response of 4 dpf Ntr given fish water (control vagal ganglia labeled gX), D\u2019) 1 mM, D\u2019\u2019) 5 mM, or D\u2019\u2019\u2019) 10 mM Met overnight for 18 hrs, followed by imaging at 5 dpf. Arrowheads point to degenerating ganglia and axons; asterisks indicate debris. Anterior is to the left; dorsal is at the top. Eye and otic vesicle (OV) are outlined. Cranial sensory ganglia labeled gV, gVII, gIX, and gX in panels A,B; vagal ganglia labeled gX in panels C,D",
+        "answers": [
+            "A1: The image modality is not specified in the caption. ",
+            "A2: The image depicts the region of vagal ganglia in a fish, along with the eye and otic vesicle (OV).  ",
+            "A3: Yes, the caption indicates degenerating ganglia and axons, as well as debris. ",
+            "A4: The image shows irregularities, specifically degenerating ganglia and axons labeled with arrowheads and debris marked by asterisks. ",
+            "A5: Yes, the image contains noteworthy labels, namely the cranial sensory ganglia labeled as gV, gVII, gIX, and gX, and the vagal ganglia labeled as gX. Arrowheads point to degenerating ganglia and axons and asterisks indicate debris."
+        ]
+    },
+    {
+        "image": "PMC6660047_f6_14817.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.4955020546913147,
+        "split": "test",
+        "id": "PMC6660047_f6_14817",
+        "caption": "Relationship between PGP9.5-positive NFs (green) and ICs (red) in the LM in 40-day groups. Higher magnification views of the square frames in (d\u2013f)",
+        "answers": [
+            "A1: The image modality cannot be determined from the caption.",
+            "A2: The caption does not provide sufficient information to determine the specific body region or anatomical area depicted in the image.",
+            "A3: The caption does not mention any abnormalities in the image.",
+            "A4: The caption does not provide sufficient information to determine if the image appears normal or shows any irregularities.",
+            "A5: Yes, the image seems to contain noteworthy labels or indexes such as PGP9.5-positive NFs (green) and ICs (red). These are probably markers used to highlight specific structures or substances in the image."
+        ]
+    },
+    {
+        "image": "PMC8599024_f2_114420.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5121582746505737,
+        "split": "test",
+        "id": "PMC8599024_f2_114420",
+        "caption": "Higher magnification at 10\u00d7 shows spindle cells with tapered ends and no significant cytologic atypia; occasional areas show nuclear palisades",
+        "answers": [
+            "A1: The caption does not specify the imaging modality used.",
+            "A2: The caption does not provide information on the specific body region or anatomical area depicted in the image.",
+            "A3: The caption mentions 'spindle cells with tapered ends and no significant cytologic atypia,' which suggests a normal finding, but also mentions 'occasional areas show nuclear palisades,' which might suggest some form of abnormality. However, the caption itself does not definitively confirm any abnormality.",
+            "A4: From the caption, the image shows both - normal spindle cells and potential irregularities in the form of occasional areas with nuclear palisades.",
+            "A5: The caption does not mention any labels or indices within the image."
+        ]
+    },
+    {
+        "image": "PMC6925219_Fig4_88589.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.4971329867839813,
+        "split": "test",
+        "id": "PMC6925219_Fig4_88589",
+        "caption": "Representative CLDN5 immuno-electron microscopic images of a blood vessel in an MRL/lpr mouse and the surrounding neurovascular unit. Left column shows raw images, center column shows identified components, and the right column shows 3D reconstruction, of the 1st, 20th, and 35th serial sections. A microglial cell (green) surrounding the surface of the basement membrane (BM, orange-yellow) has small processes that infiltrate the BM to form immunoreactive contacts (arrowheads) with endothelial cells (pink), which resemble the immune-reactive contact between endothelial cells(arrows, tight junctions). The 3D reconstruction illustrates protrusions through the BM (center) and the endothelial cell contacts (lower panel, red). Scale bars: 1\u2009\u03bcm",
+        "answers": [
+            "A1: The image represents an immuno-electron microscopic imaging modality.",
+            "A2: The image depicts a blood vessel and the surrounding neurovascular unit in an MRL/lpr mouse.",
+            "A3: The caption does not indicate any abnormalities in the image, only suggesting interactions between cells.",
+            "A4: Based on the caption, the image appears to be normal, showing processes and features of cell interactions.",
+            "A5: Yes, the image contains significant labels and indices, specifically referring to a microglial cell, the basement membrane (BM), immunoreactive contacts, and endothelial cells, illustrated in different colors. Furthermore, it shows serial sections and 3D reconstruction of these sections. Also, it mentions scale bars which are set to 1\u00b5m."
+        ]
+    },
+    {
+        "image": "PMC6320763_pharmaceutics-10-00279-f005_419084.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC6320763_pharmaceutics-10-00279-f005_419084",
+        "caption": "Transmission electron microscopy (TEM) image of mycobacteria treated with Tre-hollow oblate mesoporous silica nanoparticles (HOMSNPs) loaded with isoniazid (INH) for 2 h",
+        "answers": [
+            "A1: The imaging modality represented in this image is Transmission Electron Microscopy (TEM).",
+            "A2: The image does not depict a specific body region or anatomical area. Instead, it depicts mycobacteria at a microscopic level.",
+            "A3: The caption does not provide information on any abnormalities identified in this image.",
+            "A4: The caption does not provide information on whether this image appears normal or shows any irregularities.",
+            "A5: The image contains a noteworthy label about the mycobacteria being treated with Tre-hollow oblate mesoporous silica nanoparticles (HOMSNPs) loaded with isoniazid (INH) for 2 hours."
+        ]
+    },
+    {
+        "image": "PMC9404823_antioxidants-11-01567-f006_380240.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5142624378204346,
+        "split": "test",
+        "id": "PMC9404823_antioxidants-11-01567-f006_380240",
+        "caption": "Transmission electron micrographs showing the steps of autophagy; notice the presence of numerous autophagosomes (green arrow) and autolysosomes (white arrow)",
+        "answers": [
+            "A1: The imaging modality represented in this image is transmission electron microscopy. ",
+            "A2: The image does not depict a specific body region or anatomical area. It shows a cellular process known as autophagy at the microscopic level. ",
+            "A3: Based on the provided caption, no abnormalities have been identified in the image. ",
+            "A4: The image appears to be normal, illustrating the usual process of autophagy with the presence of autophagosomes and autolysosomes. ",
+            "A5: Yes, this image contains significant labels. The green arrow represents autophagosomes and the white arrow represents autolysosomes. Both are integral parts of the autophagy process."
+        ]
+    },
+    {
+        "image": "PMC5884325_fig1_297268.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5245518088340759,
+        "split": "test",
+        "id": "PMC5884325_fig1_297268",
+        "caption": "Diastolic flow is absent on Pulse Wave Doppler, referred to as \u201cabsent diastolic flow\u201d of the sac. This pattern was also confirmed by setting the \u201clow-cut filter\u201d lower. This \u201cabsent diastolic flow\u201d was observed repeatedly and was also reproducible when the various scanning angles were changed",
+        "answers": [
+            "A1: The imaging modality represented in this image is Pulse Wave Doppler.",
+            "A2: The caption does not provide specific information about the body region or anatomical area depicted in this image. The reference to 'sac' could suggest a variety of areas.",
+            "A3: Yes, an abnormality is identified in this image. It is the \"absent diastolic flow\" of the sac which is consistently observed.",
+            "A4: This image shows irregularities, as it presents an issue where diastolic flow is absent.",
+            "A5: The image contains a significant observation referred to as \"absent diastolic flow\". This was observed even when different scanning angles were used or when the \"low-cut filter\" was set lower."
+        ]
+    },
+    {
+        "image": "PMC6302073_f0050_413562.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5156606435775757,
+        "split": "test",
+        "id": "PMC6302073_f0050_413562",
+        "caption": "Higher magnification images of GFAP+ reactive astrocytic end feet (arrowheads denote GFAP+/CD31+ vessel structures), CD11b+ cells associated with vessel (arrows denote CD11b+ cells associated with CD31+ vessel structures, dotted arrow denotes a parenchyma CD11b+ cell) and ICAM-1+ vessels (arrowheads denote ICAM-1+/CD31+ vessel structures)",
+        "answers": [
+            "A1: The imaging modality is not mentioned in the caption.",
+            "A2: The anatomical area or body region is not specified in the caption.",
+            "A3: The caption does not explicitly mention any abnormalities.",
+            "A4: The caption does not provide information to determine if the image shows any irregularities. ",
+            "A5: The image contains labels or indices of GFAP+ reactive astrocytic end feet, CD11b+ cells associated with vessel structures, and ICAM-1+ vessels, which are identified and pointed out as being significant or noteworthy."
+        ]
+    },
+    {
+        "image": "PMC2887380_F2_66467.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.4953705072402954,
+        "split": "test",
+        "id": "PMC2887380_F2_66467",
+        "caption": "HeLa cells were co-transfected with pCMV-Rev and Rev-dependent Gag-VN and Gag-VC plasmids. At 24 hr post-transfection lipid raft staining in live cells was performed. Images were captured using laser scanning confocal microscopy to detect the co-localization patterns of oligomerizing Gag molecules and lipid raft microdomains (indicated by CT-B that binds the pentasaccharide chain of the raft marker protein, GM1)",
+        "answers": [
+            "A1: The imaging modality represented in this image is laser scanning confocal microscopy. ",
+            "A2: This image depicts cellular level, specifically HeLa cells. Consequently, this does not analogously correspond to a particular body region or anatomical area in the conventional sense. ",
+            "A3: The caption does not indicate any abnormalities in this image.",
+            "A4: Based on the caption, the image appears to be normal as it is more of an experiment observation showing co-localization patterns of oligomerizing Gag molecules and lipid raft microdomains.",
+            "A5: The image contains significant labels including CT-B binding to the pentasaccharide chain of GM1, a raft marker protein. These are used to indicate lipid raft microdomains."
+        ]
+    },
+    {
+        "image": "PMC8443861_BIO058734F2_60253.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5055582523345947,
+        "split": "test",
+        "id": "PMC8443861_BIO058734F2_60253",
+        "caption": "Panoramic (upper row) and magnified image (lower row) of the abdominal region of a larva labeled with fabp4a antisense probe. Yellow arrows denote the coincidence of EGFPcaax (immunofluorescence) and WMISH signal. Arrows with asterisks show regions with WMISH labeling and no EGFP signal",
+        "answers": [
+            "A1: The imaging modality is not clearly indicated in the caption. However, it seems to involve a combination of Fluorescence and Whole Mount In Situ Hybridization (WMISH).",
+            "A2: This image depicts the abdominal region of a larva.",
+            "A3: The caption does not specify any abnormalities in this image.",
+            "A4: The caption does not contain enough information to conclude whether the image appears normal or shows any irregularities.",
+            "A5: Yes, this image contains significant labels. The fabp4a antisense probe is noteworthy. Additionally, the yellow arrows and asterisks denote areas of coincidence between EGFPcaax (immunofluorescence) and WMISH signal, and regions with WMISH labeling and no EGFP signal, respectively."
+        ]
+    },
+    {
+        "image": "PMC6211447_Fig2_389283.jpg",
+        "alignment_type": "nonCompound-caption",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC6211447_Fig2_389283",
+        "caption": "Tooth sectioning via cone beam computed tomography. The image was obtained by sectioning each tooth along the line connecting the midpoint of the incisal edge and the root apex, using software (OnDemand 3D)",
+        "answers": [
+            "A1: The imaging modality represented in this image is cone beam computed tomography.",
+            "A2: This image depicts the dental area, including individual teeth from incisal edge to root apex.",
+            "A3: The caption does not provide information about any abnormalities identified in this image.",
+            "A4: The caption does not specify whether the image appears normal or shows any irregularities.",
+            "A5: The caption does not mention any labels or indexes that might be significant or noteworthy in this image."
+        ]
+    },
+    {
+        "image": "PMC3102739_pone-0020540-g005_97059.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC3102739_pone-0020540-g005_97059",
+        "caption": "Confocal microscopy analysis shows a tight association of VW-MPSCs to the capillary-like EC after 5 days",
+        "answers": [
+            "A1: The image modality represented is Confocal microscopy.",
+            "A2: The image does not specify a certain body region or anatomical area.",
+            "A3: The caption does not provide information to identify any abnormalities in the image. ",
+            "A4: The caption does not provide information about any potential irregularities in the image.",
+            "A5: The image may be noteworthy for showing a tight association of VW-MPSCs to the capillary-like EC after 5 days, but without more context, this cannot be confirmed."
+        ]
+    },
+    {
+        "image": "PMC8229594_pharmaceutics-13-00830-f003_477818.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5001599192619324,
+        "split": "test",
+        "id": "PMC8229594_pharmaceutics-13-00830-f003_477818",
+        "caption": "Electron micrograph of amylin fibrils at pH 7.4 in the water solution containing Cu(II)/amylin (100 \u03bcM; molar ratio 1:1)",
+        "answers": [
+            "A1: The imaging modality represented in this image is an Electron Micrograph.",
+            "A2: The image depicts amylin fibrils, which are microscopic structures related to metabolic processes, not a specific body region or anatomical area.",
+            "A3: The caption does not provide information to determine if there are any abnormalities identified in this image.",
+            "A4: The caption does not provide information to state whether this image appears normal or shows any irregularities.",
+            "A5: The image contains a significant label related to the condition parameters of the observation, that is the pH 7.4 in water solution and Cu(II)/amylin condition at a 100 \u03bcM molar ratio of 1:1."
+        ]
+    },
+    {
+        "image": "PMC4038623_ppat-1004173-g010_292902.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5211729407310486,
+        "split": "test",
+        "id": "PMC4038623_ppat-1004173-g010_292902",
+        "caption": "Confocal microscopy images of melanoma cells transfected with pOka-TK-GFP-gB[Y881F",
+        "answers": [
+            "A1: The imaging modality represented in this image is Confocal Microscopy.",
+            "A2: The image depicts cellular level structures, specifically melanoma cells in this case.",
+            "A3: The caption does not provide enough information to ascertain whether there are any abnormalities identified in the image.",
+            "A4: The caption does not give information on whether the image appears normal or shows any irregularities.",
+            "A5: The image is noted to contain melanoma cells that have been transfected with pOka-TK-GFP-gB[Y881F, which is significant in a research context."
+        ]
+    },
+    {
+        "image": "PMC7260168_Fig1_180787.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC7260168_Fig1_180787",
+        "caption": "Electron micrograph of undeformed liposomes on negatively stained sample",
+        "answers": [
+            "A1: The imaging modality represented in this image is an electron micrograph.",
+            "A2: This image does not depict any specific body region or anatomical area. Instead, the image shows liposomes - structures often used in medicine to encapsulate and carry drugs to specific body regions.",
+            "A3: The caption does not indicate any abnormalities identified in this image.",
+            "A4: According to the caption, this image appears to be normal as it specifically mentions that the liposomes are 'undeformed'.",
+            "A5: The caption does not provide details on any labels or indexes that might be significant or noteworthy in this image."
+        ]
+    },
+    {
+        "image": "PMC7284335_pharmaceutics-12-00467-f007_188369.jpg",
+        "alignment_type": "nonCompound-caption",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC7284335_pharmaceutics-12-00467-f007_188369",
+        "caption": "Optical microscopy of wound healing tests for control group (GM), G30 clay mineral and corresponding peloids G30ALI and G30GR, all of them with a clay concentration of 50 \u03bcg/mL.",
+        "answers": [
+            "A1: The imaging modality represented in this image is Optical Microscopy.",
+            "A2: The image is not described to depict a specific body region or anatomical area, but it pertains to the depiction of wound healing tests.",
+            "A3: The caption does not provide information to determine whether there are any abnormalities identified in this image. ",
+            "A4: The caption does not provide information to determine if this image appears normal or shows any irregularities.",
+            "A5: The image does contain labels or indices that seem significant, including control group (GM), G30 clay mineral, and corresponding peloids G30ALI and G30GR, all with a clay concentration of 50 \u03bcg/mL. These labels appear to be significant in the study or comparison presented."
+        ]
+    },
+    {
+        "image": "PMC7419606_F5_232756.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.508537232875824,
+        "split": "test",
+        "id": "PMC7419606_F5_232756",
+        "caption": "Fluorescence intensity scatter plots were used to estimate staining co-localization by calculating the Pearson\u2019s Coefficient (\u03c1, Bi) and the staining overlap (Bii) scores; represented are \u201cbox-and-whiskers\u201d graphs plotting data from three to four individuals performed in triplicate",
+        "answers": [
+            "A1: The imaging modality represented in this image is not specified in the caption.",
+            "A2: The caption does not provide information on a specific body region or anatomical area.",
+            "A3: The caption does not mention the presence of any abnormalities.",
+            "A4: There is no information in the caption indicating whether the image appears normal or shows any irregularities.",
+            "A5: Yes, the image contains notable labels or indices such as the Pearson\u2019s Coefficient (\u03c1, Bi) and the staining overlap (Bii) scores, which are used to estimate staining co-localization."
+        ]
+    },
+    {
+        "image": "PMC5865719_pone.0193603.g002_292771.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.4919319152832031,
+        "split": "test",
+        "id": "PMC5865719_pone.0193603.g002_292771",
+        "caption": "Vegetative cells of C. nivalis. Identical magnification throughout. Left, optical section. Right, surface view.",
+        "answers": [
+            "A1: The imaging modality cannot be determined from the caption.",
+            "A2: The image depicts vegetative cells of C. nivalis (an algae). This doesn't pertain to a specific body region or anatomical area.",
+            "A3: The caption does not mention any abnormalities in the image.",
+            "A4: The statement does not indicate any irregularities, implying the image might appear normal.",
+            "A5: The caption mentions significant labels such as 'identical magnification throughout', 'optical section', and 'surface view'. These are noteworthy for understanding the image."
+        ]
+    },
+    {
+        "image": "PMC8913339_f7_219755.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.4952859878540039,
+        "split": "test",
+        "id": "PMC8913339_f7_219755",
+        "caption": "Transmission electron microscopy (TEM) of osteoclasts (OC) located at the arch surface of three months old WT and Chi/+ (representative for both Chi/+ and Chi/+LP) vertebrae",
+        "answers": [
+            "A1: The imaging modality represented in this image is Transmission Electron Microscopy (TEM).",
+            "A2: This image depicts the anatomical area of the vertebrae.",
+            "A3: The caption does not indicate any abnormalities identified in this image.",
+            "A4: The caption does not provide any information allowing to determine if this image appears normal or shows any irregularities.",
+            "A5: The image contains a label or index that mentions osteoclasts (OC), suggesting they might be significant in this context. It also labels the subjects as three months old WT and Chi/+ (representative for both Chi/+ and Chi/+LP) vertebrae."
+        ]
+    },
+    {
+        "image": "PMC8707412_molecules-26-07442-f002_149978.jpg",
+        "alignment_type": "nonCompound-caption",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC8707412_molecules-26-07442-f002_149978",
+        "caption": "Imaging of the channel cross section with E. coli biofilms during 17 h of incubation at flow conditions (0.5 dyn cm2). Biofilms were formed by bacteria treated with Ilex spp. water extracts (1/2 MIC). Biofilms were visualised using differential interference contrast (DIC); Control\u2014untreated bacteria; scale bar = 100 \u00b5m. Legend: I.PA\u2014I. paraguariensis; I.AQ\u2014I. aquifolium; I.\u2019AM\u2019\u2014I. aquifolium \u2018Argentea Marginata\u2019; I.\u00d7M\u2014I. \u00d7 meserveae \u2018Blue Angel\u2019.",
+        "answers": [
+            "A1: The imaging modality represented in this image is Differential Interference Contrast (DIC).",
+            "A2: This image does not depict a body region or anatomical area. It depicts a channel cross section with E. coli biofilms.",
+            "A3: The image caption does not provide information on any abnormalities identified.",
+            "A4: Based on the caption, it's not possible to determine if this image appears normal or shows any irregularities.",
+            "A5: Yes, this image contains significant labels that represent different types of Ilex species used to treat the bacteria. These include I.PA\u2014I. paraguariensis; I.AQ\u2014I. aquifolium; I.\u2019AM\u2019\u2014I. aquifolium \u2018Argentea Marginata\u2019; I.\u00d7M\u2014I. \u00d7 meserveae \u2018Blue Angel\u2019."
+        ]
+    },
+    {
+        "image": "PMC8417288_Fig3_51597.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5304386615753174,
+        "split": "test",
+        "id": "PMC8417288_Fig3_51597",
+        "caption": "DCP\u2014Diffuse capillary rarefaction seen as radial darker stripes (green arrow) corresponding to retinal oedema in Henle\u2019s layer. Areas of pruning noted in the smaller network of vessels.",
+        "answers": [
+            "A1: The imaging modality is not specified in the caption. However, it possibly refers to an ocular imaging method, potentially optical coherence tomography or fundus photography.",
+            "A2: The image depicts the eye, specifically the retinal region.",
+            "A3: Yes, there are abnormalities identified in this image. There is diffuse capillary rarefaction visible as radial darker stripes that corresponds to retinal oedema in Henle\u2019s layer. Additionally, areas of pruning are noted in the smaller network of vessels.",
+            "A4: Based on the caption, the image shows irregularities, specifically retinal oedema and vessel pruning.",
+            "A5: The image contains significant labels, such as the green arrow, which points to the radial darker stripes representing retinal oedema in Henle's layer. More information is needed to understand the importance of the green arrow in this context."
+        ]
+    },
+    {
+        "image": "PMC9318477_jcm-11-03961-f003_352580.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5284239053726196,
+        "split": "test",
+        "id": "PMC9318477_jcm-11-03961-f003_352580",
+        "caption": "Spectral Doppler US shows a high peak systolic velocity (PSV) (212 cm/s) in the stenotic right renal artery",
+        "answers": [
+            "A1: The imaging modality represented in this image is Spectral Doppler Ultrasound (US).",
+            "A2: This image depicts the right renal artery, a part of the renal (kidney) region.",
+            "A3: Yes, an abnormality is identified in this image. Specifically, a stenosis or narrowing is observed in the right renal artery.",
+            "A4: This image shows irregularities. The high peak systolic velocity (PSV) of 212 cm/s in the right renal artery is an abnormal finding often associated with stenosis.",
+            "A5: Yes, this image contains a significant label or index. The high peak systolic velocity (PSV) (212 cm/s) is noteworthy and potentially clinically significant."
+        ]
+    },
+    {
+        "image": "PMC7465480_polymers-12-01827-f004_245984.jpg",
+        "alignment_type": "nonCompound-caption",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC7465480_polymers-12-01827-f004_245984",
+        "caption": "Digital images of fibres before and after application of theAgNO3.",
+        "answers": [
+            "A1: The modality is not specified in the caption. It mentions only digital imagery.",
+            "A2: The body region or anatomical area is not depicted or revealed in the caption. It mentions fibers (could refer to any type of fibers, including non-biological ones), not any specific body part.",
+            "A3: The caption doesn't specify any abnormalities identified in the image.",
+            "A4: The caption does not indicate any irregularities shown in the image.",
+            "A5: The caption references a notable event (application of AgNO3) but doesn\u2019t specify any other label or index of particular significance."
+        ]
+    },
+    {
+        "image": "PMC7901525_f02_372904.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5392401814460754,
+        "split": "test",
+        "id": "PMC7901525_f02_372904",
+        "caption": "Optical coherence tomography image showing attenuation of the underlying retinal pigment epithelium consistent with a type 2 lesion",
+        "answers": [
+            "A1: The imaging modality represented in this image is Optical Coherence Tomography.",
+            "A2: This image depicts the retinal pigment epithelium, a part of the eye.",
+            "A3: Yes, the image indicates an abnormality - attenuation of the underlying retinal pigment epithelium. This is consistent with a type 2 lesion.",
+            "A4: The image does show irregularities, specifically, attenuation of the underlying retinal pigment epithelium which is a sign of a type 2 lesion.",
+            "A5: The image itself doesn't contain information about a label or index, nothing is mentioned in the caption."
+        ]
+    },
+    {
+        "image": "PMC4340936_pone.0117029.g005_362455.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5082592964172363,
+        "split": "test",
+        "id": "PMC4340936_pone.0117029.g005_362455",
+        "caption": "Color on the brain images shows regions covered by positive, negative, and neutral ICs, respectively. The color bar indicates number of overlapping ICs",
+        "answers": [
+            "A1: The caption does not specify the imaging modality used for the brain images.",
+            "A2: The image depicts a region of the brain.",
+            "A3: The caption does not indicate any abnormalities in the brain image.",
+            "A4: Based on the caption, the image of the brain does not show any specific irregularities. It is merely showing regions covered by positive, negative, and neutral ICs.",
+            "A5: Yes, the image contains a color bar which indicates the number of overlapping ICs which is noteworthy."
+        ]
+    },
+    {
+        "image": "PMC8369691_Fig6_35904.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5003212690353394,
+        "split": "test",
+        "id": "PMC8369691_Fig6_35904",
+        "caption": "Representative micrographs illustrating the depletion of Iba1+/TMEM119+ microglia after immunofluorescence labeling in the stratum radiatum of untreated (upper images) and PLX5622-treated (lower images) mice. Brain sections were counterstained with DAPI. Scale bars on the picture are equivalent to 250 \u00b5m",
+        "answers": [
+            "A1: The imaging modality is not explicitly stated in the caption, but it involves the process of immunofluorescence labeling. This suggests the imaging modality may likely be fluorescence microscopy.",
+            "A2: The image depicts the stratum radiatum region of the brain in mice.",
+            "A3: The caption does not mention any abnormalities, it only illustrates the depletion of Iba1+/TMEM119+ microglia in treated mice compared to untreated mice.",
+            "A4: The image shows variations in microglial populations between untreated and treated mice brains, which may be interpreted as irregularities, depending on the context.",
+            "A5: The image contains micrographs labeled for Iba1+/TMEM119+ microglia and DAPI counterstained brain sections. Depletion of these labeled microglia in treated mice compared to untreated is the significant observation noted in the caption. The scale bars that are equivalent to 250 \u00b5m are also noteworthy."
+        ]
+    },
+    {
+        "image": "PMC6501270_fig3_475556.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC6501270_fig3_475556",
+        "caption": "Renal arteriography during the arterial phase shows a PA (thin arrow) and contrast agent extravasation along the drainage pipe (thick arrowhead) arising from the posterior and superior anterior interlobar artery.",
+        "answers": [
+            "A1: The imaging modality represented in this image is Renal arteriography.",
+            "A2: This image depicts the kidney region, specifically focusing on the renal arteries.",
+            "A3: Yes, abnormalities are identified in this image, specifically a PA (possibly stands for 'pulmonary arteriovenous') and a contrast agent extravasation along the drainage pipe arising from the posterior and superior anterior interlobar artery. ",
+            "A4: The image shows irregularities as indicated by the presence of a PA and contrast agent extravasation.",
+            "A5: Yes, the image contains noteworthy labels or indexes represented by a thin arrow pointing at the PA and a thick arrowhead highlighting the area of contrast agent extravasation."
+        ]
+    },
+    {
+        "image": "PMC8918672_F4_221636.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.49455127120018005,
+        "split": "test",
+        "id": "PMC8918672_F4_221636",
+        "caption": "Patent dural venous sinuses in MR venography",
+        "answers": [
+            "A1: The imaging modality represented in this image is Magnetic Resonance (MR) venography.",
+            "A2: This image depicts the area of the brain, more specifically the dural venous sinuses.",
+            "A3: The caption does not indicate the presence of any abnormalities.",
+            "A4: Based on the caption, the image appears to be normal as it mentions 'patent' dural venous sinuses, which means the sinuses are open and functioning properly.",
+            "A5: The caption itself does not provide information regarding any significant or noteworthy labels or indices in the image."
+        ]
+    },
+    {
+        "image": "PMC5352391_F5_140420.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5260094404220581,
+        "split": "test",
+        "id": "PMC5352391_F5_140420",
+        "caption": "CWR22Rv1/LV3-NC cells but not CWR22Rv1/LV3-miR-218 cells could induce angiogenesis in rabbit cornea (n = 3). Neonatal vessels invaded the cornea, connecting the tumor (yellow arrow) and the cornea limbal vascular plexus",
+        "answers": [
+            "A1: The caption does not specify the imaging modality used.",
+            "A2: The image depicts the cornea area of the rabbit.",
+            "A3: Yes, the caption suggests abnormalities include induced angiogenesis in the rabbit cornea and neonatal vessels invading the cornea.",
+            "A4: The image shows irregularities such as angiogenesis and invasions of neonatal vessels into the cornea.",
+            "A5: Yes, the image contains a significant label that is the \"yellow arrow\" indicating the tumor."
+        ]
+    },
+    {
+        "image": "PMC4399324_F1_378601.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5240094065666199,
+        "split": "test",
+        "id": "PMC4399324_F1_378601",
+        "caption": "MHT (Left) and MHT-PAO1 (right) of a blaOXA-23\u2013borne A. baumannii strain (CP51).",
+        "answers": [
+            "A1: The caption does not provide information on the imaging modality used.",
+            "A2: The caption does not specify any body region or anatomical area.",
+            "A3: The caption does not describe any abnormalities in the image.",
+            "A4: The caption does not provide information on whether the image appears normal or shows any irregularities.",
+            "A5: The image contains information on MHT (Left) and MHT-PAO1 (right) of a blaOXA-23\u2013borne A. baumannii strain (CP51), which might be significant in a certain context. However, without further information, the significance or noteworthiness of this label can't be ascertained."
+        ]
+    },
+    {
+        "image": "PMC3789768_ppat-1003683-g005_235639.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.4892847537994385,
+        "split": "test",
+        "id": "PMC3789768_ppat-1003683-g005_235639",
+        "caption": "shows the distribution of TuMV-induced 6K2:GFP-tagged structures and FM4-64 labeled vesicles. Left panel shows green fluorescence channel from TuMV producing 6K2:GFP, middle panel red fluorescence channel from FM4-64, and right panel merged images",
+        "answers": [
+            "A1: The imaging modality is not specifically mentioned in the caption, but it implies the use of fluorescence microscopy.",
+            "A2: The body region or anatomical area depicted in the image isn't specified in the caption.",
+            "A3: The caption does not mention any abnormalities in the image.",
+            "A4: Based on the caption, no irregularities are mentioned.",
+            "A5: Yes, the image contains labels. It includes TuMV-induced 6K2:GFP-tagged structures and FM4-64 labeled vesicles, with different panels showing green and red fluorescence channels as well as merged images."
+        ]
+    },
+    {
+        "image": "PMC6886657_FIG2_76703.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC6886657_FIG2_76703",
+        "caption": "Multiple white matter lesions in the juxtacortical region",
+        "answers": [
+            "A1: The caption does not provide information about the imaging modality used.",
+            "A2: The image depicts the brain, specifically the juxtacortical region.",
+            "A3: Yes, the image identifies multiple white matter lesions in the juxtacortical region of the brain which is an abnormality.",
+            "A4: The image does show irregularities, namely the multiple white matter lesions.",
+            "A5: The caption does not provide information about any specific labels or indices in the image."
+        ]
+    },
+    {
+        "image": "PMC3460167_Fig3_157827.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5235145092010498,
+        "split": "test",
+        "id": "PMC3460167_Fig3_157827",
+        "caption": "Fluorescence recovery after photobleaching (FRAP) in a typical GFP-paxillin-expressing cell demonstrated the rapid incorporation of paxillin in stable focal adhesions. The bleached region is marked with an arrow. Shown is a cell 50\u00a0s before (\u221250\u00a0s) as well as immediately (0\u00a0s) and 200\u00a0s (+200\u00a0s) after photobleaching (bar 5\u00a0\u03bcm).",
+        "answers": [
+            "A1: The imaging modality represented in this image is Fluorescence Recovery After Photobleaching (FRAP).",
+            "A2: The caption does not provide specific information about the body region or anatomical area depicted in the image.",
+            "A3: The caption does not mention any abnormalities identified in this image.",
+            "A4: Based on the caption, the image is likely to show normal procedures of FRAP in a GFP-paxillin-expressing cell, implying that it appears normal.",
+            "A5: Yes, the image contains a label or index that is significant; the bleached region is marked with an arrow. It also denotes different time points before and after photobleaching (-50 seconds, immediately, and +200 seconds)."
+        ]
+    },
+    {
+        "image": "PMC8325229_Fig2_24182.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.47007420659065247,
+        "split": "test",
+        "id": "PMC8325229_Fig2_24182",
+        "caption": "Color flow-mapping imaging of the common AV valve presented as severe valvular regurgitation with a higher grade observed on the right component. AVSD atrioventricular septal defect, TEE transesophageal echocardiography, AV atrioventricular",
+        "answers": [
+            "A1: The imaging modality represented in this caption is color flow-mapping.",
+            "A2: The image depicts the region of the common atrioventricular (AV) valve.",
+            "A3: The caption reports an abnormality in the form of severe valvular regurgitation with a higher grade observed on the right component of the AV valve.",
+            "A4: The image does show irregularities, particularly the severe regurgitation of the common AV valve.",
+            "A5: Yes, the image caption contains labels such as AVSD representing atrioventricular septal defect and TEE for transesophageal echocardiography. These are significant as they provide additional information about the medical condition and the technique used to produce the image."
+        ]
+    },
+    {
+        "image": "PMC4967900_f5_57527.jpg",
+        "alignment_type": "nonCompound-caption",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC4967900_f5_57527",
+        "caption": "FDG uptake correlates with cancer.Bioluminescent 4T1 cancer cells were grown in the mammary fat pad of mice and the cancer was allowed to grow until it metastasized into the lung. Lung metastases are highlighted by the yellow arrows in excised lungs from two animals. The control animal, shown in the top row, did not have a primary tumor and consequently no metastases. Lungs were subsequently incubated in FDG under the same conditions as the human TSCs. FDG is directly imaged using Cherenkov imaging in an IVIS system. High intensity regions in the Cherenkov image are due to a high local uptake in FDG. The control lung without cancer shows low levels of Cherenkov light at the edges, which may be an artifact of FDG accumulation due to drying. The bioluminescence image of the 4T1 cells (cancer cells) in the lung shows the location of the metastatic 4T1 cancer cells. Regions of cancer metastases correlate well with the FDG uptake that is determined by Cherenkov imaging. This shows that ex-vivo incubation with a radiotracer is a valid procedure similar to in-vivo radiotracer uptake.",
+        "answers": [
+            "A1: The imaging modality represented in this image is Cherenkov imaging using an IVIS system and bioluminescence imaging.",
+            "A2: The image depicts the mammary fat pad and lungs of mice. ",
+            "A3: Yes, abnormalities identified in this image include cancerous 4T1 cells in the mammary fat pad that have metastasized into the lungs of the mice.",
+            "A4: This image shows irregularities, specifically the presence of metastatic 4T1 cancer cells in the lungs.",
+            "A5: Yes, this image contains significant labels - the metastatic regions are highlighted with yellow arrows and areas of high local FDG uptake (indicating cancer) are shown to have high intensity in the Cherenkov image. The bioluminescence image also specifically locates the metastatic 4T1 cancer cells."
+        ]
+    },
+    {
+        "image": "PMC4829686_fig3_20822.jpg",
+        "alignment_type": "nonCompound-caption",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC4829686_fig3_20822",
+        "caption": "Morphological assessment of H400 cells treated with active DC extract, fractions DCc and DCd, and subfractions DCc15 and DCd16. H400 cells were treated at concentration of IC50 for 24 hours. Percentage of apoptotic cells was analyzed using ImageXpress Micro Widefield High Content Screening System after staining with DAPI/Annexin V-FITC (magnification 10x).",
+        "answers": [
+            "A1: The imaging modality represented in this image is the ImageXpress Micro Widefield High Content Screening System. ",
+            "A2: The image doesn't depict a body region or anatomical area. It represents H400 cellular samples in a laboratory setting. ",
+            "A3: The caption does not specify any abnormalities identified in the image. ",
+            "A4: The caption does not provide information to determine if the image appears normal or shows any irregularities.",
+            "A5: The image likely contains labels or indices significant to the study of apoptosis in the treated H400 cells, as they were stained with DAPI/Annexin V-FITC for analysis. However, the specific labels or indices are not mentioned in the caption."
+        ]
+    },
+    {
+        "image": "PMC8921120_Fig1_222580.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC8921120_Fig1_222580",
+        "caption": "Lymphoscintigraphy 120 min after injection of the hybrid tracer showed the injection site and a sentinel node located below.",
+        "answers": [
+            "A1: The imaging modality represented in this image is Lymphoscintigraphy.",
+            "A2: The image depicts a body region around the injection site and a sentinel node located below it. However, the exact anatomical area cannot be identified based on the caption alone.",
+            "A3: The caption does not mention any abnormalities in the image.",
+            "A4: Based on the caption, the image appears to show a normal lymphoscintigraphy scan post injection of a hybrid tracer.",
+            "A5: The significant elements in this image are the injection site and a sentinel node located below it. These are the noteworthy labels or indexes in this context."
+        ]
+    },
+    {
+        "image": "PMC6326477_pone.0197963.g012_420669.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.4962626099586487,
+        "split": "test",
+        "id": "PMC6326477_pone.0197963.g012_420669",
+        "caption": "Low resolution MRI image with sample region 2",
+        "answers": [
+            "A1: The imaging modality represented in this image is MRI (Magnetic Resonance Imaging).",
+            "A2: The body region or anatomical area is not specified in the caption.",
+            "A3: The caption does not mention any abnormalities in the image.",
+            "A4: According to the caption, no specifics about normal or irregular features are mentioned.",
+            "A5: The image contains a sample region labeled as \"2\". Whether this is significant or noteworthy is not stated in the caption."
+        ]
+    },
+    {
+        "image": "PMC3832438_pone-0081165-g002_244299.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5263040065765381,
+        "split": "test",
+        "id": "PMC3832438_pone-0081165-g002_244299",
+        "caption": "Scanning electron microscopy. Boxes in Figure 2B indicate sites of electron microscopy images. a) Region farthest from the site of FeCl3 application with intact vascular structure and normally shaped erythrocytes and discoid platelets. b) Mildly damaged region. Empty endothelial cells with loss of organelles, activated and aggregated platelets, and platelets adhering to the luminal surface. c) Thrombus border region with no intact endothelial cells. Activated and aggregated platelets firmly adhered to the damaged region of the luminal surface. d) Severely damaged region with artery completely occluded by a platelet-rich thrombus containing several erythrocytes. FeCl3-induced damage caused loss of vascular undulation, but the internal elastic lamina was intact even in the severely damaged region. R: erythrocyte, P: platelet, E: endothelial cell, SMC: smooth muscle cell, IEL: internal elastic lamina. Original magnification \u00d72,000 (TEM), \u00d75,000 (SEM)",
+        "answers": [
+            "A1: The image represents Scanning Electron Microscopy (SEM) and Transmission Electron Microscopy (TEM) modalities.",
+            "A2: The image depicts the vascular structure in an unspecified location, with particular focus on endothelial cells, erythrocytes, and platelets.",
+            "A3: Yes, the abnormalities identified in this image are the damage to the vascular structure due to FeCl3 application, aggregated platelets, adhering platelets to the luminal surface, and the artery completely occluded by a platelet-rich thrombus containing several erythrocytes. Additionally, an empty endothelial cell with loss of organelles is observed.",
+            "A4: The image shows several irregularities, specifically in terms of damage to the vascular structure, presence of aggregate and adherent platelets, thrombus formation, and artery occlusion.",
+            "A5: Yes, the image contains labels and indexes for different cells and structures. The labels are: R for erythrocyte, P for platelet, E for endothelial cell, SMC for smooth muscle cell, and IEL for the internal elastic lamina. The different regions (a, b, c, and d) represent different degrees of damage. Figure 2B has boxes indicating different sites of the microscopy images."
+        ]
+    },
+    {
+        "image": "PMC3159902_F1_105801.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5205538272857666,
+        "split": "test",
+        "id": "PMC3159902_F1_105801",
+        "caption": "The short-axis view also demonstrated global hypokinesia of the left ventricle, but without a major dilatation. Note also the Doppler profile at the mitral valve, highly suggestive of normal LV filling pressure",
+        "answers": [
+            "A1: The imaging modality is not specified in the caption.",
+            "A2: This image depicts the heart, specifically the left ventricle and the mitral valve.",
+            "A3: Yes, the image identifies an abnormality: global hypokinesia of the left ventricle.",
+            "A4: The image shows irregularities, specifically global hypokinesia of the left ventricle, but without a major dilatation.",
+            "A5: Yes, the image contains a noteworthy label or index: the Doppler profile at the mitral valve suggestive of normal LV filling pressure."
+        ]
+    },
+    {
+        "image": "PMC8994011_Fig13_247529.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC8994011_Fig13_247529",
+        "caption": "CT image in the axial plane at the portal phase showing a large cystic echnicoccosis lesion of the right liver. Internal daughter cysts (CE3a stage).",
+        "answers": [
+            "A1: The imaging modality represented in this image is a CT (Computed Tomography).",
+            "A2: This image depicts the area of the liver.",
+            "A3: Yes, there are abnormalities identified in this image. It shows a large cystic echinococcosis lesion in the right liver with internal daughter cysts.",
+            "A4: The image shows irregularities with a large cyst and internal daughter cysts in the right liver indicating a disease condition.",
+            "A5: Yes, the image contains a significant label; it shows the stage of the disease as CE3a."
+        ]
+    },
+    {
+        "image": "PMC4383073_Fig3_374460.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.4912020266056061,
+        "split": "test",
+        "id": "PMC4383073_Fig3_374460",
+        "caption": "Phalloidin fluorescence labelling of F-actin showed podocyte stress fibers. Confocal microscopy showed no difference in the F-actin staining pattern between control group and Angptl3 siRNA group. However, F-actin rearrangement in Angptl3 group, characterized by the formation of lamellipodia (arrowhead) and increase in cell spikes (arrow). In PAN induced podocyte injury model,cells became retracted and F-actin seemed partial disrupted,moreover, F-actin almost completely disrupted in Angptl3 protein group. However, disruption did not occur in Angptl3 knockdown group",
+        "answers": [
+            "A1: The imaging modality represented in this image is confocal microscopy.",
+            "A2: This image depicts cellular structures, specifically cells referred to as podocytes.",
+            "A3: Yes, abnormalities are identified in this image. There's the formation of lamellipodia and an increase in cell spikes in the Angptl3 group, and in the PAN induced podocyte injury model, the cells became retracted and F-actin was partially or almost completely disrupted.",
+            "A4: The image does show irregularities, specifically F-actin rearrangement and disruption in some groups, as well as formation of lamellipodia and increased cell spikes.",
+            "A5: Yes, this image contains significant labels or indexes. The arrowhead denotes the formation of lamellipodia and the arrow indicates an increase in cell spikes. The disruption of F-actin in different scenarios is also of significance."
+        ]
+    },
+    {
+        "image": "PMC4311591_F10_353895.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC4311591_F10_353895",
+        "caption": "Confocal microscopy image of A549 cells incubated with methoxy-functionalized PI-b-PEG under serum-containing conditions for 4 h",
+        "answers": [
+            "A1: The imaging modality represented in the image is confocal microscopy.",
+            "A2: The image does not depict a body region or anatomical area. It depicts A549 cells, which are a type of human lung cancer cell line used in scientific research.",
+            "A3: The caption does not convey any information about abnormalities in the image.",
+            "A4: The image's normalcy or presence of irregularities cannot be determined from the provided caption.",
+            "A5: The image may contain labels or indexes related to the methoxy-functionalized PI-b-PEG and its interaction with the A549 cells, but this information is not specified in the caption."
+        ]
+    },
+    {
+        "image": "PMC5947927_FIG1_313534.jpg",
+        "alignment_type": "nonCompound-figure",
+        "alignment_score": 0.0,
+        "split": "test",
+        "id": "PMC5947927_FIG1_313534",
+        "caption": "Brain MRIPost-Gadolinium axial T1-weighted\u00a0image showing a right paramedian pontine area of contrast enhancement, at the level of the emergence of the fifth cranial nerve (green arrow).",
+        "answers": [
+            "A1: The imaging modality represented in this image is Brain Magnetic Resonance Imaging (MRI).",
+            "A2: This image depicts the right paramedian pontine region of the brain, at the level of the emergence of the fifth cranial nerve. ",
+            "A3: Yes, an abnormality is identified in this image; it is a right paramedian pontine area of contrast enhancement.",
+            "A4: This image does show irregularities - specifically, a right paramedian pontine area of contrast enhancement suggesting a possible abnormality.",
+            "A5: Yes, this image contains a significant label - a green arrow indicating the emergence of the fifth cranial nerve."
+        ]
+    },
+    {
+        "image": "PMC6079228_F9_351028.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC6079228_F9_351028",
+        "caption": "Colorwash overlay of decalcified sample in PBS (gray) and after transfer to 70% ethanol (physics colormap) after image registration",
+        "answers": [
+            "A1: The caption does not provide information about the specific imaging modality represented in this image.",
+            "A2: The caption does not indicate which body region or anatomical area the image depicts.",
+            "A3: The caption does not identify any abnormalities in the image.",
+            "A4: The caption does not comment on normal or abnormal appearances, or any irregularities in the image.",
+            "A5: The caption indicates colorwash overlay, decalcified sample in PBS (gray), and image transferred to 70% ethanol (physics colormap) after image registration. These may serve as important labels or indexes in the context of the image. However, without the image itself or further context, the significance or noteworthiness of these labels cannot be determined."
+        ]
+    },
+    {
+        "image": "PMC9019594_f1_256807.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5329033136367798,
+        "split": "test",
+        "id": "PMC9019594_f1_256807",
+        "caption": "Fluorescence microscopy images of liquid-like droplets formed by Dri1-C-GFP at 150 mM NaCl.",
+        "answers": [
+            "A1: The imaging modality represented in this image is Fluorescence microscopy.",
+            "A2: This image does not depict a specific body region or anatomical area, it shows liquid-like droplets formed by Dri1-C-GFP at 150 mM NaCl.",
+            "A3: The caption does not mention any abnormalities identified in this image.",
+            "A4: Based on the caption, this image appears to be normal without any mentioned irregularities.",
+            "A5: The image does contain noteworthy labels or indexes, notably Dri1-C-GFP and the concentration 150 mM NaCl, related to the formation of liquid-like droplets."
+        ]
+    },
+    {
+        "image": "PMC6222267_F4_393076.jpg",
+        "alignment_type": "OCR",
+        "alignment_score": 1.0,
+        "split": "test",
+        "id": "PMC6222267_F4_393076",
+        "caption": "Confocal image shows CFDA positive (green) MACS sorted hUCB Lin\u2212 stem cells before transplantation.",
+        "answers": [
+            "A1: The imaging modality represented in this image is confocal microscopy.",
+            "A2: This image does not depict a specific body region or anatomical area. Instead, it shows human umbilical cord blood (hUCB) lineage-negative (Lin\u2212) stem cells.",
+            "A3: The caption does not indicate any abnormalities in the image.",
+            "A4: Based on the caption, the image appears normal with CFDA positive stem cells. ",
+            "A5: Yes, the image contains labels or indices that are significant. It indicates that the stem cells are CFDA positive and sorted with MACS (magnetic-activated cell sorting)."
+        ]
+    },
+    {
+        "image": "PMC8556051_F1_99718.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.5428920388221741,
+        "split": "test",
+        "id": "PMC8556051_F1_99718",
+        "caption": "Electron microscopic image of the kidney showing widely effaced epithelial cell foot processes (arrow) (400\u00d7 magnification)",
+        "answers": [
+            "A1: The imaging modality represented in this image is Electron Microscopy.",
+            "A2: This image shows a region of the kidney.",
+            "A3: Yes, there are abnormalities identified in this image. The epithelial cell foot processes are reported to be widely effaced.",
+            "A4: The image shows irregularities; the epithelial cell foot processes are extensively effaced which is not normal.",
+            "A5: Yes, there is a label or index in this image that is significant. Specifically, an arrow is used to point out the effaced epithelial cell foot processes."
+        ]
+    },
+    {
+        "image": "PMC9397024_biomimetics-07-00111-f002_378391.jpg",
+        "alignment_type": "CLIP",
+        "alignment_score": 0.528803825378418,
+        "split": "test",
+        "id": "PMC9397024_biomimetics-07-00111-f002_378391",
+        "caption": "Optical image of healthy tooth enamel without treatmen",
+        "answers": [
+            "A1: The imaging modality represented in this image is optical imaging.",
+            "A2: This image depicts the region of tooth enamel.",
+            "A3: The caption does not identify any abnormalities in this image.",
+            "A4: According to the caption, this image appears to be normal as it shows healthy tooth enamel.",
+            "A5: The caption doesn't indicate any labels or noteworthy indices in this image."
+        ]
+    }
+]
