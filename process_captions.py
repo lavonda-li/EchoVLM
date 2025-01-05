@@ -11,7 +11,7 @@ client = OpenAI(
 def create_parser():
     """Create and return the argument parser."""
     parser = argparse.ArgumentParser(description="Process captions using OpenAI API.")
-    parser.add_argument("--data_str", type=str, choices=["train", "val", "test"], help="Dataset type")
+    parser.add_argument("--data_str", type=str, choices=["train", "val", "test"], help="Dataset type", required=True)
     parser.add_argument("--input_dir", type=str, default="data", help="Input directory")
     parser.add_argument("--output_dir", type=str, default="output_batches", help="Output directory")
     parser.add_argument("--process_all", action="store_true", default=True, help="Process all entries")
@@ -92,6 +92,7 @@ if __name__ == "__main__":
     with open(input_file, "r") as file:
         data = json.load(file)
 
+    print(f"Loaded {len(data)} entries from '{input_file}'")
     total_entries = len(data) if args.process_all else args.num_entries_to_process
     for batch_start in range(args.start_idx, total_entries, args.batch_size):
         batch_end = min(batch_start + args.batch_size, total_entries)
