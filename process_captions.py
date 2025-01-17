@@ -3,6 +3,8 @@ import os
 import argparse
 from openai import OpenAI
 
+MAX_FILE_SIZE_PER_COMBINED_JSON = 99  # in MB
+
 # Initialize OpenAI client
 client = OpenAI(    
     api_key=os.environ["OPENAI_API_KEY"]
@@ -106,9 +108,24 @@ if __name__ == "__main__":
 
     # Combine all batch files into one
     combined_data = []
+    file_index = 1
+    current_file_size = 0
+    max_file_size = MAX_FILE_SIZE_PER_COMBINED_JSON * 1024 * 1024  # 99MB in bytes
+
     for batch_file in sorted(os.listdir(output_dir)):
         if batch_file.endswith(".json"):
             with open(os.path.join(output_dir, batch_file), "r") as f:
-                combined_data.extend(json.load(f))
-    save_to_json(combined_data, final_output_file)
-    print(f"All batches combined into '{final_output_file}'.")
+                batch_data = json.load(f)
+                batch_size = os.path.getsize(os.path.join(output_dir, batch_file))
+                if current_file_size + batch_size >= max_file_size:
+                    save_to_json(combined_data, f"{final_output_file}_{file_index}.json")
+                    print(f"Batch combined into '{final_output_file}_{file_index}.json'.")
+                    combined_data = []
+                    current_file_size = 0
+                    file_index += 1
+                combined_data.extend(batch_data)
+                current_file_size += batch_size
+
+    if combined_data:
+        save_to_json(combined_data, f"{final_output_file}_{file_index}.json")
+        print(f"Remaining batches combined into '{final_output_file}_{file_index}.json'.")
