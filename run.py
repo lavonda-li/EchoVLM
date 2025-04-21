@@ -155,7 +155,7 @@ if __name__ == "__main__":
     # create a argparse for the input folder
     parser = argparse.ArgumentParser(description="Process some integers.")
     parser.add_argument(
-        "input",
+        "--input",
         type=str,
         help="input folder",
         default="/home/danieljiang/physionet.org/files/mimic-iv-echo/0.1/files",
