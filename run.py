@@ -48,6 +48,7 @@ def process_dicoms(INPUT):
     """
 
     dicom_paths = glob.glob(f"{INPUT}/**/*.dcm", recursive=True)
+    assert len(dicom_paths) > 0, "No DICOM files found in the specified directory."
     stack_of_videos = []
     for idx, dicom_path in tqdm(enumerate(dicom_paths), total=len(dicom_paths)):
         try:
@@ -158,7 +159,7 @@ if __name__ == "__main__":
         "--input",
         type=str,
         help="input folder",
-        default="/home/lavonda/physionet.org/files/mimic-iv-echo/0.1/files",
+        default="/home/danieljiang/physionet.org/files/mimic-iv-echo/0.1/files",
     )
     args = parser.parse_args()
 
@@ -179,7 +180,7 @@ if __name__ == "__main__":
 
     stack_of_videos = process_dicoms(args.input)
     view_list = get_view_list(stack_of_videos, visualize=True)
-    
+
     # Save the output to a JSON file
     output_file = "view_list_output.json"
     with open(output_file, "w") as f:
