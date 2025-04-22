@@ -33,6 +33,7 @@ mean = torch.tensor([29.110628, 28.076836, 29.096405]).reshape(3, 1, 1, 1)
 std = torch.tensor([47.989223, 46.456997, 47.20083]).reshape(3, 1, 1, 1)
 
 
+
 def process_dicoms(INPUT):
     """
     Reads DICOM video data from the specified folder and returns a dictionary
