@@ -158,7 +158,7 @@ if __name__ == "__main__":
         "--input",
         type=str,
         help="input folder",
-        default="/home/danieljiang/physionet.org/files/mimic-iv-echo/0.1/files",
+        default="/home/lavonda/physionet.org/files/mimic-iv-echo/0.1/files",
     )
     args = parser.parse_args()
 
@@ -179,4 +179,9 @@ if __name__ == "__main__":
 
     stack_of_videos = process_dicoms(args.input)
     view_list = get_view_list(stack_of_videos, visualize=True)
-    print(view_list)
+    
+    # Save the output to a JSON file
+    output_file = "view_list_output.json"
+    with open(output_file, "w") as f:
+        json.dump(view_list, f)
+    print(f"View list saved to {output_file}")
