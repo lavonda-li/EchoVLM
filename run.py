@@ -163,7 +163,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     device = torch.device("cuda")
-    vc_checkpoint = torch.load("model_data/weights/view_classifier.ckpt")
+    vc_checkpoint = torch.load("model_data/weights/view_classifier.ckpt", map_location=device)
     vc_state_dict = {
         key[6:]: value for key, value in vc_checkpoint["state_dict"].items()
     }
