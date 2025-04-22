@@ -35,20 +35,18 @@ std = torch.tensor([47.989223, 46.456997, 47.20083]).reshape(3, 1, 1, 1)
 
 def process_dicoms(INPUT):
     """
-    Reads DICOM video data from the specified folder and returns a tensor
-    formatted for input into the EchoPrime model.
+    Reads DICOM video data from the specified folder and returns a dictionary
+    mapping filenames to tensors formatted for input into the EchoPrime model.
 
     Args:
         INPUT (str): Path to the folder containing DICOM files.
 
     Returns:
-        stack_of_videos (torch.Tensor): A float tensor of shape  (N, 3, 16, 224, 224)
-                                        representing the video data where N is the number of videos,
-                                        ready to be fed into EchoPrime.
+        video_dict (dict): A dictionary where keys are filenames and values are
+                           tensors representing the video data.
     """
-
     dicom_paths = glob.glob(f"{INPUT}/**/*.dcm", recursive=True)
-    stack_of_videos = []
+    video_dict = {}
     for idx, dicom_path in tqdm(enumerate(dicom_paths), total=len(dicom_paths)):
         try:
             # simple dicom_processing
@@ -61,7 +59,6 @@ def process_dicoms(INPUT):
 
             # if single channel repeat to 3 channels
             if pixels.ndim == 3:
-
                 pixels = np.repeat(pixels[..., None], 3, axis=3)
 
             # mask everything outside ultrasound region
@@ -90,65 +87,15 @@ def process_dicoms(INPUT):
                 x = torch.cat((x, padding), dim=1)
 
             start = 0
-            stack_of_videos.append(
-                x[:, start : (start + frames_to_take) : frame_stride, :, :]
-            )
+            video_dict[dicom_path] = x[
+                :, start : (start + frames_to_take) : frame_stride, :, :
+            ]
 
         except Exception as e:
-            print("corrupt file")
+            print(f"Corrupt file: {dicom_path}")
             print(str(e))
 
-    stack_of_videos = torch.stack(stack_of_videos)
-
-    return stack_of_videos
-
-
-def get_view_list(stack_of_videos, visualize=False):
-    """
-    Args:
-        stack_of_videos (torch.Tensor): A float tensor with preprocessed echo video data
-
-    Returns:
-        view_list A list of predicted views
-    """
-    ## get views
-    stack_of_first_frames = stack_of_videos[:, :, 0, :, :].to(device)
-    with torch.no_grad():
-        out_logits = view_classifier(stack_of_first_frames)
-    out_views = torch.argmax(out_logits, dim=1)
-    view_list = [utils.COARSE_VIEWS[v] for v in out_views]
-
-    # visualize images and the assigned views
-    if visualize:
-        print("Preprocessed and normalized video inputs")
-        rows, cols = (len(view_list) // 12 + (len(view_list) % 9 > 0)), 12
-        fig, axes = plt.subplots(rows, cols, figsize=(cols, rows))
-        axes = axes.flatten()
-        for i in range(len(view_list)):
-            display_image = (
-                stack_of_first_frames[i].cpu().permute([1, 2, 0]) * 255
-            ).numpy()
-            display_image = np.clip(display_image, 0, 255).astype("uint8")
-            display_image = np.ascontiguousarray(display_image)
-            display_image = cv2.cvtColor(display_image, cv2.COLOR_RGB2BGR)
-            cv2.putText(
-                display_image,
-                view_list[i].replace("_", " "),
-                (10, 25),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.7,
-                (0, 220, 255),
-                2,
-            )
-            axes[i].imshow(display_image)
-            axes[i].axis("off")
-
-        for j in range(i + 1, len(axes)):
-            axes[j].axis("off")
-        plt.subplots_adjust(wspace=0.05, hspace=0.05)
-        plt.show()
-
-    return view_list
+    return video_dict
 
 
 if __name__ == "__main__":
@@ -177,11 +124,14 @@ if __name__ == "__main__":
     for param in view_classifier.parameters():
         param.requires_grad = False
 
-    stack_of_videos = process_dicoms(args.input)
-    view_list = get_view_list(stack_of_videos, visualize=True)
-    
+    video_dict = process_dicoms(args.input)
+    output_dict = {}
+    for filename, video_tensor in video_dict.items():
+        view_list = get_view_list(video_tensor.unsqueeze(0), visualize=False)
+        output_dict[filename] = view_list
+
     # Save the output to a JSON file
     output_file = "view_list_output.json"
     with open(output_file, "w") as f:
-        json.dump(view_list, f)
+        json.dump(output_dict, f, indent=4)
     print(f"View list saved to {output_file}")
