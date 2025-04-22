@@ -48,6 +48,7 @@ def process_dicoms(INPUT):
     """
     dicom_paths = glob.glob(f"{INPUT}/**/*.dcm", recursive=True)
     video_dict = {}
+    assert len(dicom_paths) > 0, "No DICOM files found in the specified directory."
     for idx, dicom_path in tqdm(enumerate(dicom_paths), total=len(dicom_paths)):
         try:
             # simple dicom_processing
@@ -106,12 +107,12 @@ if __name__ == "__main__":
         "--input",
         type=str,
         help="input folder",
-        default="/home/lavonda/physionet.org/files/mimic-iv-echo/0.1/files",
+        default="/home/danieljiang/physionet.org/files/mimic-iv-echo/0.1/files",
     )
     args = parser.parse_args()
 
     device = torch.device("cuda")
-    vc_checkpoint = torch.load("model_data/weights/view_classifier.ckpt")
+    vc_checkpoint = torch.load("model_data/weights/view_classifier.ckpt", map_location=device)
     vc_state_dict = {
         key[6:]: value for key, value in vc_checkpoint["state_dict"].items()
     }
