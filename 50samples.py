@@ -1,17 +1,14 @@
-import os
+import os, json
 import matplotlib.pyplot as plt
 import pydicom
 from pydicom.pixel_data_handlers.util import convert_color_space
 
 # Sample JSON-style data (you should load this from a file or variable)
-dicom_dict = {
-    "/home/danieljiang/physionet.org/files/mimic-iv-echo/0.1/files/p10/p10002443/s93330659/93330659_0016.dcm": ["Parasternal_Short"],
-    "/home/danieljiang/physionet.org/files/mimic-iv-echo/0.1/files/p10/p10002443/s93330659/93330659_0070.dcm": ["Parasternal_Short"],
-    "/home/danieljiang/physionet.org/files/mimic-iv-echo/0.1/files/p10/p10002443/s93330659/93330659_0005.dcm": ["A4C"],
-    "/home/danieljiang/physionet.org/files/mimic-iv-echo/0.1/files/p10/p10002443/s93330659/93330659_0025.dcm": ["A2C"],
-    "/home/danieljiang/physionet.org/files/mimic-iv-echo/0.1/files/p10/p10002443/s93330659/93330659_0041.dcm": ["Apical_Doppler"],
-    # ... add more items here ...
-}
+# Read first 50 samples from the JSON file
+dicom_file = os.path.join(os.path.dirname(__file__), "video_list_output.json")
+with open(dicom_file, "r") as f:
+    dicom_dict = json.load(f)
+
 
 # Set up subplot grid
 n = min(50, len(dicom_dict))
