@@ -48,4 +48,5 @@ for j in range(idx + 1, len(axes)):
     axes[j].axis('off')
 
 plt.tight_layout()
-plt.show()
+# save the figure
+plt.savefig("dicom_images.png", dpi=300, bbox_inches='tight')
