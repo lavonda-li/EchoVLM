@@ -108,22 +108,16 @@ def main():
 
         if os.path.exists(out_file):
             with open(out_file) as f:
-                results = json.load(f)
-        else:
-            results = {}
+                print(f"✔️  {rel} already done—found {out_file}. Skipping.")
+                continue
 
-        processed = set(results.keys())
-        to_do     = [f for f in dcms if f not in processed]
-
-        if not to_do:
-            print(f"✔️  {rel} already done—found {out_file}. Skipping.")
-            continue
 
         failed = []
-        print(f"\n▶️  Processing {rel}: {len(to_do)} files remaining")
+        results = {}
+        print(f"\n▶️  Processing {rel}: {len(dcms)} files remaining")
 
         metas, vids, names = [], [], []
-        for i, name in enumerate(to_do):
+        for i, name in enumerate(dcms):
             dcm_path = os.path.join(root, name)
             try:
                 meta, vid = process_single_dicom(dcm_path)
@@ -136,7 +130,7 @@ def main():
             
 
             # Every BATCH_SIZE files, classify + flush
-            if len(vids) >= BATCH_SIZE or ((i == len(to_do) - 1) and len(vids) > 0):
+            if len(vids) >= BATCH_SIZE or ((i == len(dcms) - 1) and len(vids) > 0):
                 vids_stack = torch.stack(vids)
                 views = classify_batch(vids_stack)
                 for nm, md, vw in zip(names, metas, views):
