@@ -2,8 +2,6 @@
 import os
 import json
 import traceback
-from glob import glob
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import torch
 import torchvision
@@ -101,15 +99,12 @@ def main():
             continue
 
         rel        = os.path.relpath(root, MOUNT_ROOT)
-        # Mirror that path under ~/inference_output
         out_folder = os.path.join(OUTPUT_ROOT, rel)
         os.makedirs(out_folder, exist_ok=True)
 
-        # THIS is pointing at your inference_output folder:
         out_file = os.path.join(out_folder, "results.json")
         failed_file = os.path.join(out_folder, "failed.txt")
 
-        # If results.json exists, load it and skip any filenames it contains
         if os.path.exists(out_file):
             with open(out_file) as f:
                 results = json.load(f)
@@ -119,7 +114,6 @@ def main():
         processed = set(results.keys())
         to_do     = [f for f in dcms if f not in processed]
 
-        # If there’s absolutely nothing left to do here, skip the entire folder
         if not to_do:
             print(f"✔️  {rel} already done—found {out_file}. Skipping.")
             continue
@@ -127,46 +121,38 @@ def main():
         failed = []
         print(f"\n▶️  Processing {rel}: {len(to_do)} files remaining")
 
-        # CPU‐parallel preprocess + GPU‐batch inference
-        with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-            for i in range(0, len(to_do), BATCH_SIZE):
-                batch_names = to_do[i : i + BATCH_SIZE]
-                # submit DICOM→tensor tasks
-                futures = {
-                    executor.submit(process_single_dicom, os.path.join(root, name)): name
-                    for name in batch_names
-                }
+        metas, vids, names = [], [], []
+        for i, name in enumerate(to_do):
+            dcm_path = os.path.join(root, name)
+            try:
+                meta, vid = process_single_dicom(dcm_path)
+                metas.append(meta)
+                vids.append(vid)
+                names.append(name)
+            except Exception as e:
+                results[name] = {"error": str(e), "trace": traceback.format_exc()}
+                failed.append(name)
 
-                metas, vids, names = [], [], []
-                for fut in as_completed(futures):
-                    name = futures[fut]
-                    try:
-                        meta, vid = fut.result()
-                        metas.append(meta)
-                        vids.append(vid)
-                        names.append(name)
-                    except Exception as e:
-                        results[name] = {"error": str(e), "trace": traceback.format_exc()}
-                        failed.append(name)
+            # Every BATCH_SIZE files, classify + flush
+            if len(vids) >= BATCH_SIZE or (i == len(to_do) - 1):
+                vids_stack = torch.stack(vids)
+                views = classify_batch(vids_stack)
+                for nm, md, vw in zip(names, metas, views):
+                    results[nm] = {"metadata": md, "predicted_view": vw}
 
-                if vids:
-                    vids_stack = torch.stack(vids)
-                    views = classify_batch(vids_stack)
-                    for nm, md, vw in zip(names, metas, views):
-                        results[nm] = {"metadata": md, "predicted_view": vw}
-
-                # flush after each batch
+                # Save results
                 with open(out_file, "w") as f:
                     json.dump(results, f, indent=2)
                 with open(failed_file, "w") as f:
                     for fn in failed:
                         f.write(fn + "\n")
 
+                # Clear buffers for next batch
+                metas.clear()
+                vids.clear()
+                names.clear()
+
         successes = len(results) - len(failed)
         print(f"✅  {rel}: done. successes={successes}, failures={len(failed)}")
 
     print("\n🎉 All folders processed; outputs under", OUTPUT_ROOT)
-
-# ─── 7️⃣ ENTRY POINT ───────────────────────────────────────────────────────────
-if __name__ == "__main__":
-    main()
