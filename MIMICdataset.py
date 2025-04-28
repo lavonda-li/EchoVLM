@@ -29,35 +29,32 @@ std  = torch.tensor([47.989223, 46.456997, 47.20083],  device=device).reshape(3,
 
 # ─── 4️⃣ SINGLE‐DICOM → TENSOR + METADATA ────────────────────────────────────────
 def process_single_dicom(dcm_path):
-    try:
-        # 1) read & extract metadata
-        ds = pydicom.dcmread(dcm_path)
-        meta = {element.name: element.repval for element in ds}
+    # 1) read & extract metadata
+    ds = pydicom.dcmread(dcm_path)
+    meta = {element.name: element.repval for element in ds}
 
-        # 2) get frames
-        pixels = ds.pixel_array
-        # if pixels.ndim < 3 or (pixels.ndim == 3 and pixels.shape[2] == 3):
-        #     raise ValueError(f"Unexpected pixel dims {pixels.shape}")
+    # 2) get frames
+    pixels = ds.pixel_array
+    # if pixels.ndim < 3 or (pixels.ndim == 3 and pixels.shape[2] == 3):
+    #     raise ValueError(f"Unexpected pixel dims {pixels.shape}")
 
-        # 3) mask + crop/scale
-        pixels = video_utils.mask_outside_ultrasound(pixels)
-        x = np.zeros((len(pixels), video_size, video_size, 3), dtype=float)
-        for i in range(len(pixels)):
-            x[i] = video_utils.crop_and_scale(pixels[i])
+    # 3) mask + crop/scale
+    pixels = video_utils.mask_outside_ultrasound(pixels)
+    x = np.zeros((len(pixels), video_size, video_size, 3), dtype=float)
+    for i in range(len(pixels)):
+        x[i] = video_utils.crop_and_scale(pixels[i])
 
-        # 4) to torch [C, T, H, W], normalize
-        x = torch.as_tensor(x, dtype=torch.float, device=device).permute(3,0,1,2)
-        x.sub_(mean).div_(std)
+    # 4) to torch [C, T, H, W], normalize
+    x = torch.as_tensor(x, dtype=torch.float, device=device).permute(3,0,1,2)
+    x.sub_(mean).div_(std)
 
-        # 5) pad & stride
-        if x.shape[1] < frames_to_take:
-            pad = torch.zeros((3, frames_to_take-x.shape[1], video_size, video_size),
-                            device=device)
-            x = torch.cat([x, pad], dim=1)
-        vid = x[:, :frames_to_take:frame_stride, :, :]
-        return meta, vid
-    except Exception as e:
-        print(f"Error processing {dcm_path}: {e}")
+    # 5) pad & stride
+    if x.shape[1] < frames_to_take:
+        pad = torch.zeros((3, frames_to_take-x.shape[1], video_size, video_size),
+                        device=device)
+        x = torch.cat([x, pad], dim=1)
+    vid = x[:, :frames_to_take:frame_stride, :, :]
+    return meta, vid
 
 # ─── 5️⃣ CLASSIFY ONE‐VIDEO TENSOR → VIEW ────────────────────────────────────────
 def classify_view(video_tensor):
@@ -97,6 +94,9 @@ if __name__ == "__main__":
         os.makedirs(out_folder, exist_ok=True)
 
         results = {}
+        num_success = 0
+        num_failures = 0
+        failed_files = []
         for fname in tqdm(dcms, desc=f"Processing {rel}", unit="file"):
             path = os.path.join(root, fname)
             try:
@@ -106,16 +106,26 @@ if __name__ == "__main__":
                     "metadata": meta,
                     "predicted_view": view
                 }
+                num_success += 1
             except Exception as e:
                 results[fname] = {
                     "error": str(e),
                     "trace": traceback.format_exc()
                 }
-
+                num_failures += 1
+                failed_files.append(fname)
         # write this folder’s JSON
+        print(f"Processed {num_success} files successfully, {num_failures} failures.")
         out_file = os.path.join(out_folder, "results.json")
         with open(out_file, "w") as f:
             json.dump(results, f, indent=2)
             print(f"Saved {len(results)} results to {out_file}")
+
+        # write a summary of failures
+        failed_file = os.path.join(out_folder, "failed_files.txt")
+        with open(failed_file, "w") as f:
+            for fname in failed_files:
+                f.write(fname + "\n")
+        print(f"Saved {num_failures} failed files to {failed_file}")
 
     print("✅ Done — outputs mirrored under", OUTPUT_ROOT)
