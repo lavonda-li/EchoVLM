@@ -157,3 +157,7 @@ def main():
         print(f"✅  {rel}: done. successes={successes}, failures={len(failed)}")
 
     print("\n🎉 All folders processed; outputs under", OUTPUT_ROOT)
+
+
+if __name__ == "__main__":
+    main()
