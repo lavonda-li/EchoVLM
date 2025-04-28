@@ -35,7 +35,7 @@ def process_single_dicom(dcm_path):
     for element in ds:
         print(type(element))
         print(element.name)
-        print(element.value)
+        
 
     # 2) get frames
     pixels = ds.pixel_array
