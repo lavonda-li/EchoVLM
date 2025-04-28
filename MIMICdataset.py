@@ -101,13 +101,14 @@ def main():
             continue
 
         rel        = os.path.relpath(root, MOUNT_ROOT)
+        # Mirror that path under ~/inference_output
         out_folder = os.path.join(OUTPUT_ROOT, rel)
         os.makedirs(out_folder, exist_ok=True)
 
-        out_file    = os.path.join(out_folder, "results.json")
-        failed_file = os.path.join(out_folder, "failed_files.txt")
+        # THIS is pointing at your inference_output folder:
+        out_file = os.path.join(out_folder, "results.json")
 
-        # load existing results to skip completed
+        # If results.json exists, load it and skip any filenames it contains
         if os.path.exists(out_file):
             with open(out_file) as f:
                 results = json.load(f)
@@ -116,8 +117,10 @@ def main():
 
         processed = set(results.keys())
         to_do     = [f for f in dcms if f not in processed]
+
+        # If there’s absolutely nothing left to do here, skip the entire folder
         if not to_do:
-            print(f"✔️  {rel} already done, skipping.")
+            print(f"✔️  {rel} already done—found {out_file}. Skipping.")
             continue
 
         failed = []
