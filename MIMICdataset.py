@@ -36,7 +36,7 @@ def process_single_dicom(dcm_path):
         print(type(element))
         print(element.name)
         print(element.VR)
-        print(element.VM)
+        print(element.repval)
 
         
 
