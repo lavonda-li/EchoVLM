@@ -29,32 +29,35 @@ std  = torch.tensor([47.989223, 46.456997, 47.20083],  device=device).reshape(3,
 
 # ─── 4️⃣ SINGLE‐DICOM → TENSOR + METADATA ────────────────────────────────────────
 def process_single_dicom(dcm_path):
-    # 1) read & extract metadata
-    ds = pydicom.dcmread(dcm_path)
-    meta = {element.name: element.repval for element in ds}
+    try:
+        # 1) read & extract metadata
+        ds = pydicom.dcmread(dcm_path)
+        meta = {element.name: element.repval for element in ds}
 
-    # 2) get frames
-    pixels = ds.pixel_array
-    if pixels.ndim < 3 or (pixels.ndim == 3 and pixels.shape[2] == 3):
-        raise ValueError(f"Unexpected pixel dims {pixels.shape}")
+        # 2) get frames
+        pixels = ds.pixel_array
+        if pixels.ndim < 3 or (pixels.ndim == 3 and pixels.shape[2] == 3):
+            raise ValueError(f"Unexpected pixel dims {pixels.shape}")
 
-    # 3) mask + crop/scale
-    pixels = video_utils.mask_outside_ultrasound(pixels)
-    x = np.zeros((len(pixels), video_size, video_size, 3), dtype=float)
-    for i in range(len(pixels)):
-        x[i] = video_utils.crop_and_scale(pixels[i])
+        # 3) mask + crop/scale
+        pixels = video_utils.mask_outside_ultrasound(pixels)
+        x = np.zeros((len(pixels), video_size, video_size, 3), dtype=float)
+        for i in range(len(pixels)):
+            x[i] = video_utils.crop_and_scale(pixels[i])
 
-    # 4) to torch [C, T, H, W], normalize
-    x = torch.as_tensor(x, dtype=torch.float, device=device).permute(3,0,1,2)
-    x.sub_(mean).div_(std)
+        # 4) to torch [C, T, H, W], normalize
+        x = torch.as_tensor(x, dtype=torch.float, device=device).permute(3,0,1,2)
+        x.sub_(mean).div_(std)
 
-    # 5) pad & stride
-    if x.shape[1] < frames_to_take:
-        pad = torch.zeros((3, frames_to_take-x.shape[1], video_size, video_size),
-                          device=device)
-        x = torch.cat([x, pad], dim=1)
-    vid = x[:, :frames_to_take:frame_stride, :, :]
-    return meta, vid
+        # 5) pad & stride
+        if x.shape[1] < frames_to_take:
+            pad = torch.zeros((3, frames_to_take-x.shape[1], video_size, video_size),
+                            device=device)
+            x = torch.cat([x, pad], dim=1)
+        vid = x[:, :frames_to_take:frame_stride, :, :]
+        return meta, vid
+    except Exception as e:
+        print(f"Error processing {dcm_path}: {e}")
 
 # ─── 5️⃣ CLASSIFY ONE‐VIDEO TENSOR → VIEW ────────────────────────────────────────
 def classify_view(video_tensor):
