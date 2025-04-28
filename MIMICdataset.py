@@ -7,8 +7,7 @@ import torch
 import torchvision
 import numpy as np
 import pydicom
-from pydicom.multival import MultiValue
-from pydicom.sequence import Sequence
+from pydicom.pixel_data_handlers.util import convert_color_space
 from tqdm import tqdm
 
 import utils
@@ -28,40 +27,13 @@ video_size     = 224
 mean = torch.tensor([29.110628, 28.076836, 29.096405], device=device).reshape(3,1,1,1)
 std  = torch.tensor([47.989223, 46.456997, 47.20083],  device=device).reshape(3,1,1,1)
 
-
-def _serialize_value(val):
-    # Bytes → UTF-8 string
-    if isinstance(val, (bytes, bytearray)):
-        return val.decode("utf-8", errors="ignore")
-    # NumPy arrays → lists
-    if isinstance(val, np.ndarray):
-        return val.tolist()
-    # DICOM multi-value → list of serial values
-    if isinstance(val, MultiValue):
-        return [_serialize_value(v) for v in val]
-    # DICOM Sequence → list of dicts
-    if isinstance(val, Sequence):
-        return [ {**_serialize_dataset(item)} for item in val ]
-    # Try to JSON-dump it as is
-    try:
-        json.dumps(val)
-        return val
-    except Exception:
-        return str(val)
-
-def _serialize_dataset(ds):
-    out = {}
-    for elem in ds:
-        if elem.tag == ds.PixelData.tag:
-            continue
-        name = elem.name
-        out[name] = _serialize_value(elem.value)
-    return out
-
+# ─── 4️⃣ SINGLE‐DICOM → TENSOR + METADATA ────────────────────────────────────────
 def process_single_dicom(dcm_path):
-    # 1) read & extract clean metadata
-    ds   = pydicom.dcmread(dcm_path)
-    meta = _serialize_dataset(ds)
+    # 1) read & extract metadata
+    ds = pydicom.dcmread(dcm_path)
+    for element in ds:
+        print(f"type: {type(element)}")
+        print(element)
 
     # 2) get frames
     pixels = ds.pixel_array
@@ -84,7 +56,6 @@ def process_single_dicom(dcm_path):
                           device=device)
         x = torch.cat([x, pad], dim=1)
     vid = x[:, :frames_to_take:frame_stride, :, :]
-
     return meta, vid
 
 # ─── 5️⃣ CLASSIFY ONE‐VIDEO TENSOR → VIEW ────────────────────────────────────────
@@ -131,7 +102,6 @@ if __name__ == "__main__":
                 meta, vid = process_single_dicom(path)
                 view = classify_view(vid.unsqueeze(0))
                 results[fname] = {
-                    "filename": fname,
                     "metadata": meta,
                     "predicted_view": view
                 }
