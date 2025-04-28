@@ -31,10 +31,13 @@ std  = torch.tensor([47.989223, 46.456997, 47.20083],  device=device).reshape(3,
 def process_single_dicom(dcm_path):
     # 1) read & extract metadata
     ds = pydicom.dcmread(dcm_path)
-    # meta = {str(element) for element in ds}
+    meta = {str(element) for element in ds}
     for element in ds:
         print(type(element))
         print(element.name)
+        print(element.VR)
+        print(element.VM)
+
         
 
     # 2) get frames
