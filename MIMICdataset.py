@@ -36,8 +36,8 @@ def process_single_dicom(dcm_path):
 
         # 2) get frames
         pixels = ds.pixel_array
-        if pixels.ndim < 3 or (pixels.ndim == 3 and pixels.shape[2] == 3):
-            raise ValueError(f"Unexpected pixel dims {pixels.shape}")
+        # if pixels.ndim < 3 or (pixels.ndim == 3 and pixels.shape[2] == 3):
+        #     raise ValueError(f"Unexpected pixel dims {pixels.shape}")
 
         # 3) mask + crop/scale
         pixels = video_utils.mask_outside_ultrasound(pixels)
