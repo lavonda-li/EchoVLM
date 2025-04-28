@@ -31,7 +31,7 @@ std  = torch.tensor([47.989223, 46.456997, 47.20083],  device=device).reshape(3,
 def process_single_dicom(dcm_path):
     # 1) read & extract metadata
     ds = pydicom.dcmread(dcm_path)
-    meta = {element.name: element.value for element in ds if element.name != "PixelData"}
+    meta = ds.to_json_dict()
 
     # 2) get frames
     pixels = ds.pixel_array
@@ -54,7 +54,6 @@ def process_single_dicom(dcm_path):
                           device=device)
         x = torch.cat([x, pad], dim=1)
     vid = x[:, :frames_to_take:frame_stride, :, :]
-    print(f"Processed {dcm_path} to {vid.shape}")
     return meta, vid
 
 # ─── 5️⃣ CLASSIFY ONE‐VIDEO TENSOR → VIEW ────────────────────────────────────────
@@ -101,6 +100,7 @@ if __name__ == "__main__":
                 meta, vid = process_single_dicom(path)
                 view = classify_view(vid.unsqueeze(0))
                 results[fname] = {
+                    "filename": fname,
                     "metadata": meta,
                     "predicted_view": view
                 }
