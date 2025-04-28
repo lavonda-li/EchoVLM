@@ -133,9 +133,10 @@ def main():
             except Exception as e:
                 results[name] = {"error": str(e), "trace": traceback.format_exc()}
                 failed.append(name)
+            
 
             # Every BATCH_SIZE files, classify + flush
-            if len(vids) >= BATCH_SIZE or (i == len(to_do) - 1):
+            if len(vids) >= BATCH_SIZE or ((i == len(to_do) - 1) and len(vids) > 0):
                 vids_stack = torch.stack(vids)
                 views = classify_batch(vids_stack)
                 for nm, md, vw in zip(names, metas, views):
