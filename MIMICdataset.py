@@ -107,6 +107,7 @@ def main():
 
         # THIS is pointing at your inference_output folder:
         out_file = os.path.join(out_folder, "results.json")
+        failed_file = os.path.join(out_folder, "failed.txt")
 
         # If results.json exists, load it and skip any filenames it contains
         if os.path.exists(out_file):
