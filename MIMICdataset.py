@@ -31,9 +31,11 @@ std  = torch.tensor([47.989223, 46.456997, 47.20083],  device=device).reshape(3,
 def process_single_dicom(dcm_path):
     # 1) read & extract metadata
     ds = pydicom.dcmread(dcm_path)
+    # meta = {str(element) for element in ds}
     for element in ds:
-        print(f"type: {type(element)}")
-        print(element)
+        print(type(element))
+        print(element.name)
+        print(element.value)
 
     # 2) get frames
     pixels = ds.pixel_array
