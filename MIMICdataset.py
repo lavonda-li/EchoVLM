@@ -7,7 +7,6 @@ import torch
 import torchvision
 import numpy as np
 import pydicom
-from pydicom.json import dataset_to_json
 from pydicom.pixel_data_handlers.util import convert_color_space
 from tqdm import tqdm
 
@@ -32,7 +31,7 @@ std  = torch.tensor([47.989223, 46.456997, 47.20083],  device=device).reshape(3,
 def process_single_dicom(dcm_path):
     # 1) read & extract metadata
     ds = pydicom.dcmread(dcm_path)
-    meta = dataset_to_json(ds)
+    meta = {element.name: element.value for element in ds if element.name != "PixelData"}
 
     # 2) get frames
     pixels = ds.pixel_array
