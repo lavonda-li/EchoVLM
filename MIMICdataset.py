@@ -93,6 +93,7 @@ def classify_batch(videos):
 
 # ─── 6️⃣ MAIN PIPELINE ─────────────────────────────────────────────────────────
 def main():
+    print("starting MIMIC-Echo-IV inference pipeline")
     for root, dirs, files in os.walk(MOUNT_ROOT):
         dcms = [f for f in files if f.lower().endswith(".dcm")]
         if not dcms:
