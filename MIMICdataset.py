@@ -60,27 +60,51 @@ def _safe(val):
 
 # ─── 4️⃣ DICOM → TENSOR + METADATA ─────────────────────────────────────────────
 def process_single_dicom(dcm_path):
-    ds = pydicom.dcmread(dcm_path)
+    dcm = pydicom.dcmread(dcm_path)
     # JSON-safe metadata dict
-    meta = {elem.name: _safe(elem.value) for elem in ds if elem.name != "PixelData"}
+    meta = {elem.name: _safe(elem.value) for elem in dcm if elem.name != "PixelData"}
+    video_dict = {}
 
-    pixels = ds.pixel_array
-    if pixels.ndim < 3 or (pixels.ndim == 3 and pixels.shape[2] == 3):
-        raise ValueError(f"Unexpected pixel dims {pixels.shape}")
+    pixels = dcm.pixel_array
 
-    pixels = video_utils.mask_outside_ultrasound(pixels)
-    x = np.zeros((len(pixels), video_size, video_size, 3), dtype=float)
-    for i in range(len(pixels)):
+    # exclude images like (600,800) or (600,800,3)
+    if pixels.ndim < 3 or pixels.shape[2] == 3:
+        raise ValueError(f"Invalid pixel array shape: {pixels.shape}")
+
+    # if single channel repeat to 3 channels
+    if pixels.ndim == 3:
+        pixels = np.repeat(pixels[..., None], 3, axis=3)
+
+    # mask everything outside ultrasound region
+    pixels = video_utils.mask_outside_ultrasound(dcm.pixel_array)
+
+    # model specific preprocessing
+    x = np.zeros((len(pixels), 224, 224, 3))
+    for i in range(len(x)):
         x[i] = video_utils.crop_and_scale(pixels[i])
 
-    x = torch.as_tensor(x, dtype=torch.float, device=device).permute(3,0,1,2)
+    x = torch.as_tensor(x, dtype=torch.float).permute([3, 0, 1, 2])
+    # normalize
     x.sub_(mean).div_(std)
+
+    ## if not enough frames add padding
     if x.shape[1] < frames_to_take:
-        pad = torch.zeros((3, frames_to_take - x.shape[1], video_size, video_size),
-                          device=device)
-        x = torch.cat([x, pad], dim=1)
-    video = x[:, :frames_to_take:frame_stride, :, :]
-    return meta, video
+        padding = torch.zeros(
+            (
+                3,
+                frames_to_take - x.shape[1],
+                video_size,
+                video_size,
+            ),
+            dtype=torch.float,
+        )
+        x = torch.cat((x, padding), dim=1)
+
+    start = 0
+    video_dict[dcm_path] = x[
+        :, start : (start + frames_to_take) : frame_stride, :, :
+    ]
+    return meta, video_dict
 
 # ─── 5️⃣ BATCH CLASSIFY ─────────────────────────────────────────────────────────
 def classify_batch(videos):
