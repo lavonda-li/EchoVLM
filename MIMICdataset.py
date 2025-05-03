@@ -63,7 +63,6 @@ def process_single_dicom(dcm_path):
     dcm = pydicom.dcmread(dcm_path)
     # JSON-safe metadata dict
     meta = {elem.name: _safe(elem.value) for elem in dcm if elem.name != "PixelData"}
-    video_dict = {}
 
     pixels = dcm.pixel_array
 
@@ -101,10 +100,10 @@ def process_single_dicom(dcm_path):
         x = torch.cat((x, padding), dim=1)
 
     start = 0
-    video_dict[dcm_path] = x[
+    video = x[
         :, start : (start + frames_to_take) : frame_stride, :, :
     ]
-    return meta, video_dict
+    return meta, video
 
 # ─── 5️⃣ BATCH CLASSIFY ─────────────────────────────────────────────────────────
 def classify_batch(videos):
