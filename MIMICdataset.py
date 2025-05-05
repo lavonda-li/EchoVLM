@@ -170,8 +170,7 @@ def main():
                 vids.clear()
                 names.clear()
 
-        successes = len(results) - len(failed)
-        print(f"✅  {rel}: done. successes={successes}, failures={len(failed)}")
+        print(f"✅  {rel}: done. successes={len(results)}, failures={len(failed)}")
 
     print("\n🎉 All folders processed; outputs under", OUTPUT_ROOT)
 
