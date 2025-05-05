@@ -155,8 +155,8 @@ def main():
                 views = classify_batch(vids_stack)
                 for nm, md, vw in zip(names, metas, views):
                     file_path = os.path.join(root, nm)
-                    rel = os.path.relpath(file_path, MOUNT_ROOT)
-                    results[rel] = {"metadata": md, "predicted_view": vw}
+                    result_key = os.path.relpath(file_path, MOUNT_ROOT)
+                    results[result_key] = {"metadata": md, "predicted_view": vw}
 
                 # Save results
                 with open(out_file, "w") as f:
