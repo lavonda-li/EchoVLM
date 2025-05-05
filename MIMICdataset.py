@@ -147,7 +147,7 @@ def main():
                 names.append(name)
             except Exception as e:
                 # results[dcm_path] = {"error": str(e), "trace": traceback.format_exc()}
-                failed.append(dcm_path)
+                failed.append(os.path.relpath(dcm_path, MOUNT_ROOT))
             
             # Every BATCH_SIZE files, classify + flush
             if len(vids) >= BATCH_SIZE or ((i == len(dcms) - 1) and len(vids) > 0):
@@ -155,7 +155,8 @@ def main():
                 views = classify_batch(vids_stack)
                 for nm, md, vw in zip(names, metas, views):
                     file_path = os.path.join(root, nm)
-                    results[file_path] = {"metadata": md, "predicted_view": vw}
+                    rel = os.path.relpath(file_path, MOUNT_ROOT)
+                    results[rel] = {"metadata": md, "predicted_view": vw}
 
                 # Save results
                 with open(out_file, "w") as f:
