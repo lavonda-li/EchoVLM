@@ -61,9 +61,7 @@ def _safe(val):
 # ─── 4️⃣ DICOM → TENSOR + METADATA ─────────────────────────────────────────────
 def process_single_dicom(dcm_path):
     dcm = pydicom.dcmread(dcm_path)
-    # JSON-safe metadata dict
-    meta = {elem.name: _safe(elem.value) for elem in dcm if elem.name != "PixelData"}
-
+    meta = {element.name: element.repval for element in dcm}
     pixels = dcm.pixel_array
 
     # exclude images like (600,800) or (600,800,3)
@@ -148,16 +146,16 @@ def main():
                 vids.append(vid)
                 names.append(name)
             except Exception as e:
-                results[name] = {"error": str(e), "trace": traceback.format_exc()}
-                failed.append(name)
+                # results[dcm_path] = {"error": str(e), "trace": traceback.format_exc()}
+                failed.append(dcm_path)
             
-
             # Every BATCH_SIZE files, classify + flush
             if len(vids) >= BATCH_SIZE or ((i == len(dcms) - 1) and len(vids) > 0):
                 vids_stack = torch.stack(vids)
                 views = classify_batch(vids_stack)
                 for nm, md, vw in zip(names, metas, views):
-                    results[nm] = {"metadata": md, "predicted_view": vw}
+                    file_path = os.path.join(root, nm)
+                    results[file_path] = {"metadata": md, "predicted_view": vw}
 
                 # Save results
                 with open(out_file, "w") as f:
