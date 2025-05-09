@@ -7,7 +7,6 @@ import torch
 import torchvision
 import numpy as np
 import pydicom
-from pydicom.pixel_data_handlers.util import convert_color_space
 from tqdm import tqdm
 
 import utils
@@ -148,7 +147,7 @@ def main():
             except Exception as e:
                 # results[dcm_path] = {"error": str(e), "trace": traceback.format_exc()}
                 failed.append(os.path.relpath(dcm_path, MOUNT_ROOT))
-            
+
             # Every BATCH_SIZE files, classify + flush
             if len(vids) >= BATCH_SIZE or ((i == len(dcms) - 1) and len(vids) > 0):
                 vids_stack = torch.stack(vids)
