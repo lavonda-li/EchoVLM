@@ -112,9 +112,6 @@ def classify_batch(videos: torch.Tensor):
 def main():
     print("🚀 Starting MIMIC-Echo-IV inference pipeline …")
     for root, _dirs, files in os.walk(MOUNT_ROOT):
-        dcms = [f for f in files if f.lower().endswith(".dcm")]
-        if not dcms:
-            continue
 
         rel = os.path.relpath(root, MOUNT_ROOT)
 
@@ -123,17 +120,14 @@ def main():
             print(f"✔️  {rel} already in DONE_DIRS — skipping.")
             continue
 
+        dcms = [f for f in files if f.lower().endswith(".dcm")]
+        if not dcms:
+            continue
+
         out_folder = OUTPUT_ROOT / rel
         out_folder.mkdir(parents=True, exist_ok=True)
         out_file   = out_folder / "results.json"
         failed_file = out_folder / "failed.txt"
-
-        if out_file.exists():
-            print(f"✔️  {rel} already has results.json — adding to DONE_DIRS and skipping.")
-            with DONE_DIRS_FILE.open("a") as f:
-                f.write(rel + "\n")
-            DONE_DIRS.add(rel)
-            continue
 
         # Begin processing this directory
         failed, results = [], {}
