@@ -120,6 +120,11 @@ def main():
             print(f"✔️  {rel} already in DONE_DIRS — skipping.")
             continue
 
+        # if first dir of rel is p10, p11, p12, skip
+        if rel.startswith("p10") or rel.startswith("p11") or rel.startswith("p12"):
+            print(f"✔️  {rel} is a test folder — skipping.")
+            continue
+
         dcms = [f for f in files if f.lower().endswith(".dcm")]
         if not dcms:
             continue
