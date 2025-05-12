@@ -14,7 +14,7 @@ import utils
 import video_utils
 
 # ─── 1️⃣ CONFIG ────────────────────────────────────────────────────────────────
-MOUNT_ROOT  = Path(os.path.expanduser("~/mount-folder/MIMIC-Echo-IV"))
+MOUNT_ROOT  = Path(os.path.expanduser("~/mount-folder/MIMIC-Echo-IV/p19"))
 OUTPUT_ROOT = Path(os.path.expanduser("~/inference_output"))
 OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
 
@@ -114,12 +114,7 @@ def main():
     for root, _dirs, files in os.walk(MOUNT_ROOT):
 
         rel = os.path.relpath(root, MOUNT_ROOT)
-
-        # get first dir of rel
-        first_dir = rel.split(os.sep)[0]
-        if first_dir in ["p10", "p11", "p12"]:
-            continue
-
+        
         # Skip if already completed
         if rel in DONE_DIRS:
             print(f"✔️  {rel} already in DONE_DIRS — skipping.")
