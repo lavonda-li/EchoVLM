@@ -14,7 +14,7 @@ import utils
 import video_utils
 
 # ─── 1️⃣ CONFIG ────────────────────────────────────────────────────────────────
-MOUNT_ROOT  = Path(os.path.expanduser("~/mount-folder/MIMIC-Echo-IV/p19"))
+MOUNT_ROOT  = Path(os.path.expanduser("~/mount-folder/MIMIC-Echo-IV"))
 OUTPUT_ROOT = Path(os.path.expanduser("~/inference_output"))
 OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
 
@@ -144,7 +144,7 @@ def main():
                 names.append(name)
             except Exception as e:
                 # results[dcm_path] = {"error": str(e), "trace": traceback.format_exc()}
-                print(f"❌  {dcm_path} failed: {e}")
+                # print(f"❌  {dcm_path} failed: {e}")
                 failed.append(os.path.relpath(dcm_path, MOUNT_ROOT))
 
             # Flush every BATCH_SIZE or at end
