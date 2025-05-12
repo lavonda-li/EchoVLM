@@ -88,11 +88,12 @@ def process_single_dicom(dcm_path: Path):
     for i in range(len(vid_np)):
         vid_np[i] = video_utils.crop_and_scale(pixels[i])
 
-    vid = torch.from_numpy(vid_np).float().permute(3, 0, 1, 2)
+    vid = torch.from_numpy(vid_np).float().permute(3, 0, 1, 2).to(DEVICE)
     vid.sub_(MEAN).div_(STD)
 
     if vid.shape[1] < FRAMES_TAKE:
-        pad = torch.zeros(3, FRAMES_TAKE - vid.shape[1], VIDEO_SIZE, VIDEO_SIZE)
+        pad = torch.zeros(3, FRAMES_TAKE - vid.shape[1], VIDEO_SIZE, VIDEO_SIZE,
+                          device=DEVICE)
         vid = torch.cat((vid, pad), 1)
 
     start = 0
@@ -114,7 +115,7 @@ def main():
     for root, _dirs, files in os.walk(MOUNT_ROOT):
 
         rel = os.path.relpath(root, MOUNT_ROOT)
-        
+
         # Skip if already completed
         if rel in DONE_DIRS:
             print(f"✔️  {rel} already in DONE_DIRS — skipping.")
