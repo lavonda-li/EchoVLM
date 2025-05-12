@@ -147,6 +147,7 @@ def main():
                 names.append(name)
             except Exception as e:
                 # results[dcm_path] = {"error": str(e), "trace": traceback.format_exc()}
+                print(f"❌  {dcm_path} failed: {e}")
                 failed.append(os.path.relpath(dcm_path, MOUNT_ROOT))
             
             # Every BATCH_SIZE files, classify + flush
