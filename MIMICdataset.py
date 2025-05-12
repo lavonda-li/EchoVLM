@@ -115,14 +115,14 @@ def main():
 
         rel = os.path.relpath(root, MOUNT_ROOT)
 
+        # get first dir of rel
+        first_dir = rel.split(os.sep)[0]
+        if first_dir in ["p10", "p11", "p12"]:
+            continue
+
         # Skip if already completed
         if rel in DONE_DIRS:
             print(f"✔️  {rel} already in DONE_DIRS — skipping.")
-            continue
-
-        # if first dir of rel is p10, p11, p12, skip
-        if rel.startswith("p10") or rel.startswith("p11") or rel.startswith("p12"):
-            print(f"✔️  {rel} is a test folder — skipping.")
             continue
 
         dcms = [f for f in files if f.lower().endswith(".dcm")]
