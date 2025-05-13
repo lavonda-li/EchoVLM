@@ -129,6 +129,9 @@ def main():
         out_folder.mkdir(parents=True, exist_ok=True)
         out_file   = out_folder / "results.json"
         failed_file = out_folder / "failed.txt"
+        # create empty files
+        out_file.touch(exist_ok=True)
+        failed_file.touch(exist_ok=True)
 
         # Begin processing this directory
         failed, results = [], {}
