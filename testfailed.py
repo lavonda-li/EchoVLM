@@ -54,6 +54,7 @@ def process_dicoms(INPUT):
                 cv2.imwrite(f"skipped_image_{idx}.png", pixels)
                 continue
             else:
+                print(f"Processing {dicom_path} with shape {pixels.shape} and {pixels.ndim} dimensions")
                 cv2.imwrite(f"processed_image_{idx}.png", pixels)
 
             # if single channel repeat to 3 channels
