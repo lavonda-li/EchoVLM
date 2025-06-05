@@ -66,7 +66,8 @@ def process_dicoms(INPUT):
                                         ready to be fed into EchoPrime.
     """
 
-    dicom_paths = glob.glob(f'{INPUT}/**/*.dcm',recursive=True)
+    dicom_paths = glob.glob(f'{INPUT}/*.dcm',recursive=True)
+    print(f"Found {len(dicom_paths)} DICOM files")
     stack_of_videos=[]
     for idx, dicom_path in tqdm(enumerate(dicom_paths),total=len(dicom_paths)):
         try:
