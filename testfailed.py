@@ -47,6 +47,8 @@ def process_dicoms(INPUT):
 
             # exclude images like (600,800) or (600,800,3)
             if pixels.ndim < 3 or pixels.shape[2] == 3:
+                # reshape to (1,600,800,3)
+                pixels = pixels.reshape(1,pixels.shape[0],pixels.shape[1],pixels.shape[2])
                 continue
 
             # if single channel repeat to 3 channels
