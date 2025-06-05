@@ -20,7 +20,7 @@ import sklearn
 import sklearn.metrics
 
 # Hugging Face Hub
-from huggingface_hub import PyTorchModelHubMixin
+# from huggingface_hub import PyTorchModelHubMixin
 
 # Local module imports
 import utils
@@ -140,10 +140,10 @@ def get_view_list(stack_of_videos, visualize=False):
             axes[i].imshow(display_image)
             axes[i].axis("off")
 
-        for j in range(i + 1, len(axes)):
-            axes[j].axis("off")
-        plt.subplots_adjust(wspace=0.05, hspace=0.05)
-        plt.show()
+            for j in range(i + 1, len(axes)):
+                axes[j].axis("off")
+            plt.subplots_adjust(wspace=0.05, hspace=0.05)
+            plt.show()
 
     return view_list
 

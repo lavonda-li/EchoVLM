@@ -26,79 +26,67 @@ import video_utils
 
 def process_dicoms(INPUT):
     """
-    Reads DICOM video data from the specified folder and returns a tensor
-    formatted for input into the EchoPrime model.
+    Reads DICOM video data from the specified folder and returns a dictionary
+    mapping filenames to tensors formatted for input into the EchoPrime model.
 
     Args:
         INPUT (str): Path to the folder containing DICOM files.
 
     Returns:
-        stack_of_videos (torch.Tensor): A float tensor of shape  (N, 3, 16, 224, 224)
-                                        representing the video data where N is the number of videos,
-                                        ready to be fed into EchoPrime.
+        video_dict (dict): A dictionary where keys are filenames and values are
+                           tensors representing the video data.
     """
-
-    dicom_paths = glob.glob(f'{INPUT}/*.dcm',recursive=True)
-    print(f"dicom_paths: {dicom_paths}")
-    stack_of_videos=[]
-    for idx, dicom_path in tqdm(enumerate(dicom_paths),total=len(dicom_paths)):
+    dicom_paths = glob.glob(f"{INPUT}/*.dcm", recursive=True)
+    video_dict = {}
+    assert len(dicom_paths) > 0, "No DICOM files found in the specified directory."
+    for idx, dicom_path in tqdm(enumerate(dicom_paths), total=len(dicom_paths)):
         try:
             # simple dicom_processing
-            dcm=pydicom.dcmread(dicom_path)
+            dcm = pydicom.dcmread(dicom_path)
             pixels = dcm.pixel_array
 
             # exclude images like (600,800) or (600,800,3)
-            if pixels.ndim < 3 or pixels.shape[2]==3:
-                print(f"Skipping {dicom_path} because it has {pixels.ndim} dimensions and {pixels.shape[2]} channels")
-                # save the image
-                cv2.imwrite(f"skipped_image_{idx}.png", pixels)
+            if pixels.ndim < 3 or pixels.shape[2] == 3:
                 continue
-            else:
-                print(f"Processing {dicom_path} with shape {pixels.shape} and {pixels.ndim} dimensions")
-                cv2.imwrite(f"processed_image_{idx}.png", pixels)
 
             # if single channel repeat to 3 channels
-            if pixels.ndim==3:
-
+            if pixels.ndim == 3:
                 pixels = np.repeat(pixels[..., None], 3, axis=3)
 
             # mask everything outside ultrasound region
-            pixels=video_utils.mask_outside_ultrasound(dcm.pixel_array)
+            pixels = video_utils.mask_outside_ultrasound(dcm.pixel_array)
 
-
-
-            #model specific preprocessing
-            x = np.zeros((len(pixels),224,224,3))
+            # model specific preprocessing
+            x = np.zeros((len(pixels), 224, 224, 3))
             for i in range(len(x)):
                 x[i] = video_utils.crop_and_scale(pixels[i])
 
-            x = torch.as_tensor(x, dtype=torch.float).permute([3,0,1,2])
+            x = torch.as_tensor(x, dtype=torch.float).permute([3, 0, 1, 2])
             # normalize
             x.sub_(mean).div_(std)
 
             ## if not enough frames add padding
             if x.shape[1] < frames_to_take:
                 padding = torch.zeros(
-                (
-                    3,
-                    frames_to_take - x.shape[1],
-                    video_size,
-                    video_size,
-                ),
-                dtype=torch.float,
+                    (
+                        3,
+                        frames_to_take - x.shape[1],
+                        video_size,
+                        video_size,
+                    ),
+                    dtype=torch.float,
                 )
                 x = torch.cat((x, padding), dim=1)
 
-            start=0
-            stack_of_videos.append(x[:, start : ( start + frames_to_take) : frame_stride, : , : ])
+            start = 0
+            video_dict[dicom_path] = x[
+                :, start : (start + frames_to_take) : frame_stride, :, :
+            ]
 
         except Exception as e:
-            print("corrupt file")
+            print(f"Corrupt file: {dicom_path}")
             print(str(e))
-
-    stack_of_videos=torch.stack(stack_of_videos)
-
-    return stack_of_videos
+    return video_dict
 
 def embed_videos(stack_of_videos):
     """
