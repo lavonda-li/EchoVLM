@@ -158,10 +158,10 @@ def get_views(stack_of_videos, visualize=False):
             axes[i].imshow(display_image)
             axes[i].axis('off')
 
-        for j in range(i + 1, len(axes)):
-            axes[j].axis('off')
-        plt.subplots_adjust(wspace=0.05, hspace=0.05)
-        plt.show()
+            for j in range(i + 1, len(axes)):
+                axes[j].axis('off')
+            plt.subplots_adjust(wspace=0.05, hspace=0.05)
+            plt.show()
 
 
     return stack_of_view_encodings
