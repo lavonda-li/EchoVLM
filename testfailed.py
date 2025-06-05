@@ -77,8 +77,10 @@ def process_dicoms(INPUT):
 
             # exclude images like (600,800) or (600,800,3)
             if pixels.ndim < 3 or pixels.shape[2]==3:
-                print(f"Skipping {dicom_path} because it has {pixels.ndim} dimensions")
-                # continue
+                print(f"Skipping {dicom_path} because it has {pixels.ndim} dimensions and {pixels.shape[2]} channels")
+                # save the image
+                cv2.imwrite(f"skipped_image_{idx}.png", pixels)
+                continue
 
             # if single channel repeat to 3 channels
             if pixels.ndim==3:
