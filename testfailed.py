@@ -1,4 +1,4 @@
-INPUT = "~/test-folder"
+INPUT = "/home/lavonda/test-folder"
 
 # Standard library imports
 import os
