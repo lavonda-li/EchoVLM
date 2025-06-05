@@ -60,8 +60,7 @@ def process_dicoms(INPUT):
                 print(f"Skipping {dicom_path} because it has shape {pixels.shape} and {pixels.ndim} dimensions")
                 pixels = pixels.reshape(1,pixels.shape[0],pixels.shape[1],pixels.shape[2])
                 # continue
-            else:
-                print(f"Processing {dicom_path} with shape {pixels.shape} and {pixels.ndim} dimensions")
+            print(f"Processing {dicom_path} with shape {pixels.shape} and {pixels.ndim} dimensions")
 
             # if single channel repeat to 3 channels
             if pixels.ndim == 3:
