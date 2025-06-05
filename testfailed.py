@@ -150,6 +150,7 @@ def get_views(stack_of_videos, visualize=False):
                 axes[j].axis('off')
             plt.subplots_adjust(wspace=0.05, hspace=0.05)
             plt.show()
+            plt.savefig(f"view_encodings_{i}.png")
 
 
     return stack_of_view_encodings
