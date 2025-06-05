@@ -24,34 +24,6 @@ import sklearn.metrics
 import utils
 import video_utils
 
-device=torch.device("cuda")
-checkpoint = torch.load("model_data/weights/echo_prime_encoder.pt", map_location=device)
-echo_encoder = torchvision.models.video.mvit_v2_s()
-echo_encoder.head[-1] = torch.nn.Linear(echo_encoder.head[-1].in_features, 512)
-echo_encoder.load_state_dict(checkpoint)
-echo_encoder.eval()
-echo_encoder.to(device)
-for param in echo_encoder.parameters():
-    param.requires_grad = False
-
-vc_checkpoint = torch.load("model_data/weights/view_classifier.ckpt", map_location=device)
-vc_state_dict={key[6:]:value for key,value in vc_checkpoint['state_dict'].items()}
-view_classifier = torchvision.models.convnext_base()
-view_classifier.classifier[-1] = torch.nn.Linear(
-    view_classifier.classifier[-1].in_features, 11
-)
-view_classifier.load_state_dict(vc_state_dict)
-view_classifier.to(device)
-view_classifier.eval()
-for param in view_classifier.parameters():
-    param.requires_grad = False
-
-frames_to_take=32
-frame_stride=2
-video_size=224
-mean = torch.tensor([29.110628, 28.076836, 29.096405]).reshape(3, 1, 1, 1)
-std = torch.tensor([47.989223, 46.456997, 47.20083]).reshape(3, 1, 1, 1)
-
 def process_dicoms(INPUT):
     """
     Reads DICOM video data from the specified folder and returns a tensor
@@ -278,25 +250,55 @@ def predict_metrics(study_embedding: torch.Tensor,
 
     return preds
 
-encoded_study=encode_study(INPUT, visualize=True)
 
-# load MIL weights per section
-MIL_weights = pd.read_csv("MIL_weights.csv")
-non_empty_sections=MIL_weights['Section']
-section_weights=MIL_weights.iloc[:,1:].to_numpy()
+if __name__ == "__main__":
+    device=torch.device("cuda")
+    checkpoint = torch.load("model_data/weights/echo_prime_encoder.pt", map_location=device)
+    echo_encoder = torchvision.models.video.mvit_v2_s()
+    echo_encoder.head[-1] = torch.nn.Linear(echo_encoder.head[-1].in_features, 512)
+    echo_encoder.load_state_dict(checkpoint)
+    echo_encoder.eval()
+    echo_encoder.to(device)
+    for param in echo_encoder.parameters():
+        param.requires_grad = False
 
-# Load candidate reports
-candidate_studies=list(pd.read_csv("model_data/candidates_data/candidate_studies.csv")['Study'])
-candidate_embeddings_p1=torch.load("model_data/candidates_data/candidate_embeddings_p1.pt")
-candidate_embeddings_p2=torch.load("model_data/candidates_data/candidate_embeddings_p2.pt")
-candidate_embeddings=torch.cat((candidate_embeddings_p1,candidate_embeddings_p2),dim=0)
-# Optionally normalize each candidate embedding vector
-# candidate_embeddings = torch.nn.functional.normalize(candidate_embeddings,dim=1)
-candidate_reports=pd.read_pickle("model_data/candidates_data/candidate_reports.pkl")
-candidate_reports = [utils.phrase_decode(vec_phr) for vec_phr in tqdm(candidate_reports)]
-candidate_labels = pd.read_pickle("model_data/candidates_data/candidate_labels.pkl")
-section_to_phenotypes = pd.read_pickle("section_to_phenotypes.pkl")
+    vc_checkpoint = torch.load("model_data/weights/view_classifier.ckpt", map_location=device)
+    vc_state_dict={key[6:]:value for key,value in vc_checkpoint['state_dict'].items()}
+    view_classifier = torchvision.models.convnext_base()
+    view_classifier.classifier[-1] = torch.nn.Linear(
+        view_classifier.classifier[-1].in_features, 11
+    )
+    view_classifier.load_state_dict(vc_state_dict)
+    view_classifier.to(device)
+    view_classifier.eval()
+    for param in view_classifier.parameters():
+        param.requires_grad = False
 
-generate_report(encoded_study)
-print("Feature logits")
-predict_metrics(encoded_study)
+    frames_to_take=32
+    frame_stride=2
+    video_size=224
+    mean = torch.tensor([29.110628, 28.076836, 29.096405]).reshape(3, 1, 1, 1)
+    std = torch.tensor([47.989223, 46.456997, 47.20083]).reshape(3, 1, 1, 1)
+
+    encoded_study=encode_study(INPUT, visualize=True)
+
+    # load MIL weights per section
+    MIL_weights = pd.read_csv("MIL_weights.csv")
+    non_empty_sections=MIL_weights['Section']
+    section_weights=MIL_weights.iloc[:,1:].to_numpy()
+
+    # Load candidate reports
+    candidate_studies=list(pd.read_csv("model_data/candidates_data/candidate_studies.csv")['Study'])
+    candidate_embeddings_p1=torch.load("model_data/candidates_data/candidate_embeddings_p1.pt")
+    candidate_embeddings_p2=torch.load("model_data/candidates_data/candidate_embeddings_p2.pt")
+    candidate_embeddings=torch.cat((candidate_embeddings_p1,candidate_embeddings_p2),dim=0)
+    # Optionally normalize each candidate embedding vector
+    # candidate_embeddings = torch.nn.functional.normalize(candidate_embeddings,dim=1)
+    candidate_reports=pd.read_pickle("model_data/candidates_data/candidate_reports.pkl")
+    candidate_reports = [utils.phrase_decode(vec_phr) for vec_phr in tqdm(candidate_reports)]
+    candidate_labels = pd.read_pickle("model_data/candidates_data/candidate_labels.pkl")
+    section_to_phenotypes = pd.read_pickle("section_to_phenotypes.pkl")
+
+    generate_report(encoded_study)
+    print("Feature logits")
+    predict_metrics(encoded_study)
