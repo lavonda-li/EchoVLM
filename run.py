@@ -59,7 +59,7 @@ def process_dicoms(INPUT):
             if pixels.ndim < 3 or pixels.shape[2] == 3:
                 print(f"Skipping {dicom_path} because it has shape {pixels.shape} and {pixels.ndim} dimensions")
                 pixels = pixels.reshape(1,pixels.shape[0],pixels.shape[1],pixels.shape[2])
-                continue
+                # continue
             else:
                 print(f"Processing {dicom_path} with shape {pixels.shape} and {pixels.ndim} dimensions")
 
