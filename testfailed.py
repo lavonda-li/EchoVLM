@@ -67,7 +67,7 @@ def process_dicoms(INPUT):
     """
 
     dicom_paths = glob.glob(f'{INPUT}/*.dcm',recursive=True)
-    print(f"Found {len(dicom_paths)} DICOM files")
+    print(f"dicom_paths: {dicom_paths}")
     stack_of_videos=[]
     for idx, dicom_path in tqdm(enumerate(dicom_paths),total=len(dicom_paths)):
         try:
@@ -77,7 +77,8 @@ def process_dicoms(INPUT):
 
             # exclude images like (600,800) or (600,800,3)
             if pixels.ndim < 3 or pixels.shape[2]==3:
-                continue
+                print(f"Skipping {dicom_path} because it has {pixels.ndim} dimensions")
+                # continue
 
             # if single channel repeat to 3 channels
             if pixels.ndim==3:
