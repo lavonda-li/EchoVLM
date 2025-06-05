@@ -53,7 +53,8 @@ def process_dicoms(INPUT):
                 # save the image
                 cv2.imwrite(f"skipped_image_{idx}.png", pixels)
                 continue
-            cv2.imwrite(f"processed_image_{idx}.png", pixels)
+            else:
+                cv2.imwrite(f"processed_image_{idx}.png", pixels)
 
             # if single channel repeat to 3 channels
             if pixels.ndim==3:
