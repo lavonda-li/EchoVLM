@@ -37,6 +37,11 @@ def clean_pixel_data_from_json(json_file_path):
                     modified = True
                     # print(f"Removed 'Pixel Data' from {key}")
 
+                if "Sequence of Ultrasound Regions" in metadata:
+                    del metadata["Sequence of Ultrasound Regions"]
+                    modified = True
+                    # print(f"Removed 'Sequence of Ultrasound Regions' from {key}")
+
         # Write back the modified data if changes were made
         if modified:
             with open(json_file_path, 'w') as f:
