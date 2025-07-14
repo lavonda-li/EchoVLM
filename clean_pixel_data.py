@@ -35,7 +35,7 @@ def clean_pixel_data_from_json(json_file_path):
                 if 'Pixel Data' in metadata:
                     del metadata['Pixel Data']
                     modified = True
-                    print(f"Removed 'Pixel Data' from {key}")
+                    # print(f"Removed 'Pixel Data' from {key}")
 
         # Write back the modified data if changes were made
         if modified:
