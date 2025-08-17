@@ -77,8 +77,9 @@ def run(config: Dict[str, Any]) -> Dict[str, Any]:
         logger.info(f"Using weights path: {weights_path}")
         # Convert to absolute path for debugging
         if not Path(weights_path).is_absolute():
-            echoprime_path = Path(__file__).parent.parent.parent.parent / "modules" / "EchoPrime"
-            abs_weights_path = echoprime_path / weights_path
+            # Get the project root (parent of src/)
+            project_root = Path(__file__).parent.parent.parent.parent
+            abs_weights_path = project_root / weights_path
             logger.info(f"Absolute weights path: {abs_weights_path}")
             if not abs_weights_path.exists():
                 logger.error(f"Weights file not found: {abs_weights_path}")

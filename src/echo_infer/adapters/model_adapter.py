@@ -34,9 +34,9 @@ def load_echoprime_model(
     if weights_path:
         # Convert relative path to absolute path if needed
         if not Path(weights_path).is_absolute():
-            # Get the EchoPrime submodule path
-            echoprime_path = Path(__file__).parent.parent.parent.parent / "modules" / "EchoPrime"
-            weights_path = str(echoprime_path / weights_path)
+            # Get the project root (parent of src/)
+            project_root = Path(__file__).parent.parent.parent.parent
+            weights_path = str(project_root / weights_path)
         
         # Verify the weights file exists
         if not Path(weights_path).exists():

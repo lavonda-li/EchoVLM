@@ -1,6 +1,6 @@
 model:
   name: echoprime
-  weights_path: /home/lavonda/EchoPrime/modules/EchoPrime/model_data/weights/echo_prime_encoder.pt
+  weights_path: modules/EchoPrime/model_data/weights/echo_prime_encoder.pt
   device: cuda:0
 
 data:
