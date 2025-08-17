@@ -32,18 +32,34 @@ def load_echoprime_model(
     
     # Handle weights path resolution
     if weights_path:
-        # Convert relative path to absolute path if needed
-        if not Path(weights_path).is_absolute():
-            # Get the project root (parent of src/)
-            project_root = Path(__file__).parent.parent.parent.parent
-            weights_path = str(project_root / weights_path)
+        # Try multiple path resolution strategies
+        possible_paths = []
         
-        # Verify the weights file exists
-        if not Path(weights_path).exists():
-            raise FileNotFoundError(f"Model weights file not found: {weights_path}")
+        # Strategy 1: Relative to project root (src/echo_infer/adapters/model_adapter.py -> project root)
+        project_root = Path(__file__).parent.parent.parent.parent
+        possible_paths.append(project_root / weights_path)
         
-        # Pass the absolute path to EchoPrime
-        kwargs['weights_path'] = weights_path
+        # Strategy 2: Relative to current working directory
+        possible_paths.append(Path.cwd() / weights_path)
+        
+        # Strategy 3: If weights_path already contains modules/EchoPrime, try from current directory
+        if "modules/EchoPrime" in weights_path:
+            # Remove the modules/EchoPrime prefix and try from current directory
+            relative_path = weights_path.replace("modules/EchoPrime/", "")
+            possible_paths.append(Path.cwd() / relative_path)
+        
+        # Find the first path that exists
+        resolved_weights_path = None
+        for path in possible_paths:
+            if path.exists():
+                resolved_weights_path = str(path)
+                break
+        
+        if resolved_weights_path is None:
+            raise FileNotFoundError(f"Model weights file not found. Tried: {[str(p) for p in possible_paths]}")
+        
+        # Pass the resolved path to EchoPrime
+        kwargs['weights_path'] = resolved_weights_path
     
     # Environment is already set up in __init__.py
     model = EchoPrime(device=device, **kwargs)

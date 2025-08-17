@@ -75,15 +75,37 @@ def run(config: Dict[str, Any]) -> Dict[str, Any]:
     weights_path = model_config.get('weights_path')
     if weights_path:
         logger.info(f"Using weights path: {weights_path}")
-        # Convert to absolute path for debugging
-        if not Path(weights_path).is_absolute():
-            # Get the project root (parent of src/)
-            project_root = Path(__file__).parent.parent.parent.parent
-            abs_weights_path = project_root / weights_path
-            logger.info(f"Absolute weights path: {abs_weights_path}")
-            if not abs_weights_path.exists():
-                logger.error(f"Weights file not found: {abs_weights_path}")
-                raise FileNotFoundError(f"Model weights file not found: {abs_weights_path}")
+        
+        # Try multiple path resolution strategies
+        possible_paths = []
+        
+        # Strategy 1: Relative to project root (src/echo_infer/pipeline.py -> project root)
+        project_root = Path(__file__).parent.parent.parent.parent
+        possible_paths.append(project_root / weights_path)
+        
+        # Strategy 2: Relative to current working directory
+        possible_paths.append(Path.cwd() / weights_path)
+        
+        # Strategy 3: If weights_path already contains modules/EchoPrime, try from current directory
+        if "modules/EchoPrime" in weights_path:
+            # Remove the modules/EchoPrime prefix and try from current directory
+            relative_path = weights_path.replace("modules/EchoPrime/", "")
+            possible_paths.append(Path.cwd() / relative_path)
+        
+        # Find the first path that exists
+        abs_weights_path = None
+        for path in possible_paths:
+            logger.info(f"Trying path: {path}")
+            if path.exists():
+                abs_weights_path = path
+                logger.info(f"Found weights file at: {abs_weights_path}")
+                break
+        
+        if abs_weights_path is None:
+            logger.error("Weights file not found at any of these locations:")
+            for path in possible_paths:
+                logger.error(f"  - {path}")
+            raise FileNotFoundError(f"Model weights file not found. Tried: {[str(p) for p in possible_paths]}")
 
     model = load_echoprime_model(
         weights_path=weights_path,
