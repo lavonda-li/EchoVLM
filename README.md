@@ -1,99 +1,172 @@
-# EchoInfer
+# EchoVLM (Echo Vision Language Model)
+
+A comprehensive framework for medical image analysis and question answering using vision-language models, built around the EchoPrime model.
+
+## Overview
+
+EchoVLM is a complete ecosystem for medical image processing, analysis, and question answering. It consists of multiple specialized packages that work together to provide end-to-end solutions for medical image interpretation tasks.
+
+## Project Structure
+
+```
+EchoVLM/
+├── modules/
+│   └── EchoPrime/              # Core EchoPrime model (Git submodule)
+├── src/
+│   ├── echo_infer/             # Medical image inference package
+│   │   ├── README.md           # EchoInfer documentation
+│   │   ├── __init__.py         # Package exports
+│   │   ├── cli.py              # CLI interface for inference
+│   │   ├── pipeline.py         # Main inference pipeline
+│   │   ├── config.py           # Configuration management
+│   │   ├── adapters/           # EchoPrime integration adapters
+│   │   └── utils/              # Utility functions
+│   └── echo_qa/                # Medical image Q&A package
+│       ├── README.md           # EchoQA documentation
+│       ├── __init__.py         # Package exports
+│       ├── cli.py              # CLI interface for Q&A
+│       ├── core/               # Core Q&A functionality
+│       ├── utils/              # Utilities and configuration
+│       ├── tests/              # Test suite
+│       ├── examples/           # Usage examples
+│       └── requirements.txt    # Dependencies
+├── configs/                    # Configuration files
+├── data/                       # Data directories
+├── tests/                      # Project-wide tests
+├── pyproject.toml             # Project configuration
+├── Makefile                   # Development tasks
+└── README.md                  # This file
+```
+
+## Packages
+
+### EchoInfer (`src/echo_infer/`)
+
+**Medical Image Inference Package**
 
 A modern, maintainable Python package for running EchoPrime model inference with minimal glue code and maximum reuse of the EchoPrime submodule.
 
-## Features
+**Key Features:**
+- Thin wrapper around EchoPrime submodule
+- CLI interface for inference and batch processing
+- YAML-based configuration management
+- Structured logging and error handling
+- Support for DICOM file processing
 
-- **Thin wrapper**: Minimal code that delegates to EchoPrime submodule
-- **Modern layout**: Standard `src/` layout with clear separation of concerns
-- **CLI interface**: Easy-to-use command-line interface for inference and batch processing
-- **Configuration management**: YAML-based configuration with environment variable overrides
-- **Structured logging**: JSON-formatted logs for better observability
-- **Type hints**: Full type annotations for better IDE support and code quality
-- **Testing**: Comprehensive test suite with smoke tests and CLI tests
+**Quick Start:**
+```bash
+# Run inference on DICOM files
+echo-infer run --config configs/default.yaml --input data/raw --output results/
 
-## Quick Start
+# Batch processing
+echo-infer batch manifest.csv --output results/
+```
 
-### Installation
+**Documentation:** See [`src/echo_infer/README.md`](src/echo_infer/README.md) for detailed documentation.
+
+### EchoQA (`src/echo_qa/`)
+
+**Medical Image Question Answering Package**
+
+A Python package designed to process medical image captions and generate structured Q&A data using OpenAI's GPT models for medical image interpretation.
+
+**Key Features:**
+- Medical image caption processing
+- Structured Q&A generation using GPT models
+- Batch processing for large datasets
+- Comprehensive error handling and logging
+- Flexible configuration management
+
+**Quick Start:**
+```bash
+# Process training data
+echo-qa --data_str train --batch_size 100
+
+# Process with custom settings
+echo-qa --data_str val --batch_size 50 --start_idx 1000
+```
+
+**Documentation:** See [`src/echo_qa/README.md`](src/echo_qa/README.md) for detailed documentation.
+
+## Installation
+
+### Prerequisites
+
+1. **Python 3.8+**
+2. **Git submodules**: The EchoPrime model is included as a Git submodule
+3. **OpenAI API key** (for EchoQA functionality)
+
+### Setup
 
 ```bash
-# Install in development mode
-make install
+# Clone the repository with submodules
+git clone --recursive <repository-url>
+cd EchoVLM
 
-# Or with development dependencies
+# Initialize submodules if needed
+git submodule update --init --recursive
+
+# Install the entire project with all dependencies
+pip install -e .
+
+# Or install with development dependencies
+pip install -e ".[dev]"
+
+# Alternative: Use make commands if available
+make install
 make install-dev
 ```
 
-### Basic Usage
+### Environment Setup
 
 ```bash
-# Run inference with default config
-echo-infer run --config configs/default.yaml --input data/raw --output results/
+# Set OpenAI API key for EchoQA
+export OPENAI_API_KEY="your-api-key-here"
 
-# Run with verbose logging
-echo-infer run --config configs/default.yaml --verbose
-
-# Run batch processing
-echo-infer batch manifest.csv --output results/
-
-# Show help
-echo-infer --help
+# Optional: Set other environment variables
+export ECHO_DEVICE=cuda:0
+export ECHO_LOG_LEVEL=INFO
 ```
 
-### Advanced Usage Examples
+## Quick Start Examples
 
-#### Single Directory Inference
+### Medical Image Inference
+
 ```bash
-# Process all DICOM files in a directory
-echo-infer run --config configs/default.yaml --input p10 --output results/ --verbose
+# Process a directory of DICOM files
+echo-infer run --config configs/default.yaml --input data/dicoms --output results/
 
-# With custom input/output paths
-echo-infer run --config configs/default.yaml --input /path/to/dicoms --output /path/to/results --verbose
+# Run batch processing with manifest
+echo-infer batch manifest.csv --config configs/default.yaml --output results/
 ```
 
-#### Batch Processing
+### Medical Image Q&A
+
 ```bash
-# Create a manifest file
-cat > batch_manifest.csv << EOF
-input_dir,output_name
-/home/mount-folder/p10,p10_results
-/home/mount-folder/p11,p11_results
-/home/mount-folder/p12,p12_results
-EOF
+# Process training dataset
+echo-qa --data_str train --batch_size 100
 
-# Run batch inference
-echo-infer batch batch_manifest.csv --config configs/default.yaml --output results/ --verbose
+# Process validation dataset with custom settings
+echo-qa --data_str val --batch_size 50 --start_idx 1000
 ```
 
-#### GCP Deployment
+### SLURM Cluster Processing
+
 ```bash
-# Use GCP-specific config
-echo-infer run --config configs/gcp.yaml --input mount-folder/p10 --output results/ --verbose
+# Submit inference jobs
+sbatch src/echo_infer/submit_inference.sh
 
-# Batch processing on GCP
-echo-infer batch gcp_manifest.csv --config configs/gcp.yaml --output results/ --verbose
+# Submit Q&A processing jobs
+sbatch src/echo_qa/submit_train.sh
+sbatch src/echo_qa/submit_val.sh
+sbatch src/echo_qa/submit_test.sh
 ```
 
-### Output Format
+## Configuration
 
-Results are saved as individual JSON files with names based on the directory structure:
+### EchoInfer Configuration
 
-- **Input**: `p10/p10002221/s94106955/94106955_0001.dcm`
-- **Output**: `results/p10_p10002221_s94106955.json`
-
-Each result file contains:
-```json
-{
-  "views": ["A2C", "A4C"],
-  "video_shape": [3, 16, 224, 224],
-  "device": "cuda:0",
-  "source_file": "/path/to/original/file.dcm"
-}
-```
-
-### Configuration
-
-The package uses YAML configuration files. See `configs/default.yaml` for the default configuration:
+EchoInfer uses YAML configuration files. See `configs/default.yaml` for the default configuration:
 
 ```yaml
 model:
@@ -105,63 +178,31 @@ data:
   input_dir: data/raw
   pattern: "*.dcm"
   batch_size: 16
-  num_workers: 4
-
-infer:
-  fp16: true
-  num_threads: 4
-  save_probs: true
 
 output:
   dir: outputs/
-
-logging:
-  level: INFO
 ```
 
-### Environment Variables
+### EchoQA Configuration
 
-You can override configuration values using environment variables:
+EchoQA uses command-line arguments and environment variables:
 
 ```bash
-export ECHO_DEVICE=cpu
-export ECHO_BATCH_SIZE=8
-export ECHO_INPUT_DIR=/path/to/data
-export ECHO_OUTPUT_DIR=/path/to/results
-export ECHO_LOG_LEVEL=DEBUG
-```
+# Basic configuration
+echo-qa --data_str train --batch_size 100
 
-## Project Structure
-
-```
-.
-├── modules/
-│   └── EchoPrime/              # Git submodule (unchanged)
-├── src/
-│   └── echo_infer/
-│       ├── __init__.py         # Package exports
-│       ├── cli.py              # Typer CLI interface
-│       ├── config.py           # YAML config loading
-│       ├── pipeline.py         # Main inference pipeline
-│       ├── adapters/           # Thin wrappers to submodule
-│       │   ├── model_adapter.py
-│       │   └── dataset_adapter.py
-│       └── utils/
-│           ├── io.py           # File operations
-│           └── logging.py      # Structured logging
-├── configs/
-│   └── default.yaml           # Default configuration
-├── tests/
-│   ├── test_smoke.py          # Smoke tests
-│   └── test_cli.py            # CLI tests
-├── pyproject.toml             # Package configuration
-├── Makefile                   # Development tasks
-└── README.md                  # This file
+# Advanced configuration
+echo-qa \
+  --data_str train \
+  --batch_size 100 \
+  --openai_model gpt-4-turbo \
+  --max_tokens 500 \
+  --log_level DEBUG
 ```
 
 ## Development
 
-### Setup
+### Project Setup
 
 ```bash
 # Install development dependencies
@@ -171,7 +212,7 @@ make install-dev
 make pre-commit
 ```
 
-### Common Tasks
+### Common Development Tasks
 
 ```bash
 # Format code
@@ -196,48 +237,75 @@ make clean
 # Run all tests
 pytest
 
-# Run with coverage
+# Run tests with coverage
 make test-cov
 
-# Run specific test file
-pytest tests/test_smoke.py
+# Run specific package tests
+pytest tests/echo_infer/
+pytest tests/echo_qa/
 ```
 
-## API Reference
+## Data Formats
 
-### Main Functions
+### EchoInfer Input/Output
 
-- `echo_infer.run(config)`: Run inference pipeline
-- `echo_infer.run_batch(manifest, config)`: Run batch inference
-- `echo_infer.load_config(path, overrides)`: Load configuration
-- `echo_infer.load_echoprime_model(**kwargs)`: Load EchoPrime model
-
-### CLI Commands
-
-- `echo-infer run`: Run inference on DICOM files
-- `echo-infer batch`: Run batch inference using manifest
-- `echo-infer info`: Show package information
-
-## EchoPrime Integration
-
-This package is designed as a thin wrapper around the EchoPrime submodule. It:
-
-1. **Reuses EchoPrime code**: All heavy lifting is delegated to the submodule
-2. **Provides clean interfaces**: Simple, well-documented APIs for common tasks
-3. **Handles path management**: Automatically manages working directory changes for relative paths
-4. **Maintains compatibility**: Doesn't modify EchoPrime internals
-
-### Import Paths
-
-The package automatically handles importing from the EchoPrime submodule:
-
-```python
-# Before (broken after submodule move)
-from echoprime.dataset import EchoDataset
-
-# After (handled by adapters)
-from echo_infer.adapters.model_adapter import load_echoprime_model
+**Input:** DICOM files organized in directory structure
 ```
+p10/p10002221/s94106955/94106955_0001.dcm
+```
+
+**Output:** JSON files with view predictions
+```json
+{
+  "views": ["A2C", "A4C"],
+  "video_shape": [3, 16, 224, 224],
+  "device": "cuda:0",
+  "source_file": "/path/to/original/file.dcm"
+}
+```
+
+### EchoQA Input/Output
+
+**Input:** JSON files with medical image captions
+```json
+[
+  {
+    "conversations": [
+      {
+        "value": "Echocardiogram showing normal left ventricular function"
+      }
+    ],
+    "id": "unique_identifier"
+  }
+]
+```
+
+**Output:** JSON files with structured Q&A data
+```json
+[
+  {
+    "id": "unique_identifier",
+    "caption": "Echocardiogram showing normal left ventricular function",
+    "answers": [
+      "A1: Echocardiogram",
+      "A2: Left ventricle",
+      "A3: No abnormalities",
+      "A4: Normal appearance",
+      "A5: No significant labels"
+    ]
+  }
+]
+```
+
+## Medical Questions
+
+EchoQA automatically asks the following medical questions for each caption:
+
+1. **Q1**: What imaging modality is represented in this image?
+2. **Q2**: What body region or anatomical area does this image depict?
+3. **Q3**: Are there any abnormalities identified in this image?
+4. **Q4**: Does this image appear normal, or does it show any irregularities?
+5. **Q5**: Does this image contain any label or index that is significant or noteworthy?
 
 ## Troubleshooting
 
@@ -248,54 +316,31 @@ from echo_infer.adapters.model_adapter import load_echoprime_model
    git submodule update --init --recursive
    ```
 
-2. **CUDA errors**: Check device configuration in config file
+2. **CUDA errors**: Check device configuration
    ```yaml
    model:
      device: cpu  # Use CPU if CUDA not available
    ```
 
-3. **Missing dependencies**: Install development dependencies
+3. **OpenAI API errors**: Verify API key is set
    ```bash
-   make install-dev
+   export OPENAI_API_KEY="your-api-key-here"
    ```
 
-4. **Path issues**: Ensure working directory is correct for relative paths
+4. **Path issues**: Ensure working directory is correct
    ```bash
    # Run from repository root
-   cd /path/to/echo-infer
-   echo-infer run --config configs/default.yaml
+   cd /path/to/EchoVLM
    ```
 
-### Error Handling and Robustness
+### Error Handling
 
-The pipeline is designed to handle errors gracefully:
+Both packages are designed to handle errors gracefully:
 
-- **Individual file failures**: If one DICOM file fails, processing continues with other files
-- **Partial results**: Returns results for successfully processed files even if some fail
+- **Individual file failures**: Processing continues with other files
+- **Partial results**: Returns results for successfully processed files
 - **Detailed logging**: Shows success/error counts and specific failure reasons
-- **Graceful degradation**: Continues processing instead of crashing on errors
-
-#### Expected Output with Errors
-```
-{"timestamp": "2025-08-17 07:11:57", "level": "INFO", "module": "echo_infer", "message": "Processing 50 DICOM files..."}
-{"timestamp": "2025-08-17 07:11:57", "level": "ERROR", "module": "echo_infer", "message": "Error processing file1.dcm: Invalid DICOM format"}
-{"timestamp": "2025-08-17 07:11:57", "level": "INFO", "module": "echo_infer", "message": "Processing complete: 45 successful, 5 errors"}
-```
-
-### Debug Mode
-
-Enable verbose logging for debugging:
-
-```bash
-echo-infer run --config configs/default.yaml --verbose
-```
-
-Or set environment variable:
-
-```bash
-export ECHO_LOG_LEVEL=DEBUG
-echo-infer run --config configs/default.yaml
-```
+- **Graceful degradation**: Continues processing instead of crashing
 
 ## Contributing
 
@@ -312,5 +357,8 @@ MIT License - see LICENSE file for details.
 ## Acknowledgments
 
 - EchoPrime team for the core model and processing pipeline
+- OpenAI team for the GPT models used in Q&A generation
 - PyTorch team for the deep learning framework
 - Typer team for the excellent CLI framework
+
+

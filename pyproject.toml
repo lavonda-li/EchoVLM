@@ -3,9 +3,9 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "echo-infer"
+name = "echo-vlm"
 version = "0.1.0"
-description = "EchoInfer - EchoPrime inference package - thin wrapper around EchoPrime submodule"
+description = "EchoVLM - Comprehensive framework for medical image analysis and question answering using vision-language models"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
@@ -24,6 +24,7 @@ classifiers = [
 ]
 requires-python = ">=3.8"
 dependencies = [
+    # Core ML dependencies
     "torch>=1.12.0",
     "torchvision>=0.13.0",
     "numpy>=1.21.0",
@@ -37,6 +38,10 @@ dependencies = [
     "typer>=0.7.0",
     "rich>=12.0.0",
     "transformers>=4.20.0",
+    # EchoQA dependencies
+    "openai>=1.0.0",
+    "pathlib2>=2.3.0; python_version < '3.4'",
+    "typing-extensions>=4.0.0; python_version < '3.8'",
 ]
 
 [project.optional-dependencies]
@@ -51,11 +56,12 @@ dev = [
 
 [project.scripts]
 echo-infer = "echo_infer.cli:app"
+echo-qa = "echo_qa.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/echoprime/echo-infer"
-Repository = "https://github.com/echoprime/echo-infer"
-Documentation = "https://github.com/echoprime/echo-infer#readme"
+Homepage = "https://github.com/echoprime/echo-vlm"
+Repository = "https://github.com/echoprime/echo-vlm"
+Documentation = "https://github.com/echoprime/echo-vlm#readme"
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -128,14 +134,14 @@ extend-exclude = '''
 '''
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["tests", "src/echo_qa/tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
 addopts = [
     "--strict-markers",
     "--strict-config",
-    "--cov=src/echo_infer",
+    "--cov=src/echo_infer,src/echo_qa",
     "--cov-report=term-missing",
     "--cov-report=html",
 ]
