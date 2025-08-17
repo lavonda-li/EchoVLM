@@ -26,8 +26,16 @@ def process_dicoms(
         model = EchoPrime()
     
     # Environment is already set up in __init__.py
-    video_dict = model.process_dicoms(input_dir, **kwargs)
-    return video_dict
+    try:
+        video_dict = model.process_dicoms(input_dir, **kwargs)
+        return video_dict
+    except Exception as e:
+        # Log the error but don't crash
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.error(f"Error in process_dicoms: {e}")
+        logger.info("Returning empty video dict")
+        return {}
 
 
 def get_view_predictions(

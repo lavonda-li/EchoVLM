@@ -125,26 +125,41 @@ def run(config: Dict[str, Any]) -> Dict[str, Any]:
     if not Path(input_dir).exists():
         raise FileNotFoundError(f"Input directory not found: {input_dir}")
     
-    # Process DICOM files
-    video_dict = process_dicoms(input_dir, model)
+        # Process DICOM files
+    try:
+        video_dict = process_dicoms(input_dir, model)
+        
+        if not video_dict:
+            logger.warning("No valid DICOM files found")
+            return {}
+            
+        logger.info(f"Processed {len(video_dict)} DICOM files")
+        
+    except Exception as e:
+        logger.error(f"Error processing DICOM files: {e}")
+        logger.info("Continuing with empty video dict")
+        video_dict = {}
     
-    if not video_dict:
-        logger.warning("No valid DICOM files found")
-        return {}
-    
-    logger.info(f"Processed {len(video_dict)} DICOM files")
-    
-    # Run inference and save individual results
+        # Run inference and save individual results
     results = {}
     output_config = config.get('output', {})
     output_dir = output_config.get('dir', 'outputs/')
     ensure_output_dir(output_dir)
+
+    if not video_dict:
+        logger.warning("No DICOM files to process")
+        return results
+
+    logger.info(f"Processing {len(video_dict)} DICOM files...")
     
+    successful_count = 0
+    error_count = 0
+
     for filename, video_tensor in video_dict.items():
         try:
             # Get view predictions
             view_list = get_view_predictions(video_tensor, model)
-            
+
             # Create result data
             result_data = {
                 'views': view_list,
@@ -152,22 +167,29 @@ def run(config: Dict[str, Any]) -> Dict[str, Any]:
                 'device': str(model.device),
                 'source_file': filename
             }
-            
+
             # Generate output filename from path
             output_filename = _generate_output_filename(filename, input_dir)
             output_file = Path(output_dir) / output_filename
-            
+
             # Save individual result file
             save_results({filename: result_data}, output_file, format="json")
-            
+
             # Store in results dict for return
             results[filename] = result_data
-            
+            successful_count += 1
+
             logger.debug(f"Processed {filename}: {view_list} -> {output_filename}")
-            
+
         except Exception as e:
             logger.error(f"Error processing {filename}: {e}")
             results[filename] = {'error': str(e), 'source_file': filename}
+            error_count += 1
+            
+            # Continue processing other files
+            continue
+
+    logger.info(f"Processing complete: {successful_count} successful, {error_count} errors")
     
     logger.info(f"Results saved to individual files in: {output_dir}")
     logger.info(f"Successfully processed {len([r for r in results.values() if 'error' not in r])} files")
