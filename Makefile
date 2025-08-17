@@ -30,10 +30,10 @@ test-cov: ## Run tests with coverage
 	pytest --cov=src/echo_infer --cov-report=html
 
 run: ## Run inference with default config
-	python -m echo_infer.cli run --config configs/default.yaml
+	python -m echo_infer.cli run- --config configs/default.yaml
 
 run-dev: ## Run inference with debug logging
-	python -m echo_infer.cli run --config configs/default.yaml --verbose
+	python -m echo_infer.cli run- --config configs/default.yaml --verbose
 
 clean: ## Clean build artifacts
 	rm -rf build/

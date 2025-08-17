@@ -10,6 +10,47 @@ from .utils.io import ensure_output_dir, save_results, glob_files
 from .utils.logging import setup_logging, get_logger
 
 
+def _generate_output_filename(dicom_path: str, input_dir: str) -> str:
+    """Generate output filename from DICOM path.
+    
+    Args:
+        dicom_path: Full path to DICOM file
+        input_dir: Input directory path
+        
+    Returns:
+        Output filename in format: p10_p10002221_s94106955.json
+    """
+    # Convert to Path objects for easier manipulation
+    dicom_path_obj = Path(dicom_path)
+    input_dir_obj = Path(input_dir)
+    
+    try:
+        # Get relative path from input directory
+        relative_path = dicom_path_obj.relative_to(input_dir_obj)
+        
+        # Split path components
+        parts = relative_path.parts
+        
+        # Extract the key components (p10, p10002221, s94106955)
+        # Assuming structure: p10/p10002221/s94106955/file.dcm
+        if len(parts) >= 3:
+            # Get the directory levels (excluding the filename)
+            key_parts = parts[:-1]  # Exclude the filename
+            # Join with underscores and add .json extension
+            output_name = "_".join(key_parts) + ".json"
+            return output_name
+        else:
+            # Fallback: use the directory structure without filename
+            dir_parts = parts[:-1] if len(parts) > 1 else parts
+            return "_".join(dir_parts) + ".json" if dir_parts else "result.json"
+            
+    except ValueError:
+        # If dicom_path is not relative to input_dir, use a different approach
+        # Extract filename and create a safe name
+        filename = dicom_path_obj.stem
+        return f"{filename}.json"
+
+
 def run(config: Dict[str, Any]) -> Dict[str, Any]:
     """Run EchoPrime inference pipeline.
     
@@ -58,35 +99,42 @@ def run(config: Dict[str, Any]) -> Dict[str, Any]:
     
     logger.info(f"Processed {len(video_dict)} DICOM files")
     
-    # Run inference
+    # Run inference and save individual results
     results = {}
+    output_config = config.get('output', {})
+    output_dir = output_config.get('dir', 'outputs/')
+    ensure_output_dir(output_dir)
+    
     for filename, video_tensor in video_dict.items():
         try:
             # Get view predictions
             view_list = get_view_predictions(video_tensor, model)
             
-            # Store results
-            results[filename] = {
+            # Create result data
+            result_data = {
                 'views': view_list,
                 'video_shape': list(video_tensor.shape),
-                'device': str(model.device)
+                'device': str(model.device),
+                'source_file': filename
             }
             
-            logger.debug(f"Processed {filename}: {view_list}")
+            # Generate output filename from path
+            output_filename = _generate_output_filename(filename, input_dir)
+            output_file = Path(output_dir) / output_filename
+            
+            # Save individual result file
+            save_results({filename: result_data}, output_file, format="json")
+            
+            # Store in results dict for return
+            results[filename] = result_data
+            
+            logger.debug(f"Processed {filename}: {view_list} -> {output_filename}")
             
         except Exception as e:
             logger.error(f"Error processing {filename}: {e}")
-            results[filename] = {'error': str(e)}
+            results[filename] = {'error': str(e), 'source_file': filename}
     
-    # Save results
-    output_config = config.get('output', {})
-    output_dir = output_config.get('dir', 'outputs/')
-    ensure_output_dir(output_dir)
-    
-    output_file = Path(output_dir) / "inference_results.json"
-    save_results(results, output_file, format="json")
-    
-    logger.info(f"Results saved to: {output_file}")
+    logger.info(f"Results saved to individual files in: {output_dir}")
     logger.info(f"Successfully processed {len([r for r in results.values() if 'error' not in r])} files")
     
     return results
@@ -142,7 +190,7 @@ def run_batch(
             all_results.update(results)
         except Exception as e:
             logger.error(f"Error processing {input_path}: {e}")
-            all_results[input_path] = {'error': str(e)}
+            all_results[input_path] = {'error': str(e), 'source_file': input_path}
     
     logger.info(f"Batch processing complete. Total files processed: {len(all_results)}")
     return all_results
