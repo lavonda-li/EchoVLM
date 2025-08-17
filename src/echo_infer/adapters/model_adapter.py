@@ -30,6 +30,21 @@ def load_echoprime_model(
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
     
+    # Handle weights path resolution
+    if weights_path:
+        # Convert relative path to absolute path if needed
+        if not Path(weights_path).is_absolute():
+            # Get the EchoPrime submodule path
+            echoprime_path = Path(__file__).parent.parent.parent.parent / "modules" / "EchoPrime"
+            weights_path = str(echoprime_path / weights_path)
+        
+        # Verify the weights file exists
+        if not Path(weights_path).exists():
+            raise FileNotFoundError(f"Model weights file not found: {weights_path}")
+        
+        # Pass the absolute path to EchoPrime
+        kwargs['weights_path'] = weights_path
+    
     # Environment is already set up in __init__.py
     model = EchoPrime(device=device, **kwargs)
     return model

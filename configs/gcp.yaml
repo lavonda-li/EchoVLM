@@ -1,0 +1,21 @@
+model:
+  name: echoprime
+  weights_path: /home/lavonda/EchoPrime/modules/EchoPrime/model_data/weights/echo_prime_encoder.pt
+  device: cuda:0
+
+data:
+  input_dir: /home/lavonda/mount-folder/p10
+  pattern: "*.dcm"
+  batch_size: 16
+  num_workers: 4
+
+infer:
+  fp16: true
+  num_threads: 4
+  save_probs: true
+
+output:
+  dir: /home/lavonda/test-folder/
+
+logging:
+  level: INFO

@@ -68,12 +68,24 @@ def run(config: Dict[str, Any]) -> Dict[str, Any]:
     
     logger.info("Starting EchoPrime inference pipeline")
     
-    # Load model
+        # Load model
     model_config = config.get('model', {})
     logger.info(f"Loading model: {model_config.get('name', 'echoprime')}")
     
+    weights_path = model_config.get('weights_path')
+    if weights_path:
+        logger.info(f"Using weights path: {weights_path}")
+        # Convert to absolute path for debugging
+        if not Path(weights_path).is_absolute():
+            echoprime_path = Path(__file__).parent.parent.parent.parent / "modules" / "EchoPrime"
+            abs_weights_path = echoprime_path / weights_path
+            logger.info(f"Absolute weights path: {abs_weights_path}")
+            if not abs_weights_path.exists():
+                logger.error(f"Weights file not found: {abs_weights_path}")
+                raise FileNotFoundError(f"Model weights file not found: {abs_weights_path}")
+
     model = load_echoprime_model(
-        weights_path=model_config.get('weights_path'),
+        weights_path=weights_path,
         device=model_config.get('device')
     )
     
