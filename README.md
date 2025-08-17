@@ -28,10 +28,10 @@ make install-dev
 
 ```bash
 # Run inference with default config
-echo-infer run- --config configs/default.yaml --input data/raw --output results/
+echo-infer run --config configs/default.yaml --input data/raw --output results/
 
 # Run with verbose logging
-echo-infer run- --config configs/default.yaml --verbose
+echo-infer run --config configs/default.yaml --verbose
 
 # Run batch processing
 echo-infer batch manifest.csv --output results/
@@ -180,7 +180,7 @@ pytest tests/test_smoke.py
 
 ### CLI Commands
 
-- `echo-infer run-`: Run inference on DICOM files
+- `echo-infer run`: Run inference on DICOM files
 - `echo-infer batch`: Run batch inference using manifest
 - `echo-infer info`: Show package information
 
@@ -229,7 +229,7 @@ from echo_infer.adapters.model_adapter import load_echoprime_model
    ```bash
    # Run from repository root
    cd /path/to/echoprime-inference
-   echo-infer run- --config configs/default.yaml
+   echo-infer run --config configs/default.yaml
    ```
 
 ### Debug Mode
@@ -237,14 +237,14 @@ from echo_infer.adapters.model_adapter import load_echoprime_model
 Enable verbose logging for debugging:
 
 ```bash
-echo-infer run- --config configs/default.yaml --verbose
+echo-infer run --config configs/default.yaml --verbose
 ```
 
 Or set environment variable:
 
 ```bash
 export ECHO_LOG_LEVEL=DEBUG
-echo-infer run- --config configs/default.yaml
+echo-infer run --config configs/default.yaml
 ```
 
 ## Contributing

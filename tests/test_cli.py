@@ -22,7 +22,7 @@ def test_cli_commands_exist():
     from echo_infer.cli import app
     
     commands = [cmd.callback.__name__ for cmd in app.registered_commands]
-    expected_commands = ["run_", "batch", "info"]
+    expected_commands = ["run", "batch", "info"]
     
     # Check that we have the right number of commands
     assert len(commands) == 3
@@ -49,7 +49,7 @@ def test_cli_run_command_help():
     from typer.testing import CliRunner
     
     runner = CliRunner()
-    result = runner.invoke(app, ["run-", "--help"])
+    result = runner.invoke(app, ["run", "--help"])
     
     assert result.exit_code == 0
     assert "Run EchoPrime inference on DICOM files" in result.stdout
@@ -82,7 +82,7 @@ def test_cli_run_command_success(mock_get_run, mock_load_config):
     mock_get_run.return_value = mock_run_func
     
     runner = CliRunner()
-    result = runner.invoke(app, ["run-", "--config", "configs/default.yaml"])
+    result = runner.invoke(app, ["run", "--config", "configs/default.yaml"])
     
     assert result.exit_code == 0
     assert "Successfully processed 1 files" in result.stdout
@@ -98,7 +98,7 @@ def test_cli_run_command_config_not_found(mock_load_config):
     mock_load_config.side_effect = FileNotFoundError("Config not found")
     
     runner = CliRunner()
-    result = runner.invoke(app, ["run-", "--config", "nonexistent.yaml"])
+    result = runner.invoke(app, ["run", "--config", "nonexistent.yaml"])
     
     assert result.exit_code == 1
     # The error message may vary due to EchoPrime path issues

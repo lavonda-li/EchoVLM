@@ -20,7 +20,7 @@ app = typer.Typer(help="EchoPrime inference CLI")
 
 
 @app.command()
-def run_(
+def run(
     config: str = typer.Option("configs/default.yaml", "--config", "-c", help="Configuration file path"),
     input: Optional[str] = typer.Option(None, "--input", "-i", help="Input directory (overrides config)"),
     output: Optional[str] = typer.Option(None, "--output", "-o", help="Output directory (overrides config)"),
