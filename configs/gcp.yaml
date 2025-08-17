@@ -4,7 +4,7 @@ model:
   device: cuda:0
 
 data:
-  input_dir: /home/lavonda/mount-folder/p10
+  input_dir: /home/lavonda/mount-folder/inference_output/p10
   pattern: "*.dcm"
   batch_size: 16
   num_workers: 4
