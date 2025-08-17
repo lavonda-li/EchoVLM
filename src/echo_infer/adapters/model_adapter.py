@@ -30,9 +30,9 @@ def load_echoprime_model(
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
     
-    # Handle weights path resolution
+    # Handle weights path resolution for verification only
     if weights_path:
-        # Try multiple path resolution strategies
+        # Try multiple path resolution strategies to verify the weights exist
         possible_paths = []
         
         # Strategy 1: Relative to project root (src/echo_infer/adapters/model_adapter.py -> project root)
@@ -58,12 +58,43 @@ def load_echoprime_model(
         if resolved_weights_path is None:
             raise FileNotFoundError(f"Model weights file not found. Tried: {[str(p) for p in possible_paths]}")
         
-        # Pass the resolved path to EchoPrime
-        kwargs['weights_path'] = resolved_weights_path
+        # Don't pass weights_path to EchoPrime - it loads from relative paths
+        # Just verify the file exists and log the path
+        print(f"Verified weights file exists at: {resolved_weights_path}")
     
-    # Environment is already set up in __init__.py
-    model = EchoPrime(device=device, **kwargs)
-    return model
+    # Environment is already set up in __init__.py, but we need to ensure working directory is correct for model initialization
+    import os
+    import torch as torch_module
+    
+    # Get the EchoPrime submodule path
+    echoprime_path = Path(__file__).parent.parent.parent.parent / "modules" / "EchoPrime"
+    
+    # Change working directory to EchoPrime submodule for model initialization
+    original_cwd = os.getcwd()
+    os.chdir(echoprime_path)
+    
+    try:
+        # Monkey patch torch.load to handle CPU-only environments
+        original_torch_load = torch_module.load
+        
+        def safe_torch_load(*args, **kwargs):
+            # Always use map_location=device for safety
+            if 'map_location' not in kwargs:
+                kwargs['map_location'] = device
+            return original_torch_load(*args, **kwargs)
+        
+        # Apply the monkey patch
+        torch_module.load = safe_torch_load
+        
+        try:
+            model = EchoPrime(device=device, **kwargs)
+            return model
+        finally:
+            # Restore original torch.load
+            torch_module.load = original_torch_load
+    finally:
+        # Restore working directory
+        os.chdir(original_cwd)
 
 
 def get_model_info(model: EchoPrime) -> dict:
