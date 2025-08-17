@@ -1,4 +1,4 @@
-# EchoPrime Inference
+# EchoInfer
 
 A modern, maintainable Python package for running EchoPrime model inference with minimal glue code and maximum reuse of the EchoPrime submodule.
 
@@ -228,7 +228,7 @@ from echo_infer.adapters.model_adapter import load_echoprime_model
 4. **Path issues**: Ensure working directory is correct for relative paths
    ```bash
    # Run from repository root
-   cd /path/to/echoprime-inference
+   cd /path/to/echo-infer
    echo-infer run --config configs/default.yaml
    ```
 

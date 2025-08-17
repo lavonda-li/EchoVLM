@@ -1,17 +1,15 @@
 """Model adapter for EchoPrime submodule."""
 
 import os
-import sys
 from pathlib import Path
 from typing import Optional
 
 import torch
 
-# Add EchoPrime submodule to path
-echoprime_path = Path(__file__).parent.parent.parent.parent / "modules" / "EchoPrime"
-sys.path.insert(0, str(echoprime_path))
-
 from echo_prime import EchoPrime
+
+
+
 
 
 def load_echoprime_model(
@@ -32,22 +30,9 @@ def load_echoprime_model(
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
     
-    # Change working directory to EchoPrime submodule for relative paths
-    original_cwd = os.getcwd()
-    os.chdir(echoprime_path)
-    
-    try:
-        # Set environment variable to help with relative paths
-        os.environ['ECHOPRIME_ROOT'] = str(echoprime_path)
-        
-        model = EchoPrime(device=device, **kwargs)
-        return model
-    except Exception as e:
-        # Restore working directory even on error
-        os.chdir(original_cwd)
-        raise e
-    finally:
-        os.chdir(original_cwd)
+    # Environment is already set up in __init__.py
+    model = EchoPrime(device=device, **kwargs)
+    return model
 
 
 def get_model_info(model: EchoPrime) -> dict:

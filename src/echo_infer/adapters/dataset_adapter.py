@@ -1,15 +1,8 @@
 """Dataset adapter for EchoPrime submodule."""
 
-import os
-import sys
-from pathlib import Path
 from typing import Dict, List, Optional
 
 import torch
-
-# Add EchoPrime submodule to path
-echoprime_path = Path(__file__).parent.parent.parent.parent / "modules" / "EchoPrime"
-sys.path.insert(0, str(echoprime_path))
 
 from echo_prime import EchoPrime
 
@@ -32,23 +25,9 @@ def process_dicoms(
     if model is None:
         model = EchoPrime()
     
-    # Change working directory to EchoPrime submodule for relative paths
-    original_cwd = os.getcwd()
-    os.chdir(echoprime_path)
-    
-    try:
-        # Set environment variable to help with relative paths
-        os.environ['ECHOPRIME_ROOT'] = str(echoprime_path)
-        
-        # Use EchoPrime's built-in processing
-        video_dict = model.process_dicoms(input_dir, **kwargs)
-        return video_dict
-    except Exception as e:
-        # Restore working directory even on error
-        os.chdir(original_cwd)
-        raise e
-    finally:
-        os.chdir(original_cwd)
+    # Environment is already set up in __init__.py
+    video_dict = model.process_dicoms(input_dir, **kwargs)
+    return video_dict
 
 
 def get_view_predictions(
