@@ -40,6 +40,40 @@ echo-infer batch manifest.csv --output results/
 echo-infer --help
 ```
 
+### Advanced Usage Examples
+
+#### Single Directory Inference
+```bash
+# Process all DICOM files in a directory
+echo-infer run --config configs/default.yaml --input p10 --output results/ --verbose
+
+# With custom input/output paths
+echo-infer run --config configs/default.yaml --input /path/to/dicoms --output /path/to/results --verbose
+```
+
+#### Batch Processing
+```bash
+# Create a manifest file
+cat > batch_manifest.csv << EOF
+input_dir,output_name
+/home/mount-folder/p10,p10_results
+/home/mount-folder/p11,p11_results
+/home/mount-folder/p12,p12_results
+EOF
+
+# Run batch inference
+echo-infer batch batch_manifest.csv --config configs/default.yaml --output results/ --verbose
+```
+
+#### GCP Deployment
+```bash
+# Use GCP-specific config
+echo-infer run --config configs/gcp.yaml --input mount-folder/p10 --output results/ --verbose
+
+# Batch processing on GCP
+echo-infer batch gcp_manifest.csv --config configs/gcp.yaml --output results/ --verbose
+```
+
 ### Output Format
 
 Results are saved as individual JSON files with names based on the directory structure:
@@ -231,6 +265,22 @@ from echo_infer.adapters.model_adapter import load_echoprime_model
    cd /path/to/echo-infer
    echo-infer run --config configs/default.yaml
    ```
+
+### Error Handling and Robustness
+
+The pipeline is designed to handle errors gracefully:
+
+- **Individual file failures**: If one DICOM file fails, processing continues with other files
+- **Partial results**: Returns results for successfully processed files even if some fail
+- **Detailed logging**: Shows success/error counts and specific failure reasons
+- **Graceful degradation**: Continues processing instead of crashing on errors
+
+#### Expected Output with Errors
+```
+{"timestamp": "2025-08-17 07:11:57", "level": "INFO", "module": "echo_infer", "message": "Processing 50 DICOM files..."}
+{"timestamp": "2025-08-17 07:11:57", "level": "ERROR", "module": "echo_infer", "message": "Error processing file1.dcm: Invalid DICOM format"}
+{"timestamp": "2025-08-17 07:11:57", "level": "INFO", "module": "echo_infer", "message": "Processing complete: 45 successful, 5 errors"}
+```
 
 ### Debug Mode
 
