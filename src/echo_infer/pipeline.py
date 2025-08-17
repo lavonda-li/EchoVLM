@@ -108,7 +108,7 @@ def run(config: Dict[str, Any]) -> Dict[str, Any]:
             raise FileNotFoundError(f"Model weights file not found. Tried: {[str(p) for p in possible_paths]}")
 
     model = load_echoprime_model(
-        weights_path=weights_path,
+        weights_path=weights_path,  # For verification only
         device=model_config.get('device')
     )
     
