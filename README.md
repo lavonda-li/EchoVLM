@@ -11,32 +11,18 @@ EchoVLM is a complete ecosystem for medical image processing, analysis, and ques
 ```
 EchoVLM/
 ├── modules/
-│   └── EchoPrime/              # Core EchoPrime model (Git submodule)
+│   └── EchoPrime/      # Core EchoPrime model (submodule)
 ├── src/
-│   ├── echo_infer/             # Medical image inference package
-│   │   ├── README.md           # EchoInfer documentation
-│   │   ├── __init__.py         # Package exports
-│   │   ├── cli.py              # CLI interface for inference
-│   │   ├── pipeline.py         # Main inference pipeline
-│   │   ├── config.py           # Configuration management
-│   │   ├── adapters/           # EchoPrime integration adapters
-│   │   └── utils/              # Utility functions
-│   └── echo_qa/                # Medical image Q&A package
-│       ├── README.md           # EchoQA documentation
-│       ├── __init__.py         # Package exports
-│       ├── cli.py              # CLI interface for Q&A
-│       ├── core/               # Core Q&A functionality
-│       ├── utils/              # Utilities and configuration
-│       ├── tests/              # Test suite
-│       ├── examples/           # Usage examples
-│       └── requirements.txt    # Dependencies
-├── configs/                    # Configuration files
-├── data/                       # Data directories
-├── tests/                      # Project-wide tests
-├── pyproject.toml             # Project configuration
-├── Makefile                   # Development tasks
-└── README.md                  # This file
+│   ├── echo_infer/     # Medical image inference (see README)
+│   └── echo_qa/        # Medical image Q&A (see README)
+├── configs/            # Configuration files
+├── data/               # Data directories
+├── tests/              # Project-wide tests
+├── pyproject.toml      # Project configuration
+├── Makefile            # Development tasks
+└── README.md           # This file
 ```
+For package-level details, see [`src/echo_infer/README.md`](src/echo_infer/README.md) and [`src/echo_qa/README.md`](src/echo_qa/README.md).
 
 ## Packages
 
